@@ -1,27 +1,33 @@
 #ifndef __PHONE_BOOK_
 # define __PHONE_BOOK_
-
+# define WIDTH 11
 # include <iostream>
 # include <string>
 # include "Contact.hpp"
-int index = 0;
+int indexx = 0;
 
 class PhoneBook
 {
     private:
-        Contact Contacts[8];
+        // Contact Contacts[8];
     public:
-        ADD()
+        void ADD()
         {
-            if (index == 7)
-            {
-                Contacts[7]
-            }
+            // Contacts[indexx]
+            if (indexx == 7)
+                return ;
+            else
+                indexx++;
         };
-        SEARCH()
+        void SEARCH()
         {
+            std::cout << "┏-------------------------------------------┓" << std::endl;
+            std::cout << "┣----------┳----------┳----------┳----------┫" << std::endl;
+            std::cout << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::endl;
+            // std::cout << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::endl;
+            std::cout << "┗----------┻----------┻----------┻----------┛" << std::endl;
         };
-        EXIT()
+        void EXIT()
         {
             std::system("clear");
             std::exit (0);
