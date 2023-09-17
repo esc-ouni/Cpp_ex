@@ -1,14 +1,29 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include "unistd.h"
 
 int main()
 {
-    std::system("clear");
-    PhoneBook pb;
+    PhoneBook   PhoneBook;
+    std::string input;
 
-    pb.SEARCH();
+    while (true)
+    {
+        std::system("clear");
+        std::cout << ""
+        std::getline(std::cin, input);
+        if (!input.compare("EXIT"))
+        {
+            std::system("clear");
+            PhoneBook.EXIT();
+        }
+        else if (!input.compare("SEARCH"))
+        {
+            PhoneBook.SEARCH();
+            sleep(2);
+        }
+        
+    }
+    PhoneBook.EXIT();
     sleep(2);
-    pb.EXIT();
     return 0;
 }

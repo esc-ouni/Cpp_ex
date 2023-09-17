@@ -3,7 +3,9 @@
 # define WIDTH 11
 # include <iostream>
 # include <string>
+# include <unistd.h>
 # include "Contact.hpp"
+
 int indexx = 0;
 
 class PhoneBook
