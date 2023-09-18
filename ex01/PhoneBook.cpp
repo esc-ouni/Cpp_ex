@@ -3,27 +3,30 @@
 
 int main()
 {
-    PhoneBook   PhoneBook;
+    PhoneBook   PhoneBk;
     std::string input;
 
+    std::system("clear");
+    std::cout << "Welcome To The PhoneBook" << std::endl;
     while (true)
     {
-        std::system("clear");
-        std::cout << ""
+        std::cout << "Enter A Command : " ;
         std::getline(std::cin, input);
         if (!input.compare("EXIT"))
+            PhoneBk.EXIT();
+        else if (!input.compare("ADD"))
+            PhoneBk.ADD();
+        else if (!input.compare("SEARCH"))
+            PhoneBk.SEARCH();
+        else if (!input.empty())
         {
             std::system("clear");
-            PhoneBook.EXIT();
+            std::cout << "*Not A Valid Command*" << std::endl;
         }
-        else if (!input.compare("SEARCH"))
-        {
-            PhoneBook.SEARCH();
-            sleep(2);
-        }
-        
+        else
+            std::system("clear");
     }
-    PhoneBook.EXIT();
+    PhoneBk.EXIT();
     sleep(2);
     return 0;
 }

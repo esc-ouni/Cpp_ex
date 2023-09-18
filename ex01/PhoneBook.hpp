@@ -10,12 +10,16 @@ int indexx = 0;
 
 class PhoneBook
 {
-    private:
-        // Contact Contacts[8];
+        Contact Contacts[8];
     public:
         void ADD()
         {
-            // Contacts[indexx]
+            std::cout << "Enter Contact's first_name :";
+            std::getline(std::cin, Contacts[indexx].first_name);
+            std::cout << "Enter Contact's last_name  :";
+            std::getline(std::cin, Contacts[indexx].last_name);    
+            std::cout << "Enter Contact's nickname   :";
+            std::getline(std::cin, Contacts[indexx].nickname);
             if (indexx == 7)
                 return ;
             else
@@ -26,13 +30,12 @@ class PhoneBook
             std::cout << "┏-------------------------------------------┓" << std::endl;
             std::cout << "┣----------┳----------┳----------┳----------┫" << std::endl;
             std::cout << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::endl;
-            // std::cout << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::setw(WIDTH) << "|" << std::endl;
             std::cout << "┗----------┻----------┻----------┻----------┛" << std::endl;
         };
         void EXIT()
         {
             std::system("clear");
-            std::exit (0);
+            std::exit(0);
         };
 };
 
