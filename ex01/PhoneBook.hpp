@@ -33,6 +33,8 @@ class PhoneBook
         };
         void SEARCH()
         {
+            std::int64_t num;
+            std::string input;
             std::system("clear");
             std::cout << "┏-------------------------------------------┓" << std::endl;
             std::cout << "|               THE_PHONEBOOK               |" << std::endl;
@@ -88,8 +90,24 @@ class PhoneBook
             << std::setw(WIDTH) << Contacts[5].nickname << "|"
             << std::setw(WIDTH) << Contacts[7].nickname << "|" 
             << std::endl
-            << "┗----------┻----------┻----------┻----------┛" << std::endl;
-            // std::system("clear");
+            << "┗----------┻----------┻----------┻----------┛" << std::endl
+            << "Get Full Info Of The Contact : ";
+            std::getline(std::cin, input);
+            num = std::stoi(input) - 1;
+            if (num <= 7 && num >= 0)
+            {
+                std::cout << "The Contact " << num << " Full Infos :" << std::endl
+                << "_" << Contacts[num].first_name << std::endl
+                << "_" << Contacts[num].last_name << std::endl
+                << "_" << Contacts[num].nickname << std::endl
+                << "_" << Contacts[num].phone_number << std::endl
+                << "_" << Contacts[num].darkest_secret << std::endl;
+            }
+            else
+            {
+                // std::cout << "=Re_Enter_A_Valid_Contact_Index==" << std::endl;
+                SEARCH();
+            }
         };
         void EXIT()
         {
