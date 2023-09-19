@@ -15,15 +15,16 @@ class PhoneBook
         void ADD()
         {
             std::system("clear");
-            std::cout << "Enter Contact's first_name     :";
+            std::cout << "Creating A Contact ..." << std::endl;
+            std::cout << "Enter Contact's first_name     : ";
             std::getline(std::cin, Contacts[indexx].first_name);
-            std::cout << "Enter Contact's last_name      :";
+            std::cout << "Enter Contact's last_name      : ";
             std::getline(std::cin, Contacts[indexx].last_name);    
-            std::cout << "Enter Contact's nickname       :";
+            std::cout << "Enter Contact's nickname       : ";
             std::getline(std::cin, Contacts[indexx].nickname);
-            std::cout << "Enter Contact's phone_number   :";
+            std::cout << "Enter Contact's phone_number   : ";
             std::getline(std::cin, Contacts[indexx].phone_number);
-            std::cout << "Enter Contact's darkest_secret :";
+            std::cout << "Enter Contact's darkest_secret : ";
             std::getline(std::cin, Contacts[indexx].darkest_secret);
             if (indexx == 7)
                 return ;
