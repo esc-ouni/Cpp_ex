@@ -21,7 +21,7 @@ int main()
         else if (!input.empty())
         {
             std::system("clear");
-            std::cout << "*Not A Valid Command*" << std::endl;
+            std::cout << "=Not_A_Valid_Command=" << std::endl;
         }
         else
             std::system("clear");
