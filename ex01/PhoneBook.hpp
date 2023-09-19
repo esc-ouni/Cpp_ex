@@ -34,6 +34,11 @@ class PhoneBook
         };
         void SEARCH()
         {
+            if (Contacts[0].first_name.length() > 10)
+            {
+                Contacts[0].first_name.resize(9);
+                Contacts[0].first_name.resize(10, '.');
+            }
             std::int64_t num;
             std::string input;
             std::system("clear");
