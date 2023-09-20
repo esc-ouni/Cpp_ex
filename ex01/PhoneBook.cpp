@@ -18,6 +18,9 @@ int main()
             PhoneBk.ADD();
         else if (!input.compare("SEARCH"))
             PhoneBk.SEARCH();
+        else if (!input.size())
+            input.clear();
+            // continue ;
         else if (!input.empty())
         {
             std::system("clear");
