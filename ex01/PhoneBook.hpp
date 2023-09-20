@@ -46,55 +46,36 @@ class PhoneBook
             std::cout << "|               THE_PHONEBOOK               |" << std::endl;
             std::cout << "┣----------┳----------┳----------┳----------┫" << std::endl;
             std::cout
+
             << "|" 
             << 1 << std::setw(WIDTH) << "|" 
-            << 3 << std::setw(WIDTH) << "|"
-            << 5 << std::setw(WIDTH) << "|"
-            << 7 << std::setw(WIDTH) << "|"
-            << std::endl
-            << "|" 
             << std::setw(WIDTH) << Contacts[0].first_name << "|" 
-            << std::setw(WIDTH) << Contacts[2].first_name << "|"
-            << std::setw(WIDTH) << Contacts[4].first_name << "|"
-            << std::setw(WIDTH) << Contacts[6].first_name << "|" 
-            << std::endl
-            << "|" 
             << std::setw(WIDTH) << Contacts[0].last_name  << "|" 
-            << std::setw(WIDTH) << Contacts[2].last_name  << "|"
-            << std::setw(WIDTH) << Contacts[4].last_name  << "|"
-            << std::setw(WIDTH) << Contacts[6].last_name  << "|" 
-            << std::endl
-            << "|" 
             << std::setw(WIDTH) << Contacts[0].nickname << "|" 
-            << std::setw(WIDTH) << Contacts[2].nickname << "|"
-            << std::setw(WIDTH) << Contacts[4].nickname << "|"
-            << std::setw(WIDTH) << Contacts[6].nickname << "|" 
             << std::endl
             << "|          |          |          |          |"
             << std::endl
             << "|" 
             << 2 << std::setw(WIDTH) << "|" 
-            << 4 << std::setw(WIDTH) << "|"
-            << 6 << std::setw(WIDTH) << "|"
-            << 8 << std::setw(WIDTH) << "|" 
-            << std::endl
-            << "|" 
             << std::setw(WIDTH) << Contacts[1].first_name << "|" 
-            << std::setw(WIDTH) << Contacts[3].first_name << "|"
-            << std::setw(WIDTH) << Contacts[5].first_name << "|"
-            << std::setw(WIDTH) << Contacts[7].first_name << "|" 
-            << std::endl
-            << "|" 
             << std::setw(WIDTH) << Contacts[1].last_name  << "|" 
-            << std::setw(WIDTH) << Contacts[3].last_name  << "|"
-            << std::setw(WIDTH) << Contacts[5].last_name  << "|"
-            << std::setw(WIDTH) << Contacts[7].last_name  << "|" 
+            << std::setw(WIDTH) << Contacts[1].nickname << "|" 
+            << std::endl
+            << "|          |          |          |          |"
             << std::endl
             << "|" 
-            << std::setw(WIDTH) << Contacts[1].nickname << "|" 
-            << std::setw(WIDTH) << Contacts[3].nickname << "|"
-            << std::setw(WIDTH) << Contacts[5].nickname << "|"
-            << std::setw(WIDTH) << Contacts[7].nickname << "|" 
+            << 3 << std::setw(WIDTH) << "|" 
+            << std::setw(WIDTH) << Contacts[2].first_name << "|" 
+            << std::setw(WIDTH) << Contacts[2].last_name  << "|" 
+            << std::setw(WIDTH) << Contacts[2].nickname << "|" 
+            << std::endl
+            << "|          |          |          |          |"
+            << std::endl
+            << "|" 
+            << 4 << std::setw(WIDTH) << "|" 
+            << std::setw(WIDTH) << Contacts[3].first_name << "|" 
+            << std::setw(WIDTH) << Contacts[3].last_name  << "|" 
+            << std::setw(WIDTH) << Contacts[3].nickname << "|" 
             << std::endl
             << "┗----------┻----------┻----------┻----------┛" << std::endl
             << "Get Full Info Of The Contact : ";
