@@ -8,6 +8,22 @@
 
 int indexx = 0;
 
+void    PrintContacts(Contact Contacts[])
+{
+    for (int i = 0; i < 8; i++)
+    {
+        std::cout
+        << "|" 
+        << i + 1 << std::setw(WIDTH) << "|" 
+        << std::setw(WIDTH) << Contacts[i].first_name << "|" 
+        << std::setw(WIDTH) << Contacts[i].last_name  << "|" 
+        << std::setw(WIDTH) << Contacts[i].nickname << "|" 
+        << std::endl
+        << "|          |          |          |          |"
+        << std::endl;
+    }
+}
+
 class PhoneBook
 {
         Contact Contacts[8];
@@ -42,44 +58,17 @@ class PhoneBook
             std::int64_t num;
             std::string input;
             std::system("clear");
-            std::cout << "┏-------------------------------------------┓" << std::endl;
-            std::cout << "|               THE_PHONEBOOK               |" << std::endl;
-            std::cout << "┣----------┳----------┳----------┳----------┫" << std::endl;
             std::cout
-
-            << "|" 
-            << 1 << std::setw(WIDTH) << "|" 
-            << std::setw(WIDTH) << Contacts[0].first_name << "|" 
-            << std::setw(WIDTH) << Contacts[0].last_name  << "|" 
-            << std::setw(WIDTH) << Contacts[0].nickname << "|" 
-            << std::endl
-            << "|          |          |          |          |"
-            << std::endl
-            << "|" 
-            << 2 << std::setw(WIDTH) << "|" 
-            << std::setw(WIDTH) << Contacts[1].first_name << "|" 
-            << std::setw(WIDTH) << Contacts[1].last_name  << "|" 
-            << std::setw(WIDTH) << Contacts[1].nickname << "|" 
-            << std::endl
-            << "|          |          |          |          |"
-            << std::endl
-            << "|" 
-            << 3 << std::setw(WIDTH) << "|" 
-            << std::setw(WIDTH) << Contacts[2].first_name << "|" 
-            << std::setw(WIDTH) << Contacts[2].last_name  << "|" 
-            << std::setw(WIDTH) << Contacts[2].nickname << "|" 
-            << std::endl
-            << "|          |          |          |          |"
-            << std::endl
-            << "|" 
-            << 4 << std::setw(WIDTH) << "|" 
-            << std::setw(WIDTH) << Contacts[3].first_name << "|" 
-            << std::setw(WIDTH) << Contacts[3].last_name  << "|" 
-            << std::setw(WIDTH) << Contacts[3].nickname << "|" 
-            << std::endl
+            << "┏-------------------------------------------┓" << std::endl
+            << "|               THE_PHONEBOOK               |" << std::endl
+            << "┣----------┳----------┳----------┳----------┫" << std::endl;
+            PrintContacts(Contacts);
+            std::cout 
             << "┗----------┻----------┻----------┻----------┛" << std::endl
             << "Get Full Info Of The Contact : ";
             std::getline(std::cin, input);
+            if (std::cin.eof())
+                std::exit(0);
             num = std::stoi(input) - 1;
             if (num <= 7 && num >= 0)
             {
