@@ -27,7 +27,6 @@ int main()
         }
         else
             std::system("clear");
-        std::cout << input << std::endl;
     }
     PhoneBk.EXIT();
     return 0;

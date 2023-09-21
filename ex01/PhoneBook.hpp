@@ -74,7 +74,7 @@ class PhoneBook
             std::getline(std::cin, input);
             if (std::cin.eof())
                 std::exit(0);
-            num = std::stoi(input) - 1;
+            num = std::atoi(input.c_str()) - 1;
             if (num <= 7 && num >= 0)
             {
                 std::cout << "The Contact " << num+1 << " Full Infos :" << std::endl
