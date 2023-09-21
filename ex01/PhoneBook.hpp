@@ -85,10 +85,7 @@ class PhoneBook
                 << "-" << Contacts[num].darkest_secret << std::endl;
             }
             else
-            {
-                // std::cout << "=Re_Enter_A_Valid_Contact_Index==" << std::endl;
                 SEARCH();
-            }
         };
         void EXIT()
         {
