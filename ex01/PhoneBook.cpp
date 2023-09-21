@@ -12,15 +12,14 @@ int main()
     {
         std::cout << "Enter A Command : " ;
         std::getline(std::cin, input);
+        if (std::cin.eof())
+            break ;
         if (!input.compare("EXIT"))
             PhoneBk.EXIT();
         else if (!input.compare("ADD"))
             PhoneBk.ADD();
         else if (!input.compare("SEARCH"))
             PhoneBk.SEARCH();
-        else if (!input.size())
-            input.clear();
-            // continue ;
         else if (!input.empty())
         {
             std::system("clear");
@@ -28,8 +27,8 @@ int main()
         }
         else
             std::system("clear");
+        std::cout << input << std::endl;
     }
     PhoneBk.EXIT();
-    sleep(2);
     return 0;
 }
