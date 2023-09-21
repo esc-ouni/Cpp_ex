@@ -8,28 +8,29 @@
 
 int indexx = 0;
 
+std::string TruncatedString(std::string info)
+{
+    if (info.length() > 10)
+    {
+        info.resize(9);
+        info.resize(10, '.');
+        return info;
+    }
+    return info;
+}
+
+
 void    PrintContacts(Contact Contacts[])
 {
     for (int i = 0; i < 8; i++)
     {
-        if (Contacts[i].first_name.length() > 10)
-        {
-            Contacts[i].first_name.resize(9);
-            Contacts[i].first_name.resize(10, '.');
-        }
         std::cout
         << "|" 
         << i + 1 << std::setw(WIDTH) << "|" 
-        << std::setw(WIDTH) << Contacts[i].first_name << "|" 
-        << std::setw(WIDTH) << Contacts[i].last_name  << "|" 
-        << std::setw(WIDTH) << Contacts[i].nickname << "|" 
+        << std::setw(WIDTH) << TruncatedString(Contacts[i].first_name) << "|" 
+        << std::setw(WIDTH) << TruncatedString(Contacts[i].last_name)  << "|" 
+        << std::setw(WIDTH) << TruncatedString(Contacts[i].nickname) << "|" 
         << std::endl;
-        if (i < 7)
-        {
-            std::cout
-            << "|          |          |          |          |"
-            << std::endl;
-        }
     }
 }
 
