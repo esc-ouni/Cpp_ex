@@ -18,9 +18,13 @@ void    PrintContacts(Contact Contacts[])
         << std::setw(WIDTH) << Contacts[i].first_name << "|" 
         << std::setw(WIDTH) << Contacts[i].last_name  << "|" 
         << std::setw(WIDTH) << Contacts[i].nickname << "|" 
-        << std::endl
-        << "|          |          |          |          |"
         << std::endl;
+        if (i<7)
+        {
+            std::cout
+            << "|          |          |          |          |"
+            << std::endl;
+        }
     }
 }
 
