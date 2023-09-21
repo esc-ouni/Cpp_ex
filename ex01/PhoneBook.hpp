@@ -12,6 +12,11 @@ void    PrintContacts(Contact Contacts[])
 {
     for (int i = 0; i < 8; i++)
     {
+        if (Contacts[i].first_name.length() > 10)
+        {
+            Contacts[i].first_name.resize(9);
+            Contacts[i].first_name.resize(10, '.');
+        }
         std::cout
         << "|" 
         << i + 1 << std::setw(WIDTH) << "|" 
@@ -19,7 +24,7 @@ void    PrintContacts(Contact Contacts[])
         << std::setw(WIDTH) << Contacts[i].last_name  << "|" 
         << std::setw(WIDTH) << Contacts[i].nickname << "|" 
         << std::endl;
-        if (i<7)
+        if (i < 7)
         {
             std::cout
             << "|          |          |          |          |"
@@ -54,11 +59,6 @@ class PhoneBook
         };
         void SEARCH()
         {
-            if (Contacts[0].first_name.length() > 10)
-            {
-                Contacts[0].first_name.resize(9);
-                Contacts[0].first_name.resize(10, '.');
-            }
             std::int64_t num;
             std::string input;
             std::system("clear");
@@ -76,12 +76,12 @@ class PhoneBook
             num = std::stoi(input) - 1;
             if (num <= 7 && num >= 0)
             {
-                std::cout << "The Contact " << num << " Full Infos :" << std::endl
-                << "_" << Contacts[num].first_name << std::endl
-                << "_" << Contacts[num].last_name << std::endl
-                << "_" << Contacts[num].nickname << std::endl
-                << "_" << Contacts[num].phone_number << std::endl
-                << "_" << Contacts[num].darkest_secret << std::endl;
+                std::cout << "The Contact " << num+1 << " Full Infos :" << std::endl
+                << "-" << Contacts[num].first_name << std::endl
+                << "-" << Contacts[num].last_name << std::endl
+                << "-" << Contacts[num].nickname << std::endl
+                << "-" << Contacts[num].phone_number << std::endl
+                << "-" << Contacts[num].darkest_secret << std::endl;
             }
             else
             {
