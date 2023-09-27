@@ -2,8 +2,9 @@
 
 Zombie* zombieHorde(int N, std::string name)
 {
+    Zombie *Zombies = NULL;
     if (N > 0 && N <= INT_MAX){
-        Zombie *Zombies = new Zombie[N];
+        Zombies = new Zombie[N];
         if (Zombies){
             for (int i = 0; i < N; i++){
                 Zombies[i].setName(name);
@@ -11,5 +12,5 @@ Zombie* zombieHorde(int N, std::string name)
             return (Zombies);
         }
     }
-    return (NULL);
+    return (Zombies);
 }
