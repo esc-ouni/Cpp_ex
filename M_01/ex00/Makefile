@@ -1,4 +1,4 @@
-EXEC     = megaphone
+EXEC     = zombie
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 
