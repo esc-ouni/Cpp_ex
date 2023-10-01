@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
     std::ifstream infile;
     std::ofstream outfile;
     std::size_t   pos = 0;
+    // int i = 0;
 
     needle = argv[1];
     line.clear();
@@ -43,12 +44,22 @@ int main(int argc, char *argv[])
 
     while (!getline(infile, line).eof())
     {
-
         while (pos < line.length())
         {
-            if ((pos = line.find(needle)))
+            if (pos!=std::string::npos)
             {
-                line.erase(pos, needle.length());
+                // line.erase(pos, needle.length());
+                line.at(pos) = 'b';
+                std::cout << line << std::endl;
+                // std::cout << i++ << std::endl;
+                // std::cout << pos << std::endl;
+                // std::cout << line.length() << std::endl;
+                std::cout << line.find("a") << std::endl;
+            }
+            else
+            {
+                std::cout << "THE DKJ\n";
+                break ;
             }
         }
         outfile << line << std::endl;
