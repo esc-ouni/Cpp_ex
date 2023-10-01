@@ -1,7 +1,7 @@
 #include "main.hpp"
 
 void exit_err(std::string err_msg){
-    std::cerr << err_msg << std::endl;
+    std::cerr << "==> Err: " + err_msg << std::endl;
     std::exit(1);
 }
 
@@ -12,11 +12,12 @@ void __init(int argc, char *argv[]){
         for (int i = 1; i < 4; i++){
             holder = argv[i];
             if (holder.empty())
-                exit_err("Err: parse part");
+                exit_err("Parse part");
             holder.clear();
         }
+        return ;
     }
-    // exit_err("Err: parse part");
+    exit_err("Parse part");
 }
 
 
@@ -30,10 +31,7 @@ int main(int argc, char *argv[])
     line.clear();
     infile.open(argv[1]);
     if (!infile.is_open())
-    {
-        std::cout << "Failed to open the file " << argv[1] << std::endl;
-        std::exit(1);
-    }
+    exit_err("Failed to open your file");
 
     outfile.open((line += argv[1]) += ".replace");
     line.clear();
