@@ -12,17 +12,21 @@ int main(int argc, char *argv[])
         infile.open(argv[1]);
         if (!infile.is_open())
         {
-            std::cout << "Failed to open the file " << argv[1] <<std::endl;
+            std::cout << "Failed to open the file " << argv[1] << std::endl;
             std::exit(1);
         }
+
         outfile.open((line += argv[1]) += ".replace");
         line.clear();
+
         while (!getline(infile, line).eof())
         {
+            line.find(argv[2]);
             outfile << line << std::endl;
             line.clear();
         }
         infile.close();
+        outfile.close();
     }
     return (0);
 }
