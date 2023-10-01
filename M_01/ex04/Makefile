@@ -6,7 +6,7 @@ C_FILES = ${shell ls *.cpp}
 all: $(C_FILES) $(H_FILES)
 	c++ $(C_FILES) $(FLAGS) -o $(EXEC)
 	# clear
-	./$(EXEC)
+	./$(EXEC) file a b
 
 re: fclean all
 

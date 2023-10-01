@@ -20,7 +20,6 @@ void __init(int argc, char *argv[]){
     exit_err("Parse part");
 }
 
-
 int main(int argc, char *argv[])
 {
     __init(argc, argv);
@@ -31,10 +30,13 @@ int main(int argc, char *argv[])
     line.clear();
     infile.open(argv[1]);
     if (!infile.is_open())
-    exit_err("Failed to open your file");
+        exit_err("Failed to open your file");
 
     outfile.open((line += argv[1]) += ".replace");
+    if (!outfile.is_open())
+        exit_err("Failed to open your file");
     line.clear();
+
 
     while (!getline(infile, line).eof())
     {
