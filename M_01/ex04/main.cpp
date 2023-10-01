@@ -10,7 +10,10 @@ int main(int argc, char *argv[])
 
         infile.open(argv[1]);
         if (!infile.is_open())
-            std::cout << "Failed to open the file" << std::endl;
+        {
+            std::cout << "Failed to open the file " << argv[1] <<std::endl;
+            std::exit(1);
+        }
         while (!getline(infile, line).eof())
         {
             std::cout << line << std::endl;
