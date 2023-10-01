@@ -1,11 +1,11 @@
 EXEC    = Newton
-FLAGS   = -std=c++98 -Wall -Wextra -Werror
+FLAGS   = -std=c++98 -fsanitize=address -Wall -Wextra -Werror -g
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 
 all: $(C_FILES) $(H_FILES)
 	c++ $(C_FILES) $(FLAGS) -o $(EXEC)
-	clear
+	# clear
 	./$(EXEC)
 
 re: fclean all
