@@ -16,4 +16,5 @@ Weapon::Weapon(std::string type){
 };
 
 Weapon::~Weapon(void){
+    std::cout << this->type << " Destructor Called" << std::endl;
 };
