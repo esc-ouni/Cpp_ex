@@ -23,10 +23,13 @@ void __init(int argc, char *argv[]){
 int main(int argc, char *argv[])
 {
     __init(argc, argv);
-    std::string line;
+    std::string   line;
+    std::string   needle;
     std::ifstream infile;
     std::ofstream outfile;
+    std::size_t   pos = 0;
 
+    needle = argv[1];
     line.clear();
     infile.open(argv[1]);
     if (!infile.is_open())
@@ -40,9 +43,17 @@ int main(int argc, char *argv[])
 
     while (!getline(infile, line).eof())
     {
-        line.find(argv[2]);
+
+        while (pos < line.length())
+        {
+            if ((pos = line.find(needle)))
+            {
+                line.erase(pos, needle.length());
+            }
+        }
         outfile << line << std::endl;
         line.clear();
+        pos = 0;
     }
     infile.close();
     outfile.close();
