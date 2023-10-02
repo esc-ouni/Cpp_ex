@@ -17,6 +17,9 @@ void    Harl::error(void){
 };
 
 void    Harl::complain(std::string level){
-    
-    std::cout << "COMPLAIN" << std::endl;
+    (void)level;
+    this->debug();
+    this->info();
+    this->warning();
+    this->error();
 };
