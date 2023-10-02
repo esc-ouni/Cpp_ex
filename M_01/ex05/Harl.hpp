@@ -4,6 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
+#include <climits>
 
 class Harl
 {
@@ -15,5 +17,7 @@ class Harl
     public:
         void    complain(std::string level);
 };
+
+void exit_err(std::string err_msg);
 
 #endif

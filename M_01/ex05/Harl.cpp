@@ -17,7 +17,12 @@ void    Harl::error(void){
 };
 
 void    Harl::complain(std::string level){
-    (void)level;
+    long n;
+
+    n = std::atoi(level.c_str());
+    std::cout << n << std::endl;
+    if (n > 4 || n < 1)
+        exit_err("Not A Valid Num");
     this->debug();
     this->info();
     this->warning();
