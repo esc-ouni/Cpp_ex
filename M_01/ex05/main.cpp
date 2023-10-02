@@ -7,10 +7,10 @@ void exit_err(std::string err_msg){
 
 int   contains_only_nums(std::string string){
     if (string.empty())
-        exit_err("Not A Valid Digit");
+        exit_err("Not A Valid Number");
     for (size_t i = 0; i < string.length(); i++){
         if (!isdigit(string.c_str()[i]))
-            exit_err("Not A Valid Digit");
+            exit_err("Not A Valid Number");
     }
     return (std::atoi(string.c_str()));
 }
