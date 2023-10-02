@@ -25,42 +25,33 @@ int main(int argc, char *argv[])
     __init(argc, argv);
     std::string   line;
     std::string   needle;
+    std::string   tobe_add;
     std::ifstream infile;
     std::ofstream outfile;
     std::size_t   pos = 0;
-    // int i = 0;
 
-    needle = argv[1];
+    needle = argv[2];
+    tobe_add = argv[3];
     line.clear();
     infile.open(argv[1]);
-    if (!infile.is_open())
+    if (infile.fail())
         exit_err("Failed to open your file");
 
     outfile.open((line += argv[1]) += ".replace");
-    if (!outfile.is_open())
+    if (outfile.fail())
         exit_err("Failed to open your file");
+    
     line.clear();
 
 
     while (!getline(infile, line).eof())
     {
-        while (pos < line.length())
+        pos = line.find(needle);
+        while (pos != std::string::npos)
         {
-            if (pos!=std::string::npos)
-            {
-                // line.erase(pos, needle.length());
-                line.at(pos) = 'b';
-                std::cout << line << std::endl;
-                // std::cout << i++ << std::endl;
-                // std::cout << pos << std::endl;
-                // std::cout << line.length() << std::endl;
-                std::cout << line.find("a") << std::endl;
-            }
-            else
-            {
-                std::cout << "THE DKJ\n";
-                break ;
-            }
+            line.erase(pos, needle.length());
+            line.insert(pos, tobe_add);
+            pos = line.find(needle);
         }
         outfile << line << std::endl;
         line.clear();
@@ -70,3 +61,4 @@ int main(int argc, char *argv[])
     outfile.close();
     return (0);
 }
+

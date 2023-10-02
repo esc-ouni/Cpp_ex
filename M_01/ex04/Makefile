@@ -6,12 +6,13 @@ C_FILES = ${shell ls *.cpp}
 all: $(C_FILES) $(H_FILES)
 	c++ $(C_FILES) $(FLAGS) -o $(EXEC)
 	# clear
-	./$(EXEC) file a b
+	./$(EXEC) file "MOPHO" "ALABAMA"
 
 re: fclean all
 
 fclean:
 	rm -rf $(EXEC)
 	rm -rf .vscode
+	rm -rf *.dSYM
 
 .PHONY: all fclean re
