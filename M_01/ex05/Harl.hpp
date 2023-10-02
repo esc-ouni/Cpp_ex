@@ -18,6 +18,7 @@ class Harl
         void    complain(std::string level);
 };
 
-void exit_err(std::string err_msg);
+void    exit_err(std::string err_msg);
+int     contains_only_nums(std::string string);
 
 #endif

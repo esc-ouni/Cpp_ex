@@ -17,9 +17,9 @@ void    Harl::error(void){
 };
 
 void    Harl::complain(std::string level){
-    long n;
+    int n;
 
-    n = std::atoi(level.c_str());
+    n = contains_only_nums(level);
     std::cout << n << std::endl;
     if (n > 4 || n < 1)
         exit_err("Not A Valid Num");
