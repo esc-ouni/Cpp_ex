@@ -1,6 +1,11 @@
 #include "Harl.hpp"
 
 Harl::Harl(void){
+
+    // void (*Func[4])() = {&kk, &pp};
+    this->F
+
+
     // this->fptr = new void *[4];
     // this->fptr[1] = (this->info());
     // this->fptr[2] = (this->warning());
@@ -31,6 +36,6 @@ void    Harl::complain(std::string level){
 
     if (n > 4 || n < 1)
         exit_err("Not A Valid Num");
-    else
+    // else
         // fptr(n);
 };

@@ -15,6 +15,14 @@ int   contains_only_nums(std::string string){
     return (std::atoi(string.c_str()));
 }
 
+void pp(){
+    std::cout << "HELLO\n" << std::endl;
+}
+
+void kk(){
+    std::cout << "BELLO\n" << std::endl;
+}
+
 int main()
 {
     Harl Harl;
