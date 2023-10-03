@@ -14,7 +14,7 @@ class Harl
         void    info(void);
         void    warning(void);
         void    error(void);
-        void    (*Func[4])();
+        void    (Harl::*Func[4])(); 
     public:
         Harl(void);
         ~Harl(void);
