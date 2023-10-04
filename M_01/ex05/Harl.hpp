@@ -12,7 +12,6 @@
 #define WARNING 3
 #define ERROR   4
 
-typedef void (*MemberFunc)(void);
 
 // class Harl
 // {
@@ -54,6 +53,7 @@ typedef void (*MemberFunc)(void);
 //     this->MFptr[4] = NULL;
 // };
 
+
 class Harl
 {
 private:
@@ -68,6 +68,7 @@ public:
     ~Harl(void);
     void complain(std::string level);
 };
+typedef void (Harl::*MemberFunc)(void);
 
 void    exit_err(std::string err_msg);
 int     contains_only_nums(std::string string);
