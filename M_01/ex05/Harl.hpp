@@ -57,7 +57,7 @@ typedef void (*MemberFunc)(void);
 class Harl
 {
 private:
-    typedef void (Harl::*MemberFunc)(void); // Change the type of MemberFunc
+    // typedef void (Harl::*MemberFunc)(void); // Change the type of MemberFunc
     void debug(void);
     void info(void);
     void warning(void);
@@ -68,32 +68,6 @@ public:
     ~Harl(void);
     void complain(std::string level);
 };
-
-void Harl::debug(void){
-    std::cout << "DEBUG" << std::endl;
-}
-
-void Harl::info(void){
-    std::cout << "INFO" << std::endl;
-}
-
-void Harl::warning(void){
-    std::cout << "WARNING" << std::endl;
-}
-
-void Harl::error(void){
-    std::cout << "ERROR" << std::endl;
-}
-
-Harl::Harl(void)
-{
-    this->MFptr[0] = &Harl::debug;
-    this->MFptr[1] = &Harl::info;
-    this->MFptr[2] = &Harl::warning;
-    this->MFptr[3] = &Harl::error;
-    this->MFptr[4] = nullptr;
-}
-
 
 void    exit_err(std::string err_msg);
 int     contains_only_nums(std::string string);
