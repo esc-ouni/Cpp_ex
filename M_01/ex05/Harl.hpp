@@ -7,6 +7,13 @@
 #include <cstdlib>
 #include <climits>
 
+#define DEBUG   1
+#define INFO    2
+#define WARNING 3
+#define ERROR   4
+
+typedef void (*MemberFunc)(void);
+
 class Harl
 {
     private:
@@ -14,11 +21,21 @@ class Harl
         void    info(void);
         void    warning(void);
         void    error(void);
-        void    (Harl::*Func[4])(); 
+        MemberFunc  *MFptr; 
     public:
         Harl(void);
         ~Harl(void);
         void    complain(std::string level);
+};
+
+Harl::Harl(void){
+    this->MFptr = new MemberFunc[5];
+
+    this->MFptr[0] = &Harl::debug;
+    this->MFptr[1] = &Harl::info;
+    this->MFptr[2] = &Harl::warning;
+    this->MFptr[3] = &Harl::error;
+    this->MFptr[4] = NULL;
 };
 
 void    exit_err(std::string err_msg);

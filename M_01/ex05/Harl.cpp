@@ -1,12 +1,5 @@
 #include "Harl.hpp"
 
-Harl::Harl(void){
-    Func[0] = &Harl::debug;
-    Func[1] = &Harl::info;
-    Func[2] = &Harl::warning;
-    Func[3] = &Harl::error;
-};
-
 Harl::~Harl(void){
 };
 
