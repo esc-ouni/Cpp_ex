@@ -31,6 +31,6 @@ void    Harl::complain(std::string level){
 
     if (n > 4 || n < 1)
         exit_err("Not A Valid Num");
-    else
-        this->Func[n - 1];
+    // else
+    //     this->Func[n - 1];
 };

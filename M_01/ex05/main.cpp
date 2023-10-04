@@ -1,5 +1,10 @@
 #include "Harl.hpp"
 
+
+void    func(void){
+    std::cout << "Hola Morpho Loco!" << std::endl;
+}
+
 void exit_err(std::string err_msg){
     std::cerr << "==> Err: " + err_msg << std::endl;
     std::exit(1);
@@ -14,15 +19,13 @@ int   contains_only_nums(std::string string){
     }
     return (std::atoi(string.c_str()));
 }
+typedef void (*MyPtr)(void);
 
 int main()
 {
-    Harl Harl;
 
-    // Harl.complain("1");
-    // Harl.complain("2");
-    Harl.complain("3");
-    // Harl.complain("4");
-    // Harl.complain("5");
+    MyPtr Fptr = &func;
+
+    Fptr();
     return (0);
 }
