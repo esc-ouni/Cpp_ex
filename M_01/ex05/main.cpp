@@ -17,6 +17,9 @@ int   contains_only_nums(std::string string){
 
 int main()
 {
+    Harl Harl;
+
+    Harl.complain("2");
 
     return (0);
 }
