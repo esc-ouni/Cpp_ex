@@ -8,4 +8,14 @@
 #include <climits>
 
 
+class Fixed
+{
+    private:
+    public:
+        Fixed(void);
+        Fixed(Fixed &other);
+        Fixed operator=(Fixed &other);
+        ~Fixed(void);
+};
+
 #endif
