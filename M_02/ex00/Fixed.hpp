@@ -11,6 +11,8 @@
 class Fixed
 {
     private:
+        int              int_s;
+        static const int n_fbits = 8;
     public:
         Fixed(void);
         Fixed(Fixed &other);
