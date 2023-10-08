@@ -6,7 +6,7 @@ Fixed::Fixed(void){
 Fixed::Fixed(Fixed &r_inst){
 };
 
-Fixed Fixed::operator=(Fixed &r_inst){
+Fixed &Fixed::operator=(Fixed &r_inst){
 };
 
 Fixed::~Fixed(void){
