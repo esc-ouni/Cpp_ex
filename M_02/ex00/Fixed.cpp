@@ -7,6 +7,9 @@ Fixed::Fixed(Fixed &r_inst){
 };
 
 Fixed &Fixed::operator=(Fixed &r_inst){
+    this->fixed_point = r_inst.fixed_point;
+    this->raw_bits = r_inst.raw_bits;
+    return (*this);
 };
 
 Fixed::~Fixed(void){
