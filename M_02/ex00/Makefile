@@ -1,4 +1,4 @@
-EXEC    = harlFilter
+EXEC    = Fixed
 FLAGS   = -std=c++98 #-fsanitize=address -Wall -Wextra -Werror -g
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
