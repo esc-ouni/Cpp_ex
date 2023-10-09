@@ -20,8 +20,8 @@ class Fixed
         Fixed(const float num_to_convert);
         Fixed(Fixed &r_inst);
 
-        Fixed &operator=(Fixed &r_inst);
-        Fixed &operator<<(Fixed &r_inst);
+        // Fixed &operator=(Fixed &r_inst);
+        void    operator<<(std::ostream &o);
 
         int getRawBits(void) const;
         void setRawBits(int const raw);
