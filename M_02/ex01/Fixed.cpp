@@ -11,8 +11,10 @@ Fixed::Fixed(Fixed &r_inst){
 // Fixed &Fixed::operator=(Fixed &r_inst){
 // };
 
-void    Fixed::operator<<(std::ostream &o){
-    o << this->fixed_point;
+std::ostream &operator<<(std::ostream &COUT, Fixed &r_inst){
+    r_inst.setRawBits(120);
+    COUT << r_inst.getRawBits();
+    return (COUT);
 };
 
 Fixed::~Fixed(void){
