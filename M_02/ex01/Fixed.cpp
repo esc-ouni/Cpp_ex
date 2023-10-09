@@ -9,6 +9,9 @@ Fixed::Fixed(Fixed &r_inst){
 Fixed &Fixed::operator=(Fixed &r_inst){
 };
 
+Fixed &Fixed::operator<<(Fixed &r_inst){
+};
+
 Fixed::~Fixed(void){
 };
 
@@ -17,4 +20,16 @@ int Fixed::getRawBits(void) const{
 };
 
 void Fixed::setRawBits(int const raw){
+};
+
+Fixed::Fixed(const int num_to_convert){
+};
+
+Fixed::Fixed(const float num_to_convert){
+};
+
+float Fixed::toFloat( void ) const{
+};
+
+int Fixed::toInt( void ) const{
 };
