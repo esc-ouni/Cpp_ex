@@ -12,8 +12,7 @@ Fixed::Fixed(Fixed &r_inst){
 // };
 
 std::ostream &operator<<(std::ostream &COUT, Fixed &r_inst){
-    r_inst.setRawBits(120);
-    COUT << r_inst.getRawBits();
+    COUT << r_inst.toFloat();
     return (COUT);
 };
 
