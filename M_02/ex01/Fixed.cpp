@@ -8,12 +8,15 @@ Fixed::Fixed(Fixed &r_inst){
     this->raw_bits = r_inst.getRawBits();
 };
 
-// Fixed &Fixed::operator=(Fixed &r_inst){
-// };
+Fixed &Fixed::operator=(Fixed &r_inst){
+    this->fixed_point = r_inst.fixed_point;
+    this->raw_bits    = r_inst.getRawBits();
+    return (*this);
+};
 
-std::ostream &operator<<(std::ostream &COUT, Fixed &r_inst){
-    COUT << r_inst.toFloat();
-    return (COUT);
+std::ostream &operator<<(std::ostream &cout, Fixed &r_inst){
+    cout << r_inst.toFloat();
+    return (cout);
 };
 
 Fixed::~Fixed(void){
