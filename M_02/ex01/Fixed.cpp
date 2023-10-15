@@ -1,16 +1,15 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(void){
+    this->fixed_point = 0;
 };
 
 Fixed::Fixed(Fixed &r_inst){
-    this->fixed_point = r_inst.fixed_point;
-    this->raw_bits = r_inst.getRawBits();
+    this->fixed_point = r_inst.getRawBits();
 };
 
 Fixed &Fixed::operator=(Fixed &r_inst){
-    this->fixed_point = r_inst.fixed_point;
-    this->raw_bits    = r_inst.getRawBits();
+    this->fixed_point = r_inst.getRawBits();
     return (*this);
 };
 
@@ -23,11 +22,11 @@ Fixed::~Fixed(void){
 };
 
 int Fixed::getRawBits(void) const{
-    return (this->raw_bits);
+    return (this->fixed_point);
 };
 
 void Fixed::setRawBits(int const raw){
-    this->raw_bits = raw;
+    this->fixed_point = raw;
 };
 
 Fixed::Fixed(const int num_to_convert){
