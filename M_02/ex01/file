@@ -1,0 +1,25 @@
+clear
+[H[2Jc++ Fixed.cpp main.cpp t.cpp -std=c++98  -o Fixed
+./Fixed
+Default constructor called
+Int constructor called
+Float constructor called
+Copy constructor called
+Copy assignment operator called
+getRawBits member function called
+Float constructor called
+Copy assignment operator called
+getRawBits member function called
+Destructor called
+a is 42
+b is 42
+c is 42
+d is 42
+a is 42 as integer
+b is 42 as integer
+c is 42 as integer
+d is 42 as integer
+Destructor called
+Destructor called
+Destructor called
+Destructor called

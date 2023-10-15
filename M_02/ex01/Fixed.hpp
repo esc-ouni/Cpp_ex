@@ -1,6 +1,8 @@
 #ifndef __HEAD_HPP_
 #define __HEAD_HPP_
 
+#define VALUE 42
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -17,17 +19,17 @@ class Fixed
         Fixed(void);
         Fixed(const int num_to_convert);
         Fixed(const float num_to_convert);
-        Fixed(Fixed &r_inst);
+        Fixed(Fixed const &r_inst);
 
-        Fixed &operator=(Fixed &r_inst);
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
+        Fixed &operator=(Fixed const &r_inst);
+        int   getRawBits(void) const;
+        void  setRawBits(int const raw);
         float toFloat( void ) const;
-        int toInt( void ) const;
+        int   toInt( void ) const;
 
         ~Fixed(void);
 };
 
-std::ostream &operator<<(std::ostream &cout, Fixed &r_inst);
+std::ostream &operator<<(std::ostream &cout, Fixed const &r_inst);
 
 #endif
