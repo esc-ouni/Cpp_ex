@@ -1,41 +1,20 @@
 #include "Fixed.hpp"
 
-
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
-#include <climits>
-#include <cmath>
-
-class Fixed
-{
-    private:
-        int              fixed_point;
-        const static int num_fract_bits = 8;
-    public:
-        Fixed(void);
-        Fixed(const int num_to_convert);
-        Fixed(const float num_to_convert);
-        Fixed(Fixed const &r_inst);
-
-        Fixed &operator=(Fixed const &r_inst);
-        int   getRawBits(void) const;
-        void  setRawBits(int const raw);
-        float toFloat( void ) const;
-        int   toInt( void ) const;
-
-        ~Fixed(void);
-};
-
-std::ostream &operator<<(std::ostream &cout, Fixed const &r_inst);
-
 int main( void ) {
-    Fixed a(1);
+    Fixed a;
+    Fixed const b( 10 );
+    Fixed const c( 42.42f );
+    Fixed const d( b );
 
-    a = Fixed( 7 );
-
+    a = Fixed( 1234.4321f );
+    
     std::cout << "a is " << a << std::endl;
-
+    std::cout << "b is " << b << std::endl;
+    std::cout << "c is " << c << std::endl;
+    std::cout << "d is " << d << std::endl;
+    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
     return 0;
 }
