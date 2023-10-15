@@ -3,6 +3,8 @@
 
 #define VALUE 42
 
+static int i = 0;
+
 #include <iostream>
 #include <fstream>
 #include <string>

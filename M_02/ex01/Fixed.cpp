@@ -1,9 +1,7 @@
 #include "Fixed.hpp"
 
-int i = 0;
-
 Fixed::Fixed(void){
-    this->fixed_point = i++;
+    this->fixed_point = 0;
     std::cout << "Default constructor called" << std::endl;
 };
 
@@ -14,12 +12,12 @@ Fixed::Fixed(Fixed const &r_inst){
 
 Fixed::Fixed(const int num_to_convert){
     std::cout << "Int constructor called" << std::endl;
-    this->fixed_point = i++;
+    this->fixed_point = num_to_convert;
 };
 
 Fixed::Fixed(const float num_to_convert){
     std::cout << "Float constructor called" << std::endl;
-    this->fixed_point = i++;
+    this->fixed_point = num_to_convert;
 };
 
 
@@ -58,5 +56,5 @@ int Fixed::toInt( void ) const{
 
 Fixed::~Fixed(void){
     // std::cout << "Destructor called" << std::endl;
-    std::cout << "Destructor called For: " << this->fixed_point << std::endl;
+    std::cout << "Destructor called For: " << this->fixed_point <<  std::endl;
 };
