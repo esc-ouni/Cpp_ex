@@ -12,7 +12,7 @@ Fixed::Fixed(Fixed const &r_inst){
 
 Fixed::Fixed(const int num_to_convert){
     std::cout << "Int constructor called" << std::endl;
-    if (num_to_convert > 8388607 || num_to_convert < -8388608){
+    if (num_to_convert <= 8388607 && num_to_convert >= -8388608){
         this->fixed_point = num_to_convert << 8;
     }
     else
@@ -21,7 +21,11 @@ Fixed::Fixed(const int num_to_convert){
 
 Fixed::Fixed(const float num_to_convert){
     std::cout << "Float constructor called" << std::endl;
-    this->fixed_point = num_to_convert;
+    if (num_to_convert <= 8388607 && num_to_convert >= -8388608){
+        this->fixed_point = std::roundf(num_to_convert * 256);
+    }
+    else
+        std::cout << "Num to convert out of range" << std::endl;
 };
 
 Fixed &Fixed::operator=(Fixed const &r_inst){
@@ -46,11 +50,11 @@ void Fixed::setRawBits(int const raw){
 };
 
 float Fixed::toFloat( void ) const{
-    return(VALUE);
+    return((float)this->fixed_point / 256);
 };
 
 int Fixed::toInt( void ) const{
-    return(VALUE);
+    return((this->fixed_point >> 8));
 };
 
 Fixed::~Fixed(void){
