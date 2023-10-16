@@ -12,15 +12,17 @@ Fixed::Fixed(Fixed const &r_inst){
 
 Fixed::Fixed(const int num_to_convert){
     std::cout << "Int constructor called" << std::endl;
-    this->fixed_point = num_to_convert;
+    if (num_to_convert > 8388607 || num_to_convert < -8388608){
+        this->fixed_point = num_to_convert << 8;
+    }
+    else
+        std::cout << "Num to convert out of range" << std::endl;
 };
 
 Fixed::Fixed(const float num_to_convert){
     std::cout << "Float constructor called" << std::endl;
     this->fixed_point = num_to_convert;
 };
-
-
 
 Fixed &Fixed::operator=(Fixed const &r_inst){
     std::cout << "Copy assignment operator called" << std::endl;
@@ -33,7 +35,6 @@ std::ostream &operator<<(std::ostream &cout, Fixed const &r_inst){
     return (cout);
 };
 
-
 int Fixed::getRawBits(void) const{
     std::cout << "getRawBits member function called" << std::endl;
     return (this->fixed_point);
@@ -44,7 +45,6 @@ void Fixed::setRawBits(int const raw){
     this->fixed_point = raw;
 };
 
-
 float Fixed::toFloat( void ) const{
     return(VALUE);
 };
@@ -53,8 +53,6 @@ int Fixed::toInt( void ) const{
     return(VALUE);
 };
 
-
 Fixed::~Fixed(void){
-    // std::cout << "Destructor called" << std::endl;
-    std::cout << "Destructor called For: " << this->fixed_point <<  std::endl;
+    std::cout << "Destructor called" << std::endl;
 };
