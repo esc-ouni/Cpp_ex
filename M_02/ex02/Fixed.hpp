@@ -35,10 +35,11 @@ class Fixed
         Fixed  operator*(Fixed const &r_inst);
         Fixed  operator/(Fixed const &r_inst);
 
-        // Fixed& operator++(void);     // Pre-increment
-        // Fixed& operator--(void);     // Pre-decrement
-        // Fixed  operator++(int);   // Post-increment
-        // Fixed  operator--(int);   // Post-decrement
+        Fixed  &operator++(void);     // Pre-increment
+        Fixed  operator++(int);   // Post-increment
+
+        Fixed& operator--(void);     // Pre-decrement
+        Fixed  operator--(int);   // Post-decrement
 
         int   getRawBits(void) const;
         void  setRawBits(int const raw);
