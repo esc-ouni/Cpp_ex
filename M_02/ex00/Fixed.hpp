@@ -12,7 +12,6 @@ class Fixed
     private:
         int              fixed_point;
         const static int num_fract_bits = 8;
-        int              raw_bits;
     public:
         Fixed(void);
         Fixed(Fixed &r_inst);

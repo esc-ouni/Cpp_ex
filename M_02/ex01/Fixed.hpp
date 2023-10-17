@@ -1,10 +1,6 @@
 #ifndef __HEAD_HPP_
 #define __HEAD_HPP_
 
-#define VALUE 42
-
-static int i = 0;
-
 #include <iostream>
 #include <fstream>
 #include <string>
