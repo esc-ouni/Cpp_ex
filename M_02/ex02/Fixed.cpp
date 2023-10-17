@@ -97,6 +97,34 @@ Fixed  Fixed::operator--(int){
     return (Fixed(this->fixed_point + 256));
 };
 
+Fixed &Fixed::min(Fixed &l_inst, Fixed &r_inst){
+    if (l_inst < r_inst)
+        return (l_inst);
+    else
+        return (r_inst);
+};
+
+Fixed const &Fixed::min(Fixed const &l_inst, Fixed const &r_inst){
+    if (l_inst.getRawBits() < r_inst.getRawBits())
+        return (l_inst);
+    else
+        return (r_inst);
+};
+
+Fixed &Fixed::max(Fixed &l_inst, Fixed &r_inst){
+    if (l_inst > r_inst)
+        return (l_inst);
+    else
+        return (r_inst);
+};
+
+Fixed const &Fixed::max(Fixed const &l_inst, Fixed const &r_inst){
+    if (l_inst.getRawBits() > r_inst.getRawBits())
+        return (l_inst);
+    else
+        return (r_inst);
+};
+
 int Fixed::getRawBits(void) const{
     return (this->fixed_point);
 };

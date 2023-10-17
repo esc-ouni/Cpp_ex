@@ -41,6 +41,11 @@ class Fixed
         Fixed& operator--(void);     // Pre-decrement
         Fixed  operator--(int);   // Post-decrement
 
+        static Fixed &min(Fixed &l_inst, Fixed &r_inst);
+        static const Fixed &min(Fixed const &l_inst, Fixed const &r_inst);
+        static Fixed &max(Fixed &l_inst, Fixed &r_inst);
+        static const Fixed &max(Fixed const &l_inst, Fixed const &r_inst);
+
         int   getRawBits(void) const;
         void  setRawBits(int const raw);
         float toFloat( void ) const;
