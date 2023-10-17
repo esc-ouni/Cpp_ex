@@ -67,7 +67,7 @@ Fixed Fixed::operator-(Fixed const &r_inst){
 };
 
 Fixed Fixed::operator*(Fixed const &r_inst){
-    return (this->fixed_point * r_inst.getRawBits());
+    return (this->toFloat() * r_inst.toFloat());
 };
 
 Fixed Fixed::operator/(Fixed const &r_inst){
@@ -75,7 +75,7 @@ Fixed Fixed::operator/(Fixed const &r_inst){
 };
 
 Fixed &Fixed::operator++(void){ // Pre-increment
-    this->fixed_point += 256;
+    this->fixed_point += 1;
     return (*this);
 };
 
@@ -83,18 +83,18 @@ Fixed  Fixed::operator++(int){ // Post-increment
     Fixed ret;
 
     ret.setRawBits(this->fixed_point);
-    this->fixed_point += 256;
+    this->fixed_point += 1;
     return (ret);
 };
 
 Fixed& Fixed::operator--(void){
-    this->fixed_point -= 256;
+    this->fixed_point -= 1;
     return (*this);
 };
 
 Fixed  Fixed::operator--(int){
-    this->fixed_point -= 256;
-    return (Fixed(this->fixed_point + 256));
+    this->fixed_point -= 1;
+    return (Fixed(this->fixed_point + 1));
 };
 
 Fixed &Fixed::min(Fixed &l_inst, Fixed &r_inst){
