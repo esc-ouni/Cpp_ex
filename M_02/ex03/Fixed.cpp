@@ -59,11 +59,11 @@ bool  Fixed::operator!=(Fixed const &r_inst){
 };
 
 Fixed Fixed::operator+(Fixed const &r_inst){
-    return (this->fixed_point + r_inst.getRawBits());
+    return (this->toFloat() + r_inst.toFloat());
 };
 
 Fixed Fixed::operator-(Fixed const &r_inst){
-    return (this->fixed_point - r_inst.getRawBits());
+    return (this->toFloat() - r_inst.toFloat());
 };
 
 Fixed Fixed::operator*(Fixed const &r_inst){
@@ -71,7 +71,7 @@ Fixed Fixed::operator*(Fixed const &r_inst){
 };
 
 Fixed Fixed::operator/(Fixed const &r_inst){
-    return (this->fixed_point / r_inst.getRawBits());
+    return (this->toFloat() / r_inst.toFloat());
 };
 
 Fixed &Fixed::operator++(void){ // Pre-increment

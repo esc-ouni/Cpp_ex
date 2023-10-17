@@ -31,11 +31,11 @@ class Fixed
         Fixed  operator*(Fixed const &r_inst);
         Fixed  operator/(Fixed const &r_inst);
 
-        Fixed  &operator++(void);     // Pre-increment
-        Fixed  operator++(int);   // Post-increment
+        Fixed  &operator++(void);
+        Fixed  operator++(int);
 
-        Fixed& operator--(void);     // Pre-decrement
-        Fixed  operator--(int);   // Post-decrement
+        Fixed& operator--(void);
+        Fixed  operator--(int);
 
         static Fixed &min(Fixed &l_inst, Fixed &r_inst);
         static const Fixed &min(Fixed const &l_inst, Fixed const &r_inst);
