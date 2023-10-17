@@ -39,6 +39,58 @@ std::ostream &operator<<(std::ostream &cout, Fixed const &r_inst){
     return (cout);
 };
 
+bool  Fixed::operator>(Fixed const &r_inst){
+    return (this->fixed_point > r_inst.getRawBits());
+};
+
+bool  Fixed::operator<(Fixed const &r_inst){
+    return (this->fixed_point < r_inst.getRawBits());
+};
+
+bool  Fixed::operator>=(Fixed const &r_inst){
+    return (this->fixed_point >= r_inst.getRawBits());
+};
+
+bool  Fixed::operator<=(Fixed const &r_inst){
+    return (this->fixed_point <= r_inst.getRawBits());
+};
+
+bool  Fixed::operator==(Fixed const &r_inst){
+    return (this->fixed_point == r_inst.getRawBits());
+};
+
+bool  Fixed::operator!=(Fixed const &r_inst){
+    return (this->fixed_point != r_inst.getRawBits());
+};
+
+Fixed Fixed::operator+(Fixed const &r_inst){
+    return (this->fixed_point + r_inst.getRawBits());
+};
+
+Fixed Fixed::operator-(Fixed const &r_inst){
+    return (this->fixed_point - r_inst.getRawBits());
+};
+
+Fixed Fixed::operator*(Fixed const &r_inst){
+    return (this->fixed_point * r_inst.getRawBits());
+};
+
+Fixed Fixed::operator/(Fixed const &r_inst){
+    return (this->fixed_point / r_inst.getRawBits());
+};
+
+// Fixed& operator++(void){
+// };
+
+// Fixed& operator--(void){
+// };
+
+// Fixed  operator++(int){
+// };
+
+// Fixed  operator--(int){
+// };
+
 int Fixed::getRawBits(void) const{
     std::cout << "getRawBits member function called" << std::endl;
     return (this->fixed_point);

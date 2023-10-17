@@ -23,7 +23,23 @@ class Fixed
         Fixed(const float num_to_convert);
         Fixed(Fixed const &r_inst);
 
-        Fixed &operator=(Fixed const &r_inst);
+        Fixed  &operator=(Fixed const &r_inst);
+        bool   operator>(Fixed const &r_inst);
+        bool   operator<(Fixed const &r_inst);
+        bool   operator>=(Fixed const &r_inst);
+        bool   operator<=(Fixed const &r_inst);
+        bool   operator==(Fixed const &r_inst);
+        bool   operator!=(Fixed const &r_inst);
+        Fixed  operator+(Fixed const &r_inst);
+        Fixed  operator-(Fixed const &r_inst);
+        Fixed  operator*(Fixed const &r_inst);
+        Fixed  operator/(Fixed const &r_inst);
+
+        // Fixed& operator++(void);     // Pre-increment
+        // Fixed& operator--(void);     // Pre-decrement
+        // Fixed  operator++(int);   // Post-increment
+        // Fixed  operator--(int);   // Post-decrement
+
         int   getRawBits(void) const;
         void  setRawBits(int const raw);
         float toFloat( void ) const;
