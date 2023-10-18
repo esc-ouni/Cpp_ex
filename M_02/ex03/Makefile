@@ -2,7 +2,7 @@
 EXEC    = Fixed
 CC      = g++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -Wall -Wextra -Werror -g
+FLAGS   = -std=c++98 #-Wall -Wextra -Werror #-fsanitize=address -Wall -Wextra -Werror -g
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)

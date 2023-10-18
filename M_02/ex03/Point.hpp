@@ -15,8 +15,10 @@ class Point
 		Point(Point const &r_inst);
 		~Point(void);
 
-		Point &operator=(Point const &r_inst);
+		float g_x(void) const;
+		float g_y(void) const;
 
+		Point &operator=(Point const &r_inst);
 };
 
 bool bsp( Point const a, Point const b, Point const c, Point const point);
