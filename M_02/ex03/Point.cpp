@@ -10,7 +10,10 @@ Point::Point(Point const &r_inst):x(r_inst.x), y(r_inst.y){
 };
 
 Point &Point::operator=(Point const &r_inst){
-    *this = r_inst;
+    if (this != &r_inst){
+        const_cast<Fixed&>(x) = r_inst.x;
+        const_cast<Fixed&>(y) = r_inst.y;
+    }
     return (*this);
 };
 
