@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:13:07 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 16:13:08 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/19 16:16:00 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ int main()
     std::cout << string << std::endl;
     std::cout << *(stringPTR) << std::endl;
     std::cout << stringREF << std::endl;
-    // std::system("leaks Newton");
 }
