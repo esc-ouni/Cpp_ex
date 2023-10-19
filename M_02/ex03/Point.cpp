@@ -18,7 +18,7 @@ Point &Point::operator=(Point const &r_inst){
 };
 
 Point::~Point(void){
-    std::cout << "Destructor Called" << std::endl;
+    // std::cout << "Destructor Called" << std::endl;
 };
 
 float	Point::g_x(void) const{
