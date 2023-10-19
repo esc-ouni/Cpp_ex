@@ -6,13 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:18:46 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 11:18:47 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/19 13:17:06 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 Fixed::Fixed(void){
+    this->fixed_point = 0;
     std::cout << "Default constructor called" << std::endl;
 };
 
