@@ -4,7 +4,7 @@
 bool bsp( Point const a, Point const b, Point const c, Point const point){
     float w1 = 0, w2 = 0;
 
-    w1 += (float)((((a.g_x() * (c.g_y() - a.g_y())) + ((point.g_y() - a.g_y()) * (c.g_x() - a.g_x())) - (point.g_x() * (c.g_y() - a.g_y())))/\
+    w1 = (float)((((a.g_x() * (c.g_y() - a.g_y())) + ((point.g_y() - a.g_y()) * (c.g_x() - a.g_x())) - (point.g_x() * (c.g_y() - a.g_y())))/\
     (((b.g_y() - a.g_y()) * (c.g_x() - a.g_x())) - ((b.g_x() - a.g_x()) * (c.g_y() - a.g_y())))));
 
     w2 = (float)(point.g_y() - a.g_y() - w1 * (b.g_y() - a.g_y()))/\
