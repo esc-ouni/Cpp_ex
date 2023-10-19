@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:16:55 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 11:16:56 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/19 11:48:17 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool bsp( Point const a, Point const b, Point const c, Point const point){
 
     // std::cout << "w1 : " << w1 << std::endl;
     // std::cout << "w2 : " << w2 << std::endl;
-    if (w1 > 0 && w2 > 0 &&  (w1 + w2) < 1)
+    if (w1 > 0 && w2 > 0 && (w1 + w2) < 1)
         return (true);
     else
         return (false);
