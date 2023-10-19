@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:17:41 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 11:17:42 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/19 13:26:38 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,12 @@ Fixed Fixed::operator/(Fixed const &r_inst){
     return (this->toFloat() / r_inst.toFloat());
 };
 
-Fixed &Fixed::operator++(void){ // Pre-increment
+Fixed &Fixed::operator++(void){
     this->fixed_point += 1;
     return (*this);
 };
 
-Fixed  Fixed::operator++(int){ // Post-increment
+Fixed  Fixed::operator++(int){
     Fixed ret;
 
     ret.setRawBits(this->fixed_point);

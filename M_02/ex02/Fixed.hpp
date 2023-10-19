@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:17:48 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 11:17:49 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/19 13:30:07 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 #define __HEAD_HPP_
 
 #include <iostream>
-#include <fstream>
 #include <string>
-#include <cstdlib>
-#include <climits>
 #include <cmath>
 
 class Fixed
