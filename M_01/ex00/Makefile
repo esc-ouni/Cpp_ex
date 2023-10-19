@@ -1,8 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/19 13:43:19 by idouni            #+#    #+#              #
+#    Updated: 2023/10/19 14:04:34 by idouni           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-EXEC    = Fixed
+EXEC    = Zombie
 CC      = g++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -Wall -Wextra -Werror -g
+FLAGS   = -std=c++98 -Wall -Wextra -Werror -g -fsanitize=address -g
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)
