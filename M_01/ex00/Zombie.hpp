@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:43:37 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 13:43:38 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/19 15:57:50 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Zombie
         std::string name;
     public:
         Zombie(std::string name);
-        ~Zombie();
-        void announce( void );
+        ~Zombie(void);
+        void announce(void);
 };
 
 Zombie* newZombie(std::string name);
