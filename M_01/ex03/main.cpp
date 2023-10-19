@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:17:40 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 16:46:51 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/19 16:47:44 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,8 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-// void leak()
-// {
-//     std::system("leaks Uviolence");
-// }
-
 int main()
 {
-    // std::atexit(leak);
     {
         Weapon club = Weapon("crude spiked club");
         HumanA bob("Bob", club);
