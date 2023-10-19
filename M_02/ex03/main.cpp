@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:17:18 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 11:52:35 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/19 13:32:29 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,6 @@ int main( void ) {
     std::cout << "Point 6 in : " << std::boolalpha << bsp(a, b, c, point6) << std::endl;
     std::cout << "Point 7 in : " << std::boolalpha << bsp(a, b, c, point7) << std::endl;
     std::cout << "Point 8 in : " << std::boolalpha << bsp(a, b, c, point8) << std::endl;
-
-    // std::cout << bsp(a, b, c, point1) << std::endl;
-    // std::cout << bsp(a, b, c, point2) << std::endl;
-    // std::cout << bsp(a, b, c, point3) << std::endl;
-    // std::cout << bsp(a, b, c, point4) << std::endl;
-    // std::cout << bsp(a, b, c, point5) << std::endl;
 
     return 0;
 }
