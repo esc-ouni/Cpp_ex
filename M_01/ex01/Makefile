@@ -1,5 +1,5 @@
 
-EXEC    = Fixed
+EXEC    = Zombie
 CC      = g++
 RM      = rm -rf
 FLAGS   = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -Wall -Wextra -Werror -g
