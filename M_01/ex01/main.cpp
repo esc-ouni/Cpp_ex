@@ -10,5 +10,5 @@ int main()
         }
         delete[] Zombies;
     }
-    // std::system("leaks Newton");
+    std::system("leaks Zombie");
 }
