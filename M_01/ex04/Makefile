@@ -6,14 +6,14 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 16:49:28 by idouni            #+#    #+#              #
-#    Updated: 2023/10/19 16:52:08 by idouni           ###   ########.fr        #
+#    Updated: 2023/10/19 17:35:32 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXEC    = Sedfl
 CC      = g++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
+FLAGS   = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)
