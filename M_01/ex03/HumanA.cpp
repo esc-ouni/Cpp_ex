@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:17:23 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 16:17:24 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/19 16:45:07 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ HumanA::HumanA(std::string name, Weapon &weapon){
 }
 
 HumanA::~HumanA(void){
-    std::cout << this->name << " Destructor Called" << std::endl;
+    std::cout << this->name << "\tDestructor Called" << std::endl;
 };
 
 void HumanA::attack(void){
-    std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+    std::cout << this->name << "\tattacks with their " << this->weapon->getType() << std::endl;
 }
