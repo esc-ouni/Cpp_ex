@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:29 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 17:56:30 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 18:50:42 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class PhoneBook
         void ADD()
         {
             std::system("clear");
-            std::cout << "Creating A Contact ..." << std::endl;
+            std::cout << "==> Creating A Contact ..." << std::endl;
             std::cout << "Enter Contact's first_name     : ";
             std::getline(std::cin, Contacts[indexx].first_name);
             std::cout << "Enter Contact's last_name      : ";

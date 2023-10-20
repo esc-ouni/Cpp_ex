@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 17:56:27 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 18:50:15 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
     std::string input;
 
     std::system("clear");
-    std::cout << "Welcome To The PhoneBook" << std::endl;
+    std::cout << "==> Welcome To The PhoneBook" << std::endl;
     while (true)
     {
         std::cout << "Enter A Command : " ;
@@ -35,7 +35,7 @@ int main()
         else if (!input.empty())
         {
             std::system("clear");
-            std::cout << "=Not_A_Valid_Command=" << std::endl;
+            std::cout << "==> NOT A VALID COMMAND!" << std::endl;
         }
         else
             std::system("clear");
