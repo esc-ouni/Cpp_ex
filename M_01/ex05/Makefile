@@ -6,7 +6,7 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 17:43:46 by idouni            #+#    #+#              #
-#    Updated: 2023/10/19 17:45:40 by idouni           ###   ########.fr        #
+#    Updated: 2023/10/20 17:45:25 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 EXEC    = Harl
 CC      = g++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
+FLAGS   = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)

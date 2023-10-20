@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:37:53 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 17:37:54 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 17:44:44 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 #define __HARL_HPP_
 
 #include <iostream>
-#include <fstream>
 #include <string>
-#include <cstdlib>
-#include <climits>
 
 class Harl
 {

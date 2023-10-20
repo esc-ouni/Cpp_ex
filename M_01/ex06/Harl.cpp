@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:39:03 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 17:42:51 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 17:43:54 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,22 @@ void Harl::confusion(void){
 void    Harl::complain(std::string level){
     int n = filter(level);
 
-    switch (n)
-    {
-    case (DEBUG):
-        Harl::debug();
-        break;
-    case (INFO):
-        Harl::info();
-        break;
-    case (WARNING):
-        Harl::warning();
-        break;
-    case (ERROR):
-        Harl::error();
-        break;
-    default:
-        Harl::confusion();
-        break;
+    switch (n){
+        case (DEBUG):
+            Harl::debug();
+            break;
+        case (INFO):
+            Harl::info();
+            break;
+        case (WARNING):
+            Harl::warning();
+            break;
+        case (ERROR):
+            Harl::error();
+            break;
+        default:
+            Harl::confusion();
+            break;
     }
 };
 

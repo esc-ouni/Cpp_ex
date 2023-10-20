@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:39:06 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 17:39:07 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 17:44:33 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <cstdlib>
-#include <climits>
 
 #define DEBUG   1
 #define INFO    2
