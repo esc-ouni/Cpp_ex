@@ -6,15 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 19:08:56 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 19:13:33 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-int main()
-{
+int main(){
     PhoneBook   PhoneBk;
     std::string input;
 
@@ -41,7 +40,6 @@ int main()
             std::system("clear");
     }
     PhoneBk.EXIT();
-
-    clearerr (stdin);
+    
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:22 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 19:04:46 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 19:14:02 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 # include <string>
 # include "PhoneBook.hpp"
 
-class Contact
-{
+class Contact{
     public:
         std::string  first_name;
         std::string  last_name;

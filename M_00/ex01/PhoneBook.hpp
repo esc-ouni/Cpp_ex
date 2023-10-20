@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:29 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 19:05:34 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 19:13:56 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,7 @@
 
 int indexx = 0;
 
-std::string TruncatedString(std::string info)
-{
-    if (info.length() > 10)
-    {
-        info.resize(9);
-        info.resize(10, '.');
-        return info;
-    }
-    return info;
-}
-
-
-void    PrintContacts(Contact Contacts[])
-{
-    for (int i = 0; i < 8; i++)
-    {
-        std::cout
-        << "|" 
-        << i + 1 << std::setw(WIDTH) << "|" 
-        << std::setw(WIDTH) << TruncatedString(Contacts[i].first_name) << "|" 
-        << std::setw(WIDTH) << TruncatedString(Contacts[i].last_name)  << "|" 
-        << std::setw(WIDTH) << TruncatedString(Contacts[i].nickname) << "|" 
-        << std::endl;
-    }
-}
-
-class PhoneBook
-{
+class PhoneBook{
         Contact Contacts[8];
     public:
         void ADD();
@@ -55,6 +28,8 @@ class PhoneBook
         void EXIT();
 };
 
-int   contains_only_nums(std::string string);
+int         contains_only_nums(std::string string);
+std::string TruncatedString(std::string info);
+void        PrintContacts(Contact Contacts[]);
 
 #endif
