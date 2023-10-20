@@ -13,26 +13,24 @@ Harl::~Harl(void){
 };
 
 void Harl::debug(void){
-    std::cout << "DEBUG" << std::endl;
+    std::cout << "DEBUG MSG" << std::endl;
 };
 
 void Harl::info(void){
-    std::cout << "INFO" << std::endl;
+    std::cout << "INFO MSG" << std::endl;
 };
 
 void Harl::warning(void){
-    std::cout << "WARNING" << std::endl;
+    std::cout << "WARNING MSG" << std::endl;
 };
 
 void Harl::error(void){
-    std::cout << "ERROR" << std::endl;
+    std::cout << "ERROR MSG" << std::endl;
 };
 
 void    Harl::complain(std::string level){
     int n = contains_only_nums(level);
 
-    if (n > 4 || n < 1)
-        exit_err("Not A Valid Num");
-    else
-        (this->*p[n - 1])();
+    if (n < 4 && n >= 0)
+        (this->*p[n])();
 };

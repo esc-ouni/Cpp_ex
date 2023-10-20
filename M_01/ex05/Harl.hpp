@@ -7,11 +7,6 @@
 #include <cstdlib>
 #include <climits>
 
-#define DEBUG   1
-#define INFO    2
-#define WARNING 3
-#define ERROR   4
-
 class Harl
 {
     private:
