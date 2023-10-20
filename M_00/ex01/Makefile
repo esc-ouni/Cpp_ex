@@ -1,5 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/20 17:56:17 by idouni            #+#    #+#              #
+#    Updated: 2023/10/20 17:56:20 by idouni           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-EXEC    = Fixed
+EXEC    = PhoneBook
 CC      = g++
 RM      = rm -rf
 FLAGS   = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -Wall -Wextra -Werror -g
