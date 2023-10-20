@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/20 17:39:03 by idouni            #+#    #+#             */
+/*   Updated: 2023/10/20 17:42:51 by idouni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 Harl::Harl(void)
@@ -13,28 +25,28 @@ Harl::~Harl(void){
 };
 
 void Harl::debug(void){
-    std::cout << "[ DEBUG ]" << std::endl;
-    std::cout << "..." << std::endl;
+    std::cout << "[ DEBUG ]" << std::endl
+    << "..." << std::endl;
 };
 
 void Harl::info(void){
-    std::cout << "[ INFO ]" << std::endl;
-    std::cout << "..." << std::endl;
+    std::cout << "[ INFO ]" << std::endl
+    << "..." << std::endl;
 };
 
 void Harl::warning(void){
-    std::cout << "[ WARNING ]" << std::endl;
-    std::cout << "..." << std::endl;
+    std::cout << "[ WARNING ]" << std::endl
+    << "..." << std::endl;
 };
 
 void Harl::error(void){
-    std::cout << "[ ERROR ]" << std::endl;
-    std::cout << "..." << std::endl;
+    std::cout << "[ ERROR ]" << std::endl
+    << "..." << std::endl;
 };
 
 void Harl::confusion(void){
-    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-    std::cout << "..." << std::endl;
+    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl
+    << "..." << std::endl;
 };
 
 void    Harl::complain(std::string level){
