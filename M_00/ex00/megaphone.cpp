@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/20 17:49:49 by idouni            #+#    #+#             */
+/*   Updated: 2023/10/20 17:54:28 by idouni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 
@@ -6,8 +18,10 @@ std::string Upper(char const *l_wor)
     std::string u_wor;
 
     u_wor.clear();
-    for (int i = 0; l_wor[i]; i++)
-        u_wor += std::toupper(l_wor[i]);
+    if (l_wor){
+        for (int i = 0; l_wor[i]; i++)
+            u_wor += std::toupper(l_wor[i]); 
+    }
     return (u_wor);    
 }
 
