@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/20 17:37:46 by idouni            #+#    #+#             */
+/*   Updated: 2023/10/20 17:37:47 by idouni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
 Harl::Harl(void)
@@ -13,23 +25,23 @@ Harl::~Harl(void){
 };
 
 void Harl::debug(void){
-    std::cout << "DEBUG MSG" << std::endl;
+    std::cout << "DEBUG\t'DEBUG MSG'" << std::endl;
 };
 
 void Harl::info(void){
-    std::cout << "INFO MSG" << std::endl;
+    std::cout << "INFO\t'INFO MSG'" << std::endl;
 };
 
 void Harl::warning(void){
-    std::cout << "WARNING MSG" << std::endl;
+    std::cout << "WARNING\t'WARNING MSG'" << std::endl;
 };
 
 void Harl::error(void){
-    std::cout << "ERROR MSG" << std::endl;
+    std::cout << "ERROR\t'ERROR MSG'" << std::endl;
 };
 
 void    Harl::complain(std::string level){
-    int n = contains_only_nums(level);
+    int n = _check_level(level);
 
     if (n < 4 && n >= 0)
         (this->*p[n])();

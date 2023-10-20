@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/20 17:37:53 by idouni            #+#    #+#             */
+/*   Updated: 2023/10/20 17:37:54 by idouni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef __HARL_HPP_
 #define __HARL_HPP_
 
@@ -21,7 +33,7 @@ class Harl
         void complain(std::string level);
 };
 
-void    exit_err(std::string err_msg);
-int     contains_only_nums(std::string string);
+void    _err(std::string err_msg);
+int     _check_level(std::string string);
 
 #endif
