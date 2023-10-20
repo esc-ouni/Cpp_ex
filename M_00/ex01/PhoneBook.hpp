@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:29 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 19:13:56 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 19:14:38 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string>
 # include "Contact.hpp"
 
-int indexx = 0;
+static int indexx = 0;
 
 class PhoneBook{
         Contact Contacts[8];

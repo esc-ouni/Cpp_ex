@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 19:13:46 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/20 19:18:11 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,15 @@ void PhoneBook::SEARCH(){
     std::getline(std::cin, input);
     if (std::cin.eof())
         std::exit(0);
-
-
     num = contains_only_nums(input);
-    if (num <= 7 && num >= 0)
+    if (num <= 8 && num > 0)
     {
-        std::cout << "The Contact " << num+1 << " Full Infos :" << std::endl
-        << "-" << Contacts[num].first_name << std::endl
-        << "-" << Contacts[num].last_name << std::endl
-        << "-" << Contacts[num].nickname << std::endl
-        << "-" << Contacts[num].phone_number << std::endl
-        << "-" << Contacts[num].darkest_secret << std::endl;
+        std::cout << "The Contact " << num << " Full Infos :" << std::endl
+        << "-" << Contacts[num - 1].first_name << std::endl
+        << "-" << Contacts[num - 1].last_name << std::endl
+        << "-" << Contacts[num - 1].nickname << std::endl
+        << "-" << Contacts[num - 1].phone_number << std::endl
+        << "-" << Contacts[num - 1].darkest_secret << std::endl;
     }
     else
         SEARCH();
