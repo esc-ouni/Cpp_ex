@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/21 11:01:34 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/21 11:03:18 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void PhoneBook::ADD(){
     std::getline(std::cin, Contacts[indexx].last_name);    
     std::cout << "Enter Contact's nickname       : ";
     std::getline(std::cin, Contacts[indexx].nickname);
-    end:
+    get_num:
     std::cout << "Enter Contact's phone_number   : ";
     std::getline(std::cin, Contacts[indexx].phone_number);
     if (contains_only_nums(Contacts[indexx].phone_number) == -1){
         std::cout << "==> NOT A VALID PHONE NUMBER!" << std::endl;
-        goto end;
+        goto get_num;
     }
     std::cout << "Enter Contact's darkest_secret : ";
     std::getline(std::cin, Contacts[indexx].darkest_secret);
