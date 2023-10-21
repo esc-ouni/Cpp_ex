@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:29 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 19:14:38 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/21 10:50:33 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class PhoneBook{
         void EXIT();
 };
 
-int         contains_only_nums(std::string string);
+long int    contains_only_nums(std::string string);
 std::string TruncatedString(std::string info);
 void        PrintContacts(Contact Contacts[]);
 

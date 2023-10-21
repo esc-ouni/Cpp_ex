@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 19:18:11 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/21 11:01:34 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ void PhoneBook::ADD(){
     std::getline(std::cin, Contacts[indexx].last_name);    
     std::cout << "Enter Contact's nickname       : ";
     std::getline(std::cin, Contacts[indexx].nickname);
+    end:
     std::cout << "Enter Contact's phone_number   : ";
     std::getline(std::cin, Contacts[indexx].phone_number);
+    if (contains_only_nums(Contacts[indexx].phone_number) == -1){
+        std::cout << "==> NOT A VALID PHONE NUMBER!" << std::endl;
+        goto end;
+    }
     std::cout << "Enter Contact's darkest_secret : ";
     std::getline(std::cin, Contacts[indexx].darkest_secret);
     if (indexx == 7)
@@ -59,11 +64,11 @@ void PhoneBook::SEARCH(){
     if (num <= 8 && num > 0)
     {
         std::cout << "The Contact " << num << " Full Infos :" << std::endl
-        << "-" << Contacts[num - 1].first_name << std::endl
-        << "-" << Contacts[num - 1].last_name << std::endl
-        << "-" << Contacts[num - 1].nickname << std::endl
-        << "-" << Contacts[num - 1].phone_number << std::endl
-        << "-" << Contacts[num - 1].darkest_secret << std::endl;
+        << "- " << Contacts[num - 1].first_name << std::endl
+        << "- " << Contacts[num - 1].last_name << std::endl
+        << "- " << Contacts[num - 1].nickname << std::endl
+        << "- " << Contacts[num - 1].phone_number << std::endl
+        << "- " << Contacts[num - 1].darkest_secret << std::endl;
     }
     else
         SEARCH();
@@ -92,14 +97,14 @@ void    PrintContacts(Contact Contacts[]){
     }
 };
 
-int   contains_only_nums(std::string string){
+long int contains_only_nums(std::string string){
     if (string.empty())
-        return (42);
+        return (-1);
     for (size_t i = 0; i < string.length(); i++){
         if (string.c_str()[0] == '+')
             continue ;
-        if (!isdigit(string.c_str()[i]) || i == 4)
-            return (42);
+        if (!isdigit(string.c_str()[i]) || i == 15)
+            return (-1);
     }
-    return (std::atoi(string.c_str()));
+    return (std::atol(string.c_str()));
 };
