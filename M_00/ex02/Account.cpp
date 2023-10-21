@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:22:10 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/21 15:46:49 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/21 17:49:59 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	Account::getTotalAmount( void ){
 
 Account::Account( void ){
     _displayTimestamp();
+    std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
     this->_accountIndex = _nbAccounts;
     this->_amount = 0;
     this->_nbDeposits = 0;
     this->_nbWithdrawals = 0;
-    std::cout << "index:" << this->_accountIndex << ";amount:" << this->_amount << ";created" << std::endl;
     this->_nbAccounts++;
 };
 
@@ -69,9 +69,9 @@ void	Account::makeDeposit( int deposit ){
     _displayTimestamp();
     this->_amount += deposit;
     this->_totalAmount += deposit;
+    this->_nbDeposits++;
     this->_totalNbDeposits++;
     std::cout << "index:" << this->_accountIndex << ";p_amount:" << this->_amount << ";deposit:" << deposit << ";amount:" << this->_amount << ";nb_deposits:" << this->_nbDeposits << std::endl;
-    this->_nbDeposits++;
 };
 
 bool	Account::makeWithdrawal( int withdrawal ){
@@ -81,8 +81,9 @@ bool	Account::makeWithdrawal( int withdrawal ){
         return (false);
     }
     this->_amount -= withdrawal;
-    this->_nbWithdrawals++;
     this->_totalAmount -= withdrawal;
+    this->_nbWithdrawals++;
+    this->_totalNbWithdrawals++;
     std::cout << "index:" << this->_accountIndex << ";p_amount:" << this->_amount << ";withdrawal:" << withdrawal << ";amount:" << this->_amount << ";nb_withdrawals:" << this->_nbWithdrawals << std::endl;
     return (true);
 };
