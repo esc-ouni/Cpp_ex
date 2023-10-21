@@ -6,14 +6,14 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/21 11:22:05 by idouni            #+#    #+#              #
-#    Updated: 2023/10/21 11:56:26 by idouni           ###   ########.fr        #
+#    Updated: 2023/10/21 13:53:12 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXEC    = Fixed
+EXEC    = GlobalBanksters
 CC      = g++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
+FLAGS   = #-std=c++98 -Wall -Wextra -Werror #-fsanitize=address -g
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)
@@ -23,6 +23,7 @@ all: $(EXEC)
 $(EXEC): $(OBJS) $(H_FILES)
 	@$(CC) $(FLAGS) $(OBJS) -o $(EXEC)
 	@clear && echo "==$(EXEC)_compiled==========="
+	./$(EXEC) > file
 
 
 %.o: %.cpp $(H_FILES)
