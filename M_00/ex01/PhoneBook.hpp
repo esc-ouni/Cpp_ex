@@ -17,7 +17,7 @@
 # include <iostream>
 # include <string>
 # include "Contact.hpp"
-# include "PhoneBook.hpp"
+#include "PhoneBook.hpp"
 
 static int indexx = 0;
 
@@ -32,5 +32,6 @@ class PhoneBook{
 long int    contains_only_nums(std::string string);
 std::string TruncatedString(std::string info);
 void        PrintContacts(Contact Contacts[]);
+bool        check_if_valid(std::string input);
 
 #endif

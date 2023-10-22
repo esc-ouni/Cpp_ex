@@ -16,7 +16,8 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
-# include "PhoneBook.hpp"
+# include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 class Contact{
         std::string  first_name;

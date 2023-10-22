@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "Contact.hpp"
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 void PhoneBook::ADD(){
     std::string input;
@@ -19,20 +19,34 @@ void PhoneBook::ADD(){
     input.clear();
     std::system("clear");
     std::cout << "==> Creating A Contact ..." << std::endl;
+    get_fname:   
     std::cout << "Enter Contact's first_name     : ";
     std::getline(std::cin, input);
+    if (!check_if_valid(input)){
+        std::cout << "==> NOT A VALID ENTRY!" << std::endl;
+        goto get_fname;
+    }
     Contacts[indexx].set_first_name(input);
     input.clear();
 
     
+    get_lname:   
     std::cout << "Enter Contact's last_name      : ";
     std::getline(std::cin, input);
+    if (!check_if_valid(input)){
+        std::cout << "==> NOT A VALID ENTRY!" << std::endl;
+        goto get_lname;
+    }
     Contacts[indexx].set_last_name(input);
     input.clear();
     
-        
+    get_nick:  
     std::cout << "Enter Contact's nickname       : ";
     std::getline(std::cin, input);
+    if (!check_if_valid(input)){
+        std::cout << "==> NOT A VALID ENTRY!" << std::endl;
+        goto get_nick;
+    }
     Contacts[indexx].set_nickname(input);
     input.clear();
     
@@ -48,8 +62,13 @@ void PhoneBook::ADD(){
     input.clear();
 
     
+    get_darks:
     std::cout << "Enter Contact's darkest_secret : ";
     std::getline(std::cin, input);
+    if (!check_if_valid(input)){
+        std::cout << "==> NOT A VALID ENTRY!" << std::endl;
+        goto get_darks;
+    }
     Contacts[indexx].set_darkest_secret(input);
     input.clear();
 
@@ -69,6 +88,7 @@ void PhoneBook::EXIT(){
 void PhoneBook::SEARCH(){
     int         num;
     std::string input;
+
 
     input.clear();
     std::system("clear");
