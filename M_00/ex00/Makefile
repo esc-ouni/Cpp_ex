@@ -6,12 +6,12 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 17:47:18 by idouni            #+#    #+#              #
-#    Updated: 2023/10/20 17:55:39 by idouni           ###   ########.fr        #
+#    Updated: 2023/10/22 11:52:01 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXEC    = megaphone
-CC      = g++
+CC      = c++
 RM      = rm -rf
 FLAGS   = -std=c++98 -Wall -Wextra -Werror
 H_FILES = ${shell ls *.hpp}
