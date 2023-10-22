@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/21 10:58:11 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/22 13:07:49 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(){
     std::cout << "==> Welcome To The PhoneBook" << std::endl;
     while (true)
     {
+        input.clear();
         std::cout << "Enter A Command : " ;
         std::getline(std::cin, input);
         if (std::cin.eof())
