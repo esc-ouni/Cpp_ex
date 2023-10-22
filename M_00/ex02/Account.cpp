@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:22:10 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/22 12:05:20 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/22 13:01:54 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,5 +128,9 @@ void	Account::displayStatus( void ) const{
 };
 
 void	Account::_displayTimestamp( void ){
+    time_t      current_time = time(NULL);
+    char        timestamp[20];
 
+    strftime(timestamp, 20, "[%Y%m%d_%H%M%S] ", localtime(&current_time));
+    std::cout << timestamp;
 };
