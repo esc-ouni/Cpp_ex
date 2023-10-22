@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/22 15:40:11 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/22 18:24:32 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ void PhoneBook::ADD(){
     get_fname:   
     std::cout << "Enter Contact's first_name     : ";
     std::getline(std::cin, input);
+    if (std::cin.eof()){
+        PhoneBook::EXIT();
+    }
     if (!check_if_valid(input)){
+        input.clear();
         std::cout << "==> NOT A VALID ENTRY!" << std::endl;
         goto get_fname;
     }
@@ -30,47 +34,51 @@ void PhoneBook::ADD(){
     input.clear();
 
     
-    get_lname:   
-    std::cout << "Enter Contact's last_name      : ";
-    std::getline(std::cin, input);
-    if (!check_if_valid(input)){
-        std::cout << "==> NOT A VALID ENTRY!" << std::endl;
-        goto get_lname;
-    }
-    Contacts[indexx].set_last_name(input);
-    input.clear();
+    // get_lname:   
+    // std::cout << "Enter Contact's last_name      : ";
+    // std::getline(std::cin, input);
+    // if (!check_if_valid(input) || std::cin.eof()){
+    //     input.clear();
+    //     std::cout << "==> NOT A VALID ENTRY!" << std::endl;
+    //     goto get_lname;
+    // }
+    // Contacts[indexx].set_last_name(input);
+    // input.clear();
     
-    get_nick:  
-    std::cout << "Enter Contact's nickname       : ";
-    std::getline(std::cin, input);
-    if (!check_if_valid(input)){
-        std::cout << "==> NOT A VALID ENTRY!" << std::endl;
-        goto get_nick;
-    }
-    Contacts[indexx].set_nickname(input);
-    input.clear();
+    // get_nick:  
+    // std::cout << "Enter Contact's nickname       : ";
+    // std::getline(std::cin, input);
+    // if (!check_if_valid(input) || std::cin.eof()){
+    //     input.clear();
+    //     std::cout << "==> NOT A VALID ENTRY!" << std::endl;
+    //     goto get_nick;
+    // }
+    // Contacts[indexx].set_nickname(input);
+    // input.clear();
     
     
-    get_num:
-    std::cout << "Enter Contact's phone_number   : ";
-    std::getline(std::cin, input);
-    if (contains_only_nums(input) == -1){
-        std::cout << "==> NOT A VALID PHONE NUMBER!" << std::endl;
-        goto get_num;
-    }
-    Contacts[indexx].set_phone_number(input);
-    input.clear();
+    // get_num:
+    // std::cout << "Enter Contact's phone_number   : ";
+    // std::getline(std::cin, input);
+    // if (contains_only_nums(input) == -1  || std::cin.eof()){
+    //     input.clear();
+    //     std::cout << "==> NOT A VALID PHONE NUMBER!" << std::endl;
+    //     goto get_num;
+    // }
+    // Contacts[indexx].set_phone_number(input);
+    // input.clear();
 
     
-    get_darks:
-    std::cout << "Enter Contact's darkest_secret : ";
-    std::getline(std::cin, input);
-    if (!check_if_valid(input)){
-        std::cout << "==> NOT A VALID ENTRY!" << std::endl;
-        goto get_darks;
-    }
-    Contacts[indexx].set_darkest_secret(input);
-    input.clear();
+    // get_darks:
+    // std::cout << "Enter Contact's darkest_secret : ";
+    // std::getline(std::cin, input);
+    // if (!check_if_valid(input) || std::cin.eof()){
+    //     input.clear();
+    //     std::cout << "==> NOT A VALID ENTRY!" << std::endl;
+    //     goto get_darks;
+    // }
+    // Contacts[indexx].set_darkest_secret(input);
+    // input.clear();
 
     
     if (indexx == 7)
@@ -104,8 +112,7 @@ void PhoneBook::SEARCH(){
     if (std::cin.eof())
         std::exit(0);
     num = contains_only_nums(input);
-    if (num <= indexx && num > 0)
-    {
+    if (num <= indexx && num > 0){
         std::cout << "The Contact " << num << " Full Infos :" << std::endl
         << "- " << Contacts[num - 1].get_first_name() << std::endl
         << "- " << Contacts[num - 1].get_last_name() << std::endl
@@ -118,8 +125,7 @@ void PhoneBook::SEARCH(){
 };
 
 std::string TruncatedString(std::string info){
-    if (info.length() > 10)
-    {
+    if (info.length() > 10){
         info.resize(9);
         info.resize(10, '.');
         return info;
@@ -128,8 +134,7 @@ std::string TruncatedString(std::string info){
 };
 
 void    PrintContacts(Contact Contacts[]){
-    for (int i = 0; i < 8; i++)
-    {
+    for (int i = 0; i < 8; i++){
         std::cout
         << "|" 
         << i + 1 << std::setw(WIDTH) << "|" 
@@ -157,7 +162,7 @@ bool check_if_valid(std::string input){
     if (input.empty())
         return (false);
     for (size_t i = 0; i < input.length(); i++)
-        if (isprint(input.c_str()[i]))
+        if (isprint(input.c_str()[i]) && !isspace(input.c_str()[i]))
             return (true);
     return (false);
 };

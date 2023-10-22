@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/22 13:07:49 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/22 17:59:41 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int main(){
 
     std::system("clear");
     std::cout << "==> Welcome To The PhoneBook" << std::endl;
-    while (true)
-    {
+    while (true){
         input.clear();
         std::cout << "Enter A Command : " ;
         std::getline(std::cin, input);
@@ -32,13 +31,10 @@ int main(){
             PhoneBk.ADD();
         else if (!input.compare("SEARCH"))
             PhoneBk.SEARCH();
-        else if (!input.empty())
-        {
+        else if (!input.empty()){
             std::system("clear");
             std::cout << "==> NOT A VALID COMMAND!" << std::endl;
         }
-        else
-            std::system("clear");
     }
     PhoneBk.EXIT();
     
