@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/21 11:03:18 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/22 11:34:03 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,46 @@
 #include "Contact.hpp"
 
 void PhoneBook::ADD(){
+    std::string input;
+    
+    input.clear();
     std::system("clear");
     std::cout << "==> Creating A Contact ..." << std::endl;
     std::cout << "Enter Contact's first_name     : ";
-    std::getline(std::cin, Contacts[indexx].first_name);
+    std::getline(std::cin, input);
+    Contacts[indexx].set_first_name(input);
+    input.clear();
+
+    
     std::cout << "Enter Contact's last_name      : ";
-    std::getline(std::cin, Contacts[indexx].last_name);    
+    std::getline(std::cin, input);
+    Contacts[indexx].set_last_name(input);
+    input.clear();
+    
+        
     std::cout << "Enter Contact's nickname       : ";
-    std::getline(std::cin, Contacts[indexx].nickname);
+    std::getline(std::cin, input);
+    Contacts[indexx].set_nickname(input);
+    input.clear();
+    
+    
     get_num:
     std::cout << "Enter Contact's phone_number   : ";
-    std::getline(std::cin, Contacts[indexx].phone_number);
-    if (contains_only_nums(Contacts[indexx].phone_number) == -1){
+    std::getline(std::cin, input);
+    if (contains_only_nums(input) == -1){
         std::cout << "==> NOT A VALID PHONE NUMBER!" << std::endl;
         goto get_num;
     }
+    Contacts[indexx].set_phone_number(input);
+    input.clear();
+
+    
     std::cout << "Enter Contact's darkest_secret : ";
-    std::getline(std::cin, Contacts[indexx].darkest_secret);
+    std::getline(std::cin, input);
+    Contacts[indexx].set_darkest_secret(input);
+    input.clear();
+
+    
     if (indexx == 7)
         return ;
     else
@@ -107,4 +130,14 @@ long int contains_only_nums(std::string string){
             return (-1);
     }
     return (std::atol(string.c_str()));
+};
+
+
+bool check_if_valid(std::string input){
+    if (input.empty())
+        return (false);
+    for (size_t i = 0; i < input.length(); i++)
+        if (isprint(input.c_str()[i]))
+            return (true);
+    return (false);
 };

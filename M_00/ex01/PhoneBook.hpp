@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:29 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/21 10:50:33 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/22 11:28:35 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <string>
 # include "Contact.hpp"
+# include "PhoneBook.hpp"
 
 static int indexx = 0;
 
