@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/22 11:34:03 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/22 11:38:26 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,11 @@ void PhoneBook::SEARCH(){
     if (num <= 8 && num > 0)
     {
         std::cout << "The Contact " << num << " Full Infos :" << std::endl
-        << "- " << Contacts[num - 1].first_name << std::endl
-        << "- " << Contacts[num - 1].last_name << std::endl
-        << "- " << Contacts[num - 1].nickname << std::endl
-        << "- " << Contacts[num - 1].phone_number << std::endl
-        << "- " << Contacts[num - 1].darkest_secret << std::endl;
+        << "- " << Contacts[num - 1].get_first_name() << std::endl
+        << "- " << Contacts[num - 1].get_last_name() << std::endl
+        << "- " << Contacts[num - 1].get_nickname() << std::endl
+        << "- " << Contacts[num - 1].get_phone_number() << std::endl
+        << "- " << Contacts[num - 1].get_darkest_secret() << std::endl;
     }
     else
         SEARCH();
@@ -113,9 +113,9 @@ void    PrintContacts(Contact Contacts[]){
         std::cout
         << "|" 
         << i + 1 << std::setw(WIDTH) << "|" 
-        << std::setw(WIDTH) << TruncatedString(Contacts[i].first_name) << "|" 
-        << std::setw(WIDTH) << TruncatedString(Contacts[i].last_name)  << "|" 
-        << std::setw(WIDTH) << TruncatedString(Contacts[i].nickname) << "|" 
+        << std::setw(WIDTH) << TruncatedString(Contacts[i].get_first_name()) << "|" 
+        << std::setw(WIDTH) << TruncatedString(Contacts[i].get_last_name())  << "|" 
+        << std::setw(WIDTH) << TruncatedString(Contacts[i].get_nickname()) << "|" 
         << std::endl;
     }
 };
