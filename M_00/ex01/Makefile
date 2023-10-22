@@ -6,14 +6,14 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 17:56:17 by idouni            #+#    #+#              #
-#    Updated: 2023/10/22 11:52:01 by idouni           ###   ########.fr        #
+#    Updated: 2023/10/22 11:56:27 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXEC    = PhoneBook
 CC      = c++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
+FLAGS   = -std=c++98 -Wall -Wextra -Werror
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)
