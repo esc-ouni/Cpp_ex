@@ -6,12 +6,12 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 17:39:15 by idouni            #+#    #+#              #
-#    Updated: 2023/10/20 17:41:14 by idouni           ###   ########.fr        #
+#    Updated: 2023/10/22 19:04:05 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXEC    = harlFilter
-CC      = g++
+CC      = c++
 RM      = rm -rf
 FLAGS   = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
 H_FILES = ${shell ls *.hpp}

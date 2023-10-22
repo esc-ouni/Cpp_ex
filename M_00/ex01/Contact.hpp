@@ -6,11 +6,9 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:22 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/22 11:52:01 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/22 19:01:52 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#pragma once
 
 #ifndef __CONTACT_
 # define __CONTACT_
