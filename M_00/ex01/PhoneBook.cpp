@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/22 11:55:00 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/22 15:40:11 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void PhoneBook::ADD(){
 
     
     if (indexx == 7)
-        return ;
+        indexx = 0;
     else
         indexx++;
     std::system("clear");
