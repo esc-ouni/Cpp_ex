@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:06:24 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/22 19:15:14 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/24 14:15:37 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <string>
 
 class ClapTrap{
-        std::string  Name;
-        int          Hit_Points;
-        int          Energy_Points;
-        int          Attack_Damage;
+        std::string     Name;
+        unsigned int    Hit_Points;
+        unsigned int    Energy_Points;
+        unsigned int    Attack_Damage;
     public:
         ClapTrap();
         ClapTrap(std::string name);

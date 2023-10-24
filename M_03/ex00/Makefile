@@ -6,14 +6,14 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 11:19:01 by idouni            #+#    #+#              #
-#    Updated: 2023/10/22 19:04:05 by idouni           ###   ########.fr        #
+#    Updated: 2023/10/24 13:57:47 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXEC    = Serena
+EXEC    = ClapTrap
 CC      = c++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror #-fsanitize=address -Wall -Wextra -Werror -g
+FLAGS   = -std=c++98 -Wall -Wextra -Werror -fsanitize=address -g
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)
