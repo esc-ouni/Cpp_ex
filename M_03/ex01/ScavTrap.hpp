@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:43:22 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/24 14:44:24 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/24 17:17:34 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include <iostream>
 # include <string>
 
-Class Sc
+class ScavTrap
+{
+};
 
 
 
