@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:06:16 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/24 17:31:30 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/24 17:47:08 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ClapTrap::~ClapTrap(){
 };
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &r_inst){
-    this->Name = r_inst.Name;
+    this->Name = r_inst.Name + "_copy";
     this->Hit_Points = r_inst.Hit_Points;
     this->Energy_Points = r_inst.Energy_Points;
     this->Attack_Damage = r_inst.Attack_Damage;
