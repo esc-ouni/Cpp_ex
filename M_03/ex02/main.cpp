@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:46:46 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 20:33:49 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/25 21:19:13 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int main()
     scav.attack("clap");
     scav.attack("clap");
     scav.attack("clap");
+    frag.attack("scav");
+    scav.takeDamage(30);
+    scav.attack("frag");
+    frag.takeDamage(20);
     clap.takeDamage(100);
     clap.attack("scav");
     clap.beRepaired(5);

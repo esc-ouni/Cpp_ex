@@ -6,11 +6,45 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:27:16 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 20:32:28 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/25 21:17:50 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap(std::string Name): ClapTrap(Name){
+    this->Name = Name;
+    this->Hit_Points = 100;
+    this->Energy_Points = 50;
+    this->Attack_Damage = 20;
+    std::cout << "FragTrap " << this->Name << "\tconstructor called (in FragTrap way)" << std::endl;
+};
+
+FragTrap::FragTrap(FragTrap const &r_inst): ClapTrap(r_inst){
+    *this = r_inst;
+};
+
+FragTrap::~FragTrap(){
+    std::cout << "FragTrap " << this->Name << "\tdestructor called (in FragTrap way)" << std::endl;
+};
+
+FragTrap &FragTrap::operator=(FragTrap const &r_inst){
+    this->Name = r_inst.Name + "_copy";
+    this->Hit_Points = r_inst.Hit_Points;
+    this->Energy_Points = r_inst.Energy_Points;
+    this->Attack_Damage = r_inst.Attack_Damage;
+    return (*this);
+};
+
+void FragTrap::attack(std::string const &target){
+    if (this->Energy_Points > 0 && this->Hit_Points)
+        this->Energy_Points -= 1;
+    else {
+        std::cout << "FragTrap " << this->Name << "\tdoesn't have requirement to get attack (in FragTrap way)!" << std::endl;
+        return ;   
+    }
+    std::cout << "FragTrap " << this->Name << "\tattacks " << target << ", causing " << this->Attack_Damage << " points of damage (in FragTrap way)!" << std::endl;
+};
 
 void FragTrap::highFivesGuys(void){
     std::cout << "FragTrap " << this->Name << "\tis requesting a positive high five" << std::endl;
