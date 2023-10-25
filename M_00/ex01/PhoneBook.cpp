@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:56:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/22 18:39:18 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/25 21:29:34 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,13 +118,14 @@ void PhoneBook::SEARCH(){
     if (std::cin.eof())
         std::exit(0);
     num = contains_only_nums(input);
-    if (num <= indexx && num > 0){
+    if (num <= 8 && num > 0){
         std::cout << "The Contact " << num << " Full Infos :" << std::endl
         << "- " << Contacts[num - 1].get_first_name() << std::endl
         << "- " << Contacts[num - 1].get_last_name() << std::endl
         << "- " << Contacts[num - 1].get_nickname() << std::endl
         << "- " << Contacts[num - 1].get_phone_number() << std::endl
-        << "- " << Contacts[num - 1].get_darkest_secret() << std::endl;
+        << "- " << Contacts[num - 1].get_darkest_secret() << std::endl 
+        << std::endl;
     }
     else
         SEARCH();
