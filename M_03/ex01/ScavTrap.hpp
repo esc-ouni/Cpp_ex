@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:43:22 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 19:27:51 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/25 20:51:26 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@
 
 class ScavTrap : public ClapTrap{
     public:
-        ScavTrap(std::string Name): ClapTrap(Name){
-            this->Name = Name;
-            this->Hit_Points = 100;
-            this->Energy_Points = 50;
-            this->Attack_Damage = 20;
-            std::cout << "Scavtrap " << this->Name << "\tconstructor called" << std::endl;
-        };
+        ScavTrap(std::string name);
+        ScavTrap(ScavTrap const &obj);
+        ~ScavTrap();
+        ScavTrap &operator=(ScavTrap const &obj);
+        
+        void attack(std::string const &target);
         void guardGate();
 };
 
