@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:43:18 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 20:57:59 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/25 21:05:10 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void ScavTrap::attack(std::string const &target){
     if (this->Energy_Points > 0 && this->Hit_Points)
         this->Energy_Points -= 1;
     else {
-        std::cout << "ScavTrap " << this->Name << "\tdoesn't have requirement to get attack ! (in ScavTrap way)" << std::endl;
+        std::cout << "ScavTrap " << this->Name << "\tdoesn't have requirement to get attack (in ScavTrap way)!" << std::endl;
         return ;   
     }
-    std::cout << "ScavTrap " << this->Name << "\tattacks " << target << ", causing " << this->Attack_Damage << " points of damage! (in ScavTrap way)" << std::endl;
+    std::cout << "ScavTrap " << this->Name << "\tattacks " << target << ", causing " << this->Attack_Damage << " points of damage (in ScavTrap way)!" << std::endl;
 };
 
 void ScavTrap::guardGate(){
-    std::cout << "ScavTrap " << this->Name << "\tis now in Gate keeper mode (in ScavTrap way)" << std::endl;
+    std::cout << "ScavTrap " << this->Name << "\tis now in Gate keeper mode" << std::endl;
 };
