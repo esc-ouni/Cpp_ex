@@ -6,13 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:46:46 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 21:19:13 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/27 15:56:37 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
@@ -21,6 +22,8 @@ int main()
     ScavTrap scav("scav");
     
     FragTrap frag("frag");
+
+    DiamondTrap diamond("diamond");
 
     scav.attack("clap");
     scav.attack("clap");
