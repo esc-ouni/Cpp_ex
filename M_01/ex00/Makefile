@@ -6,14 +6,14 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 13:43:19 by idouni            #+#    #+#              #
-#    Updated: 2023/10/22 19:04:05 by idouni           ###   ########.fr        #
+#    Updated: 2023/10/27 17:10:11 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXEC    = Zombie
 CC      = c++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror #-g -fsanitize=address -g
+FLAGS   = -std=c++98 -Wall -Wextra -Werror
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)

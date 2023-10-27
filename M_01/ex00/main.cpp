@@ -6,17 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:43:14 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/27 17:08:53 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/27 17:10:40 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void leak(){std::system("leaks Zombie | grep \" leaks \" | awk \'{print \" ==> \" $4\" \"$3}\'");}
-
 int main()
 {
-    atexit(leak);
     Zombie *a_Zombie;
     Zombie *b_Zombie;
     Zombie Zombiee("KOLLS");
