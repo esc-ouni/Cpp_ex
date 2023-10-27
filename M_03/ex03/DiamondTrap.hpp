@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:24:00 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 21:24:41 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/27 15:52:54 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,16 @@
 # include "FragTrap.hpp"
 # include <iostream>
 
-
-
-
+class DiamondTrap : public ScavTrap, public FragTrap{
+    private:
+        std::string _name;
+    public:
+        DiamondTrap(std::string name);
+        DiamondTrap(DiamondTrap const &r_inst);
+        ~DiamondTrap();
+        DiamondTrap &operator=(DiamondTrap const &r_inst);
+        
+        void whoAmI();
+};
 
 #endif
