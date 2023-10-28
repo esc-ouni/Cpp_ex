@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:43:14 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/28 18:39:20 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/28 18:45:20 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main()
 
     a_Zombie = newZombie("NULL");
 
+    randomChump("VOLLS");
     Zombiea.announce();
     Zombiee.announce();
-    randomChump("VOLLS");
     if (!a_Zombie)
         std::cout << "Error: Can't create a Zombie" << std::endl;
     else{
