@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:43:14 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/27 17:10:40 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/28 18:39:20 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 int main()
 {
     Zombie *a_Zombie;
-    Zombie *b_Zombie;
     Zombie Zombiee("KOLLS");
     Zombie Zombiea("HOLLS");
 
     a_Zombie = newZombie("NULL");
-    b_Zombie = newZombie("BOLLS");
 
     Zombiea.announce();
     Zombiee.announce();
-    a_Zombie->announce();
-    b_Zombie->announce();
-
-    delete a_Zombie;
-    delete b_Zombie;
+    randomChump("VOLLS");
+    if (!a_Zombie)
+        std::cout << "Error: Can't create a Zombie" << std::endl;
+    else{
+        a_Zombie->announce();
+        delete a_Zombie;
+    }
 }
