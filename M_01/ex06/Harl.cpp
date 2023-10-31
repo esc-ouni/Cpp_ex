@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:39:03 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 17:43:54 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/31 14:34:21 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,8 @@ void    Harl::complain(std::string level){
     }
 };
 
-void __init(int argc, char *argv[]){
-    std::string holder;
-
+void __init(int argc){
     if (argc == 2){
-        holder = argv[1];
-        if (holder.empty())
-            exit_err("Parse part");
-        holder.clear();
         return ;
         }
     exit_err("Parse part");
@@ -91,21 +85,14 @@ void exit_err(std::string err_msg){
 
 int   filter(std::string string){
     if (string.empty())
-        exit_err("Not A Valid Argument");
-    else if (!string.compare(0, 6, "DEBUG")){
-        return (DEBUG);
-    }
-    else if (!string.compare(0, 5, "INFO")){
-        return (INFO);
-    }
-    else if (!string.compare(0, 8, "WARNING")){
-        return (WARNING);
-    }
-    else if (!string.compare(0, 6, "ERROR")){
-        return (ERROR);
-    }
-    else {
         return (42);
-    }
+        
+	std::string msg[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	
+	for (int i = 0; i < 4; i++){
+		if (msg[i] == string){
+			return (i);
+        }
+	}
     return (42);
 }

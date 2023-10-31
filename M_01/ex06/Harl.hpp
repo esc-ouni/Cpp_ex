@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:39:06 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/20 17:44:33 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/31 14:34:12 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ class Harl
 
 void    exit_err(std::string err_msg);
 int     filter(std::string string);
-void    __init(int argc, char *argv[]);
+void    __init(int argc);
 
 #endif
