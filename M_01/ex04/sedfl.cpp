@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:08:06 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/22 18:29:06 by idouni           ###   ########.fr       */
+/*   Updated: 2023/10/31 14:23:04 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void do_what_sed_does(std::ifstream &infile, std::ofstream &outfile, std::string
         {
             line.erase(pos, needle.length());
             line.insert(pos, tobe_add);
-            pos = line.find(needle);
+            pos = line.find(needle , pos + needle.length());
         }
         outfile << line << std::endl;
         line.clear();
@@ -54,7 +54,7 @@ void do_what_sed_does(std::ifstream &infile, std::ofstream &outfile, std::string
     {
         line.erase(pos, needle.length());
         line.insert(pos, tobe_add);
-        pos = line.find(needle);
+        pos = line.find(needle, pos + needle.length());
     }
     outfile << line;
     infile.close();
