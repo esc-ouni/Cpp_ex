@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:18:27 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 11:18:35 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/02 14:57:06 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main( void ) {
     Fixed a;
-    Fixed const b( 10 );
+    Fixed const b( 83886071 );
     Fixed const c( 42.42f );
     Fixed const d( b );
 
