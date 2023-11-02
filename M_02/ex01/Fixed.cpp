@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:18:12 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 11:18:13 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/02 14:55:14 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ Fixed::Fixed(Fixed const &r_inst){
 
 Fixed::Fixed(const int num_to_convert){
     std::cout << "Int constructor called" << std::endl;
-    if (num_to_convert <= 8388607 && num_to_convert >= -8388608){
-        this->fixed_point = num_to_convert << 8;
-    }
+    this->fixed_point = num_to_convert << 8;
+    if (num_to_convert <= 8388607 && num_to_convert >= -8388608)
+        return ;
     else
-        std::cout << "Num to convert out of range" << std::endl;
+        std::cout << "Num to convert wouldn't get represented right" << std::endl;
 };
 
 Fixed::Fixed(const float num_to_convert){
     std::cout << "Float constructor called" << std::endl;
-    if (num_to_convert <= 8388607 && num_to_convert >= -8388608){
-        this->fixed_point = std::roundf(num_to_convert * 256);
-    }
+    this->fixed_point = std::roundf(num_to_convert * 256);
+    if (num_to_convert <= 8388607 && num_to_convert >= -8388608)
+        return ;
     else
-        std::cout << "Num to convert out of range" << std::endl;
+        std::cout << "Num to convert wouldn't get represented right" << std::endl;
 };
 
 Fixed &Fixed::operator=(Fixed const &r_inst){

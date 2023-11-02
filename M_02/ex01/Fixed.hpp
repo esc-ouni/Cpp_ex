@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:18:19 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/19 13:22:33 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/02 14:50:49 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Fixed
         Fixed &operator=(Fixed const &r_inst);
         int   getRawBits(void) const;
         void  setRawBits(int const raw);
-        float toFloat( void ) const;
-        int   toInt( void ) const;
+        float toFloat(void) const;
+        int   toInt(void) const;
 
         ~Fixed(void);
 };
