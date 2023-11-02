@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:18:12 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/02 15:00:52 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/02 15:05:54 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,10 @@ std::ostream &operator<<(std::ostream &cout, Fixed const &r_inst){
 };
 
 int Fixed::getRawBits(void) const{
-    std::cout << "getRawBits member function called" << std::endl;
     return (this->fixed_point);
 };
 
 void Fixed::setRawBits(int const raw){
-    std::cout << "setRawBits member function called" << std::endl;
     this->fixed_point = raw;
 };
 
