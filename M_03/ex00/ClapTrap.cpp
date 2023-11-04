@@ -6,11 +6,19 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:06:16 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 19:27:08 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/04 16:40:43 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap(){
+    this->Name = "Whitout";
+    this->Hit_Points = 10;
+    this->Energy_Points = 10;
+    this->Attack_Damage = 0;
+    std::cout << "ClapTrap " << this->Name << "\tDefault constructor called" << std::endl;
+};
 
 ClapTrap::ClapTrap(std::string Name){
     this->Name = Name;

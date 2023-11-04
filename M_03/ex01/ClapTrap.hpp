@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:06:24 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 21:01:57 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/04 16:38:46 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ClapTrap{
         unsigned int    Energy_Points;
         unsigned int    Attack_Damage;
     public:
+        ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(ClapTrap const &obj);
         ~ClapTrap();
