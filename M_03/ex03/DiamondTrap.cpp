@@ -6,19 +6,23 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:23:49 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 15:13:16 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 16:56:41 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(){
-    this->_name = "Without_clap_name";
+    this->Name = "Without_clap_name";
+    this->Hit_Points = FragTrap::Hit_Points;
+    this->Energy_Points = ScavTrap::Energy_Points;
+    this->Attack_Damage = FragTrap::Attack_Damage;
     std::cout << "DaimondTrap\tDefault constructor called" << std::endl;
 };
 
-DiamondTrap::DiamondTrap(std::string name){
-    this->_name = name + "_clap_name";
+DiamondTrap::DiamondTrap(std::string Name){
+    this->Name = Name;
+    this->ClapTrap::Name = Name + "_clap_name";
     this->Hit_Points = FragTrap::Hit_Points;
     this->Energy_Points = ScavTrap::Energy_Points;
     this->Attack_Damage = FragTrap::Attack_Damage;
@@ -34,7 +38,7 @@ DiamondTrap::~DiamondTrap(){
 };
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &r_inst){
-    this->_name = r_inst._name;
+    this->Name = r_inst.Name;
     this->Hit_Points = r_inst.Hit_Points;
     this->Energy_Points = r_inst.Energy_Points;
     this->Attack_Damage = r_inst.Attack_Damage;
@@ -46,5 +50,5 @@ void DiamondTrap::attack(std::string const &target){
 }
 
 void DiamondTrap::whoAmI(){
-    std::cout << "My name is " << this->_name << std::endl;
+    std::cout << "My name is " << this->Name << std::endl;
 };
