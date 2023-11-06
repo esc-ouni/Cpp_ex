@@ -6,14 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:23:49 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 16:56:41 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 17:17:02 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(){
-    this->Name = "Without_clap_name";
+    this->Name = "Wout_clap_name";
     this->Hit_Points = FragTrap::Hit_Points;
     this->Energy_Points = ScavTrap::Energy_Points;
     this->Attack_Damage = FragTrap::Attack_Damage;

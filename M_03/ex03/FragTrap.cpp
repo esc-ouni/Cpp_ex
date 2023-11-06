@@ -6,14 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:27:16 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 14:57:27 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 17:12:18 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(){
-    this->Name = "Whitout";
+    this->Name = "Wout";
     this->Hit_Points = 100;
     this->Energy_Points = 100;
     this->Attack_Damage = 30;

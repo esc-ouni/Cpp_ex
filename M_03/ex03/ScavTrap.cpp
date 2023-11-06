@@ -6,14 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:43:18 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 14:57:45 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 17:17:02 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(){
-    this->Name = "Without";
+    this->Name = "Wout";
     this->Hit_Points = 100;
     this->Energy_Points = 50;
     this->Attack_Damage = 20;
