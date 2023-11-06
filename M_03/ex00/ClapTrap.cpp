@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:06:16 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/04 16:40:43 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 14:17:54 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(std::string Name){
     this->Hit_Points = 10;
     this->Energy_Points = 10;
     this->Attack_Damage = 0;
-    std::cout << "ClapTrap " << this->Name << "\tconstructor called" << std::endl;
+    std::cout << "ClapTrap " << this->Name << "\tConstructor called" << std::endl;
 };
 
 ClapTrap::ClapTrap(ClapTrap const &r_inst){
@@ -33,11 +33,11 @@ ClapTrap::ClapTrap(ClapTrap const &r_inst){
 };
 
 ClapTrap::~ClapTrap(){
-    std::cout << "ClapTrap " << this->Name << "\tdestructor called" << std::endl;
+    std::cout << "ClapTrap " << this->Name << "\tDestructor called" << std::endl;
 };
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &r_inst){
-    this->Name = r_inst.Name + "_copy";
+    this->Name = r_inst.Name;
     this->Hit_Points = r_inst.Hit_Points;
     this->Energy_Points = r_inst.Energy_Points;
     this->Attack_Damage = r_inst.Attack_Damage;
