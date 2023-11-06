@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:27:16 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 17:12:18 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 17:27:18 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,6 @@ void FragTrap::attack(std::string const &target){
         return ;   
     }
     std::cout << "FragTrap " << this->Name << "\tattacks " << target << ", causing " << this->Attack_Damage << " points of damage!" << std::endl;
-};
-
-void FragTrap::guardGate(){
-    std::cout << "FragTrap " << this->Name << "\tis now in Gate keeper mode" << std::endl;
 };
 
 void FragTrap::highFivesGuys(void){
