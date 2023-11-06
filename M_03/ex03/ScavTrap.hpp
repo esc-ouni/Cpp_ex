@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:43:22 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 14:35:10 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 15:09:11 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <iostream>
 # include <string>
 
-class ScavTrap : public ClapTrap{
+class ScavTrap : virtual public ClapTrap{
     public:
         ScavTrap();
         ScavTrap(std::string name);

@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:27:20 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 14:46:46 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 15:09:24 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <iostream>
 
 
-class FragTrap : public ClapTrap{
+class FragTrap : virtual public ClapTrap{
     public:
         FragTrap();
         FragTrap(std::string name);
