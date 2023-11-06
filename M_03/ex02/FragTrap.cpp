@@ -6,13 +6,13 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:27:16 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 14:46:30 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 14:55:33 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(): ClapTrap(){
+FragTrap::FragTrap(){
     this->Name = "Whitout";
     this->Hit_Points = 100;
     this->Energy_Points = 100;
@@ -20,7 +20,7 @@ FragTrap::FragTrap(): ClapTrap(){
     std::cout << "FragTrap " << this->Name << "\tDefault constructor called" << std::endl;
 };
 
-FragTrap::FragTrap(std::string Name): ClapTrap(Name){
+FragTrap::FragTrap(std::string Name){
     this->Name = Name;
     this->Hit_Points = 100;
     this->Energy_Points = 100;
@@ -28,7 +28,7 @@ FragTrap::FragTrap(std::string Name): ClapTrap(Name){
     std::cout << "FragTrap " << this->Name << "\tConstructor called" << std::endl;
 };
 
-FragTrap::FragTrap(FragTrap const &r_inst): ClapTrap(r_inst){
+FragTrap::FragTrap(FragTrap const &r_inst){
     *this = r_inst;
 };
 

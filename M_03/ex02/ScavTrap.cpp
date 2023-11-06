@@ -6,13 +6,13 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:43:18 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 14:40:31 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 14:54:55 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap(){
+ScavTrap::ScavTrap(){
     this->Name = "Without";
     this->Hit_Points = 100;
     this->Energy_Points = 50;
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(): ClapTrap(){
     std::cout << "ScavTrap " << this->Name << "\tDefault constructor called" << std::endl;
 };
 
-ScavTrap::ScavTrap(std::string Name): ClapTrap(Name){
+ScavTrap::ScavTrap(std::string Name){
     this->Name = Name;
     this->Hit_Points = 100;
     this->Energy_Points = 50;
@@ -28,7 +28,7 @@ ScavTrap::ScavTrap(std::string Name): ClapTrap(Name){
     std::cout << "ScavTrap " << this->Name << "\tConstructor called" << std::endl;
 };
 
-ScavTrap::ScavTrap(ScavTrap const &r_inst): ClapTrap(r_inst){
+ScavTrap::ScavTrap(ScavTrap const &r_inst){
     *this = r_inst;
 };
 

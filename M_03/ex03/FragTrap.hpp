@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:27:20 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 21:16:18 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 14:46:46 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 class FragTrap : public ClapTrap{
     public:
+        FragTrap();
         FragTrap(std::string name);
         FragTrap(FragTrap const &obj);
         ~FragTrap();

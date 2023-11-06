@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:43:22 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/25 20:51:26 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 14:35:10 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 class ScavTrap : public ClapTrap{
     public:
+        ScavTrap();
         ScavTrap(std::string name);
         ScavTrap(ScavTrap const &obj);
         ~ScavTrap();

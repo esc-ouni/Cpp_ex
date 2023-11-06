@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 18:46:46 by idouni            #+#    #+#             */
-/*   Updated: 2023/10/27 15:56:37 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 14:52:20 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ int main()
     scav.beRepaired(10);
     scav.guardGate();
     frag.highFivesGuys();
+    diamond.attack("scav");
+    diamond.highFivesGuys();
+    diamond.whoAmI();
     
     return 0;
 }
