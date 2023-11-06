@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 14:43:18 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 14:32:08 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 14:40:31 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ ScavTrap::~ScavTrap(){
 };
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &r_inst){
-    this->Name = r_inst.Name + "_copy";
+    this->Name = r_inst.Name;
     this->Hit_Points = r_inst.Hit_Points;
     this->Energy_Points = r_inst.Energy_Points;
     this->Attack_Damage = r_inst.Attack_Damage;
