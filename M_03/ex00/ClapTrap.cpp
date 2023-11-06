@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:06:16 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 14:17:54 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 14:44:29 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,16 @@ void ClapTrap::takeDamage(unsigned int amount){
         this->Hit_Points = 0;
     else
         this->Hit_Points -= amount;
-    std::cout << "ClapTrap " << this->Name << "\ttakes " << amount << " points of damage !" << std::endl;
+    std::cout << this->Name << "\ttakes " << amount << " points of damage !" << std::endl;
 };
 
 void ClapTrap::beRepaired(unsigned int amount){
     if (this->Energy_Points > 0 && this->Hit_Points)
         this->Energy_Points -= 1;
     else {
-        std::cout << "ClapTrap " << this->Name << "\tdoesn't have requirement to get repaired !" << std::endl;
+        std::cout << this->Name << "\tdoesn't have requirement to get repaired !" << std::endl;
         return ;   
     }
     this->Hit_Points += amount;
-    std::cout << "ClapTrap " << this->Name << "\thas repaired itself !" << std::endl;
+    std::cout << this->Name << "\thas repaired itself !" << std::endl;
 };
