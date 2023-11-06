@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:27:20 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 17:15:43 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 17:25:26 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class FragTrap : virtual public ClapTrap{
         FragTrap &operator=(FragTrap const &obj);
         
         void attack(std::string const &target);
-        void guardGate();
         void highFivesGuys(void);
 };
 
