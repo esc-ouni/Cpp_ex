@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:24:00 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/06 16:54:05 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/06 17:29:12 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <iostream>
 
 class DiamondTrap : public FragTrap, public ScavTrap{
-    private:
-        std::string Name;
     public:
         DiamondTrap();
         DiamondTrap(std::string Name);
