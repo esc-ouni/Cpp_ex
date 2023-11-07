@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 12:34:52 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 13:13:56 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,4 @@ Cat::~Cat(){
 
 void Cat::makeSound(){
     std::cout << "Cat Sound" << std::endl;
-};
-
-std::string Cat::getType(){
-    return (this->type);
 };

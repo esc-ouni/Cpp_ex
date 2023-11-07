@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 12:34:46 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 13:13:46 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,4 @@ Dog::~Dog(){
 
 void Dog::makeSound(){
     std::cout << "Dog Sound" << std::endl;
-};
-
-std::string Dog::getType(){
-    return (this->type);
 };

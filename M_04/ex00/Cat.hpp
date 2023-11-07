@@ -6,16 +6,17 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 12:34:27 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 13:13:51 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __CAT_HPP
 #define __CAT_HPP
 
+#include "Animal.hpp"
 #include <iostream>
 
-class Cat{
+class Cat : public Animal{
     protected:
         std::string type;
     public:
@@ -26,8 +27,6 @@ class Cat{
     ~Cat();
 
     void makeSound();
-    std::string getType();
-
 };
 
 #endif
