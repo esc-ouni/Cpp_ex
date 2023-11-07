@@ -6,14 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 15:26:17 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:32:18 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 Dog::Dog(){
-    this->type = "";
+    this->type = "Dog";
     std::cout << "Dog Default Constructor Called" << std::endl;
 };
 
@@ -37,6 +37,6 @@ Dog::~Dog(){
     std::cout << "Dog Destructor Called" << std::endl;
 };
 
-void Dog::makeSound(){
+void Dog::makeSound() const{
     std::cout << "Dog Sound" << std::endl;
 };

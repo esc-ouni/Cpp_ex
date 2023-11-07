@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 15:12:13 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:30:43 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal{
         ~Animal();
 
         std::string getType() const;
-        void makeSound() const;
+        virtual void makeSound() const;
 };
 
 #endif

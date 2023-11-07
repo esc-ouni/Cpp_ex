@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 15:26:21 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:31:32 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cat : public Animal{
         Cat &operator=(Cat const &r_inst);
         ~Cat();
 
-        void makeSound();
+        void makeSound() const;
 };
 
 #endif

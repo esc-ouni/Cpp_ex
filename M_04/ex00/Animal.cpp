@@ -6,14 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 15:12:19 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:28:03 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal(){
-    this->type = "";
+    this->type = "Animal";
     std::cout << "Animal Default Constructor Called" << std::endl;
 };
 
