@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 15:18:59 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:26:37 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ class Dog : public Animal{
         Dog &operator=(Dog const &r_inst);
         ~Dog();
 
-        // void makeSound();
-
+        void makeSound();
 };
 
 #endif

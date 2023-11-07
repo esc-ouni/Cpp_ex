@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 15:13:34 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:26:11 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ Cat::~Cat(){
     std::cout << "Cat Destructor Called" << std::endl;
 };
 
-// void Cat::makeSound(){
-//     std::cout << "Cat Sound" << std::endl;
-// };
+void Cat::makeSound(){
+    std::cout << "Cat Sound" << std::endl;
+};
