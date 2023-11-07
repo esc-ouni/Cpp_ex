@@ -6,13 +6,13 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 15:06:58 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:25:23 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.cpp"
-#include "Dog.cpp"
-#include "Cat.cpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 int main(){
     const Animal* meta = new Animal();
@@ -20,7 +20,7 @@ int main(){
     const Animal* cat = new Cat();
     std::cout << dog->getType() << " " << std::endl;
     std::cout << cat->getType() << " " << std::endl;
-    cat->makeSound(); //will output the cat sound!
+    cat->makeSound();
     dog->makeSound();
     meta->makeSound();
     return 0;
