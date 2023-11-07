@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 12:24:16 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 12:22:36 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ANIMAL_HPP
-#define __ANIMAL_HPP
+#ifndef __DOG_HPP
+#define __DOG_HPP
 
 #include <iostream>
 
-class Animal{
+class Dog{
     protected:
         std::string type;
     public:
-    Animal();
-    Animal(std::string const &type);
-    Animal(std::string &r_inst);
-    Animal &operator=(Animal const &r_inst);
-    ~Animal();
+    Dog();
+    Dog(std::string const &type);
+    Dog(std::string &r_inst);
+    Dog &operator=(Dog const &r_inst);
+    ~Dog();
 
-    getType();
-    setType();
     void makeSound();
 };
+
 
 #endif
