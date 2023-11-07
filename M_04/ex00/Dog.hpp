@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 13:13:41 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 13:19:34 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,14 @@
 #include <iostream>
 
 class Dog : public Animal{
-    protected:
-        std::string type;
     public:
-    Dog();
-    Dog(std::string &type);
-    Dog(Dog const &r_inst);
-    Dog &operator=(Dog const &r_inst);
-    ~Dog();
+        Dog();
+        Dog(std::string &type);
+        Dog(Dog const &r_inst);
+        Dog &operator=(Dog const &r_inst);
+        ~Dog();
 
-    void makeSound();
+        // void makeSound();
 
 };
 

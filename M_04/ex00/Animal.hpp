@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 12:34:32 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 13:18:09 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ class Animal{
     protected:
         std::string type;
     public:
-    Animal();
-    Animal(std::string &type);
-    Animal(Animal const &r_inst);
-    Animal &operator=(Animal const &r_inst);
-    ~Animal();
+        Animal();
+        Animal(std::string &type);
+        Animal(Animal const &r_inst);
+        Animal &operator=(Animal const &r_inst);
+        ~Animal();
 
-    std::string getType();
-    void makeSound();
+        std::string getType() const;
+        void makeSound() const;
 };
 
 #endif

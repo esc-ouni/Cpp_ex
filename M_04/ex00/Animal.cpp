@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 12:34:43 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 13:18:03 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ Animal::~Animal(){
     std::cout << "Animal Destructor Called" << std::endl;
 };
 
-void Animal::makeSound(){
+void Animal::makeSound() const{
     std::cout << "Animal Sound" << std::endl;
 };
 
-std::string Animal::getType(){
+std::string Animal::getType() const{
     return (this->type);
 };
