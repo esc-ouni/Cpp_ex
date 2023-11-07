@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 13:18:19 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 15:06:58 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int main(){
     const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
+    const Animal* dog = new Dog();
+    const Animal* cat = new Cat();
+    std::cout << dog->getType() << " " << std::endl;
+    std::cout << cat->getType() << " " << std::endl;
+    cat->makeSound(); //will output the cat sound!
+    dog->makeSound();
     meta->makeSound();
     return 0;
 }
