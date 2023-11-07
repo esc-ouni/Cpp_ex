@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 12:18:11 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 12:27:02 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 #include "Cat.cpp"
 
 int main(){
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-    ...
+    const Animal meta;
+    const Dog    j;
+    const Cat    i;
+    
+    std::cout << j.getType() << " " << std::endl;
+    std::cout << i.getType() << " " << std::endl;
+    i.makeSound(); //will output the cat sound!
+    j.makeSound();
+    meta.makeSound();
     return 0;
 }

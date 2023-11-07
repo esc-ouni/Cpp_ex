@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 12:21:24 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 12:34:43 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Animal::Animal(std::string &type){
 Animal &Animal::operator=(Animal const &r_inst){
     this->type = r_inst.type;
     std::cout << "Animal copy assignement Constructor Called" << std::endl;
+    return (*this);
 };
 
 Animal::Animal(Animal const &r_inst){
@@ -38,4 +39,8 @@ Animal::~Animal(){
 
 void Animal::makeSound(){
     std::cout << "Animal Sound" << std::endl;
+};
+
+std::string Animal::getType(){
+    return (this->type);
 };

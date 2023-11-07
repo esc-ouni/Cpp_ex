@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 12:23:33 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/07 12:34:52 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Cat::Cat(std::string &type){
 Cat &Cat::operator=(Cat const &r_inst){
     this->type = r_inst.type;
     std::cout << "Cat copy assignement Constructor Called" << std::endl;
+    return (*this);
 };
 
 Cat::Cat(Cat const &r_inst){
@@ -38,4 +39,8 @@ Cat::~Cat(){
 
 void Cat::makeSound(){
     std::cout << "Cat Sound" << std::endl;
+};
+
+std::string Cat::getType(){
+    return (this->type);
 };
