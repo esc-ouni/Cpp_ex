@@ -6,11 +6,11 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 11:19:01 by idouni            #+#    #+#              #
-#    Updated: 2023/11/07 15:23:29 by idouni           ###   ########.fr        #
+#    Updated: 2023/11/08 13:56:10 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXEC    = Polymorph
+EXEC    = Brain
 CC      = c++
 RM      = rm -rf
 FLAGS   = -std=c++98 -Wall -Wextra -Werror -g
