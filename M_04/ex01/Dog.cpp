@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 15:47:18 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/08 15:14:14 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 Dog::Dog(){
     this->type = "Dog";
+    this->brain = new Brain();
     std::cout << "Dog Default Constructor Called" << std::endl;
 };
 
 Dog::Dog(std::string &type){
     this->type = type;
+    this->brain = new Brain();
     std::cout << "Dog Constructor Called" << std::endl;
 };
 
@@ -34,6 +36,7 @@ Dog &Dog::operator=(Dog const &r_inst){
 };
 
 Dog::~Dog(){
+    delete this->brain;
     std::cout << "Dog Destructor Called" << std::endl;
 };
 
