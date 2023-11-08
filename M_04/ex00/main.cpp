@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 13:47:22 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/08 13:48:03 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(){
     std::cout << dog->getType() << " " << std::endl;
     std::cout << cat->getType() << " " << std::endl 
               << std::endl;
+              
     cat->makeSound();
     dog->makeSound();
     meta->makeSound();
@@ -41,6 +42,7 @@ int main(){
     std::cout << wrongdog->getType() << " " << std::endl;
     std::cout << wrongcat->getType() << " " << std::endl
               << std::endl;
+              
     wrongcat->makeSound();
     wrongdog->makeSound();
     wrongmeta->makeSound();
