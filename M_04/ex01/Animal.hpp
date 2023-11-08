@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 15:47:01 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/08 13:44:09 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Animal{
         Animal(std::string &type);
         Animal(Animal const &r_inst);
         Animal &operator=(Animal const &r_inst);
-        ~Animal();
+        virtual ~Animal();
 
         std::string getType() const;
         virtual void makeSound() const;
