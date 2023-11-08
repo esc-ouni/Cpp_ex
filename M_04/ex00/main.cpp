@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 13:47:02 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/08 13:47:22 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 // void leak(){std::cout<<std::endl;std::system("leaks Polymorph | grep \" leaks \" | awk '{ print $3\" \"$4 }'");std::cout << std::endl;}
 
 int main(){
-    std::atexit(leak);
+    // std::atexit(leak);
     const Animal* meta = new Animal();
     const Animal* dog = new Dog();
     const Animal* cat = new Cat();
