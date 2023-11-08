@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:31:46 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 18:32:02 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:22:50 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ WrongAnimal::WrongAnimal(){
     std::cout << "WrongAnimal Default Constructor Called" << std::endl;
 };
 
-WrongAnimal::WrongAnimal(std::string &type){
+WrongAnimal::WrongAnimal(std::string type){
     this->type = type;
     std::cout << "WrongAnimal Constructor Called" << std::endl;
 };

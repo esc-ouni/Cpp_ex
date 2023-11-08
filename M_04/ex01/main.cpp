@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 15:21:21 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:23:47 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,18 @@ void leak(){std::cout<<std::endl;std::system("leaks Brain | grep \" leaks \" | a
 
 int main(){
     std::atexit(leak);    
-    const Animal* dog = new Dog();
-    const Animal* cat = new Cat();
+    // const Animal* dog = new Dog();
+    // const Animal* cat = new Cat();
     
-    delete dog;
-    delete cat;
+    // delete dog;
+    // delete cat;
 
+
+    Dog dog1("hollaa");
+    Dog dog2;
+
+
+    dog2 = dog1;
 
     // for (int i = 1; i <= 100; i++){
     //     std::cout << dog.getIdea(i) << std::endl;

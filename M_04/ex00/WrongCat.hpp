@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/07 18:36:47 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:22:50 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class WrongCat : public WrongAnimal{
     public:
         WrongCat();
-        WrongCat(std::string &type);
+        WrongCat(std::string type);
         WrongCat(WrongCat const &r_inst);
         WrongCat &operator=(WrongCat const &r_inst);
         ~WrongCat();

@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 15:12:26 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:22:50 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Dog : public Animal{
         Brain *brain;
     public:
         Dog();
-        Dog(std::string &type);
+        Dog(std::string type);
         Dog(Dog const &r_inst);
         Dog &operator=(Dog const &r_inst);
         ~Dog();
