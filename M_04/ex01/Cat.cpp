@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 19:22:50 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 11:23:20 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,12 @@ Cat::~Cat(){
 
 void Cat::makeSound() const{
     std::cout << "Cat Sound" << std::endl;
+};
+
+std::string Cat::getIdea(int index) const{
+    return (this->brain->getIdea(index));
+};
+
+void Cat::setIdea(int index, std::string idea){
+    this->brain->setIdea(index, idea);
 };

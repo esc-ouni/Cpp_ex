@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 19:22:50 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 11:23:35 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,12 @@ Dog::~Dog(){
 
 void Dog::makeSound() const{
     std::cout << "Dog Sound" << std::endl;
+};
+
+std::string Dog::getIdea(int index) const{
+    return (this->brain->getIdea(index));
+};
+
+void Dog::setIdea(int index, std::string idea){
+    this->brain->setIdea(index, idea);
 };
