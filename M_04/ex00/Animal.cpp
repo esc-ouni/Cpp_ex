@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 19:22:50 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:49:36 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 Animal::Animal(){
     this->type = "Animal";
     std::cout << "Animal Default Constructor Called" << std::endl;
-};
-
-Animal::Animal(std::string type){
-    this->type = type;
-    std::cout << "Animal Constructor Called" << std::endl;
 };
 
 Animal::Animal(Animal const &r_inst){

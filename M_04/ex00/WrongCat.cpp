@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 19:22:50 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:48:14 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 WrongCat::WrongCat(){
     this->type = "WrongCat";
     std::cout << "WrongCat Default Constructor Called" << std::endl;
-};
-
-WrongCat::WrongCat(std::string type){
-    this->type = type;
-    std::cout << "WrongCat Constructor Called" << std::endl;
 };
 
 WrongCat::WrongCat(WrongCat const &r_inst){

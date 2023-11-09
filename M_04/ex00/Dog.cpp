@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 19:22:50 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:47:47 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 Dog::Dog(){
     this->type = "Dog";
     std::cout << "Dog Default Constructor Called" << std::endl;
-};
-
-Dog::Dog(std::string type){
-    this->type = type;
-    std::cout << "Dog Constructor Called" << std::endl;
 };
 
 Dog::Dog(Dog const &r_inst){

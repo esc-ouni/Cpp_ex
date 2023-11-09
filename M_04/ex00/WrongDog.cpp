@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 19:22:50 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:48:22 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 WrongDog::WrongDog(){
     this->type = "WrongDog";
     std::cout << "WrongDog Default Constructor Called" << std::endl;
-};
-
-WrongDog::WrongDog(std::string type){
-    this->type = type;
-    std::cout << "WrongDog Constructor Called" << std::endl;
 };
 
 WrongDog::WrongDog(WrongDog const &r_inst){

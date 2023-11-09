@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 11:23:20 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:48:49 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@ Cat::Cat(){
     this->type = "Cat";
     this->brain = new Brain();
     std::cout << "Cat Default Constructor Called" << std::endl;
-};
-
-Cat::Cat(std::string type){
-    this->type = type;
-    this->brain = new Brain();
-    std::cout << "Cat Constructor Called" << std::endl;
 };
 
 Cat::Cat(Cat const &r_inst){

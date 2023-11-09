@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 11:24:03 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:48:58 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ Dog::Dog(){
     std::cout << "Dog Default Constructor Called" << std::endl;
 };
 
-Dog::Dog(std::string type){
-    this->type = type;
-    this->brain = new Brain();
-    std::cout << "Dog Constructor Called" << std::endl;
-};
-
 Dog::Dog(Dog const &r_inst){
     this->brain = new Brain();
     *this = r_inst;        
@@ -31,17 +25,17 @@ Dog::Dog(Dog const &r_inst){
 };
 
 Dog &Dog::operator=(Dog const &r_inst){
-    if (this == &r_inst){
-        std::cout << "Copy Paste !" << std::endl;
-        return (*this);
+    if (this != &r_inst){
+        this->type = r_inst.type;
+        this->brain 
     }
-    this->type = r_inst.type;
     std::cout << "Dog copy assignement Constructor Called" << std::endl;
     return (*this);
 };
 
 Dog::~Dog(){
     delete this->brain;
+    this->brain = NULL;
     std::cout << "Dog Destructor Called" << std::endl;
 };
 

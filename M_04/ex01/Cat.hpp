@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 11:21:28 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:48:53 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Cat : public Animal{
         Brain *brain;
     public:
         Cat();
-        Cat(std::string type);
         Cat(Cat const &r_inst);
         Cat &operator=(Cat const &r_inst);
         ~Cat();

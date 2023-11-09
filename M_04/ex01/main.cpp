@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/08 19:23:47 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:27:12 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ int main(){
     // delete cat;
 
 
-    Dog dog1("hollaa");
-    Dog dog2;
+    Dog *dog1 = new Dog("hollaa");
+    Dog *dog2= new Dog();
 
 
     dog2 = dog1;
+
+    // delete dog1;
+    delete dog2;
 
     // for (int i = 1; i <= 100; i++){
     //     std::cout << dog.getIdea(i) << std::endl;
