@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 13:54:22 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 14:08:50 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(){
     Dog *dog2 = new Dog();
 
 
-    dog2 = dog1;
+    *dog2 = *dog1;
 
     // delete dog1;
     delete dog2;
