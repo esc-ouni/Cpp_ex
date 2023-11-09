@@ -6,13 +6,14 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:55:08 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 19:01:06 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 19:22:52 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __ICHARACTER_HPP_
 #define __ICHARACTER_HPP_
 
+#include "AMateria.hpp"
 #include <iostream>
 
 class ICharacter{

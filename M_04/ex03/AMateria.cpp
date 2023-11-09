@@ -6,9 +6,9 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:45:42 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 17:46:00 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 19:22:32 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMaetria.hpp"
+#include "AMateria.hpp"
 
