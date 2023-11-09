@@ -6,14 +6,14 @@
 #    By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 11:19:01 by idouni            #+#    #+#              #
-#    Updated: 2023/11/09 16:37:27 by idouni           ###   ########.fr        #
+#    Updated: 2023/11/09 17:08:58 by idouni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXEC    = Brain
 CC      = c++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror #-fsanitize=undefined,address -g
+FLAGS   = -std=c++98 -Wall -Wextra -Werror
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)
