@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 18:56:28 by idouni           ###   ########.fr       */
+/*   Created: 2023/11/09 19:02:44 by idouni            #+#    #+#             */
+/*   Updated: 2023/11/09 19:07:36 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __IMATERIASOURCE_HPP_
+#define __IMATERIASOURCE_HPP_
+
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
+#include <iostream>
 
-// void leak(){std::cout<<std::endl;std::system("leaks Recap | grep \" leaks \" | awk '{ print $3\" \"$4 }'");std::cout << std::endl;}
- // std::atexit(leak);
+class IMateriaSource{
+    public:
+        virtual ~IMateriaSource() = 0;
+        virtual void learnMateria(AMateria*) = 0;
+        virtual AMateria* createMateria(std::string const & type) = 0;
+};
 
-int main(){
-    
-    return 0;
-}
+#endif
