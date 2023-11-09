@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 13:48:58 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:53:45 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Dog::Dog(Dog const &r_inst){
 Dog &Dog::operator=(Dog const &r_inst){
     if (this != &r_inst){
         this->type = r_inst.type;
-        this->brain 
     }
     std::cout << "Dog copy assignement Constructor Called" << std::endl;
     return (*this);
