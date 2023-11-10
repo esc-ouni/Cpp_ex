@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 16:22:22 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 16:23:06 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Pop: public AMateria{
             return (new Pop());
         };
         void use(ICharacter& target){
-            std::cout << "Hoe Hoe" << target.getName() << std::endl;
+            std::cout << "Hoe Hoe " << target.getName() << std::endl;
         };
 };
 
