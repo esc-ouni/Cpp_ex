@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 16:45:43 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 17:05:57 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ class Pop: public AMateria{
         };
 };
 
-
 int main(){
     
     IMateriaSource* src = new MateriaSource();
@@ -61,9 +60,18 @@ int main(){
     me->use(3, *bob);
     me->use(4, *bob);
 
-    delete bob;
+    Character mike("mike");
+
+    Character *d = dynamic_cast<Character*>(me);
+    mike = *d;
     delete me;
+    mike.use(0, *bob);
+    mike.use(1, *bob);
+    mike.use(2, *bob);
+    mike.use(3, *bob);
+    mike.use(4, *bob);
+
+    delete bob;
     delete src;
-    
-    return 0;
+
 }
