@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 19:36:45 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 19:48:52 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Dog::Dog(){
 Dog::Dog(Dog const &r_inst){
     if (this != &r_inst){
         this->brain = new Brain();
+        this->type = r_inst.type;
         *this = r_inst;
     }    
     std::cout << "Dog copy Constructor Called" << std::endl;
