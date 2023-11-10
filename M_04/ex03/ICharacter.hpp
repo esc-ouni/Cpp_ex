@@ -6,15 +6,16 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:55:08 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 10:57:58 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 14:20:57 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __ICHARACTER_HPP_
 #define __ICHARACTER_HPP_
 
-#include "AMateria.hpp"
 #include <iostream>
+
+class AMateria;
 
 class ICharacter{
     public:
@@ -33,13 +34,15 @@ ICharacter::ICharacter(){
 };
 
 ICharacter::ICharacter(ICharacter const &r_inst){
+    (void)r_inst;
 };
 
 ICharacter &ICharacter::operator=(ICharacter const &r_inst){
+    (void)r_inst;
+    return (*this);
 };
 
 ICharacter::~ICharacter(){
 };
-
 
 #endif

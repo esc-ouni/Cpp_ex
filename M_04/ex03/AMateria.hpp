@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:40:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 10:30:11 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 14:23:09 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class AMateria
 };
 
 AMateria::AMateria(AMateria const &r_inst){
-    
+    (void)r_inst;
 };
 
 AMateria::AMateria(){
@@ -47,6 +47,7 @@ AMateria::AMateria(){
 AMateria &AMateria::operator=(AMateria const &r_inst){
     (void)r_inst;
     std::cout << "copying the type doesn’t make sense" << std::endl;
+    return (*this);
 };
 
 AMateria::~AMateria(){
@@ -62,8 +63,9 @@ std::string const &AMateria::getType() const{
 };
 
 void AMateria::use(ICharacter& target){
-    std::cout << "Ice: \"* shoots an ice bolt at " << target. << "\" *" << std::endl;
-    std::cout << "Cure: \"* heals " << target. << "’s wounds *\"" << std::endl;
+    std::cout << "Ice: \"* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+    std::cout << "Cure: \"* heals " << target.getName() << "’s wounds *" << std::endl;
+
 };
 
 // file.cpp:42:42: error: childish behaviour 'this->corrector'
