@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 16:23:06 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 16:45:43 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int main(){
     me->use(2, *bob);
     me->use(3, *bob);
     me->use(4, *bob);
+
     delete bob;
     delete me;
     delete src;
