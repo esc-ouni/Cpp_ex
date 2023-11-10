@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 17:05:57 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 17:28:29 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
 
-// void leak(){std::cout<<std::endl;std::system("leaks Recap | grep \" leaks \" | awk '{ print $3\" \"$4 }'");std::cout << std::endl;}
-//  std::atexit(leak);
+void leak(){std::cout<<std::endl;std::system("leaks Recap | grep \" leaks \" | awk '{ print $3\" \"$4 }'");std::cout << std::endl;}
 
 class Pop: public AMateria{
     public:
@@ -37,11 +36,16 @@ class Pop: public AMateria{
 };
 
 int main(){
+ std::atexit(leak);
     
     IMateriaSource* src = new MateriaSource();
 
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    src->learnMateria( new Pop());
+    src->learnMateria( new Pop());
+    src->learnMateria( new Pop());
+    src->learnMateria( new Pop());
     src->learnMateria( new Pop());
     
     ICharacter* me = new Character("me");
@@ -64,6 +68,12 @@ int main(){
 
     Character *d = dynamic_cast<Character*>(me);
     mike = *d;
+    me->unequip(-10);
+    me->unequip(0);
+    me->unequip(1);
+    me->unequip(2);
+    me->unequip(3);
+    me->unequip(4);
     delete me;
     mike.use(0, *bob);
     mike.use(1, *bob);
@@ -73,5 +83,4 @@ int main(){
 
     delete bob;
     delete src;
-
 }
