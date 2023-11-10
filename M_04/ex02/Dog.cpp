@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 17:05:34 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 12:38:11 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Dog::Dog(Dog const &r_inst){
 };
 
 Dog &Dog::operator=(Dog const &r_inst){
+    this->type = "Dog";
     if (this != &r_inst){
         *(this->brain) = *(r_inst.brain);
     }

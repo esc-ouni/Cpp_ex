@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 17:05:44 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 12:38:23 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Cat::Cat(Cat const &r_inst){
 };
 
 Cat &Cat::operator=(Cat const &r_inst){
+    this->type = "Cat";
     if (this != &r_inst){
         this->brain = r_inst.brain;
     }
