@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:32:21 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 15:56:49 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 17:32:24 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Ice &Ice::operator=(Ice const &r_inst){
 };
 
 Ice::~Ice(){
-    // std::cout << "Ice Destructor Called !";
+    // std::cout << "Ice Destructor Called !" << std::endl;
 };
 
 AMateria* Ice::clone() const{
