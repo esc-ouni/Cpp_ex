@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:55:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 16:06:36 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 16:20:36 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void Character::use(int idx, ICharacter& target){
     }
     if (this->inventory[idx]){
         this->inventory[idx]->use(target);
-        this->inventory[idx]-> AMateria::use(target);
+        // this->inventory[idx]-> AMateria::use(target); //TO BE CHECKED
     }
     else
         std::cout << "Empty Inventory slot !" << std::endl;

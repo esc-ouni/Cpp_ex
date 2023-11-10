@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:02:48 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 15:46:52 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 16:14:51 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void MateriaSource::learnMateria(AMateria* m){
 };
 
 AMateria* MateriaSource::createMateria(std::string const & type){
-    for (int i = 0; this->Learned[i] && i < 4 ; i++){
+    for (int i = 0; this->Learned[i] && (i < 4) ; i++){
         if (!type.compare(this->Learned[i]->getType()))
             return (this->Learned[i]->clone());
     }
