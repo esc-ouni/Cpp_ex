@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:55:26 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 17:05:44 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 19:35:20 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ Cat::Cat(){
 };
 
 Cat::Cat(Cat const &r_inst){
-    *this = r_inst;        
+    if (this != &r_inst){
+        this->brain = new Brain();
+        *this = r_inst;
+    }      
     std::cout << "Cat copy Constructor Called" << std::endl;
 };
 
 Cat &Cat::operator=(Cat const &r_inst){
     if (this != &r_inst){
-        this->brain = r_inst.brain;
+        *(this->brain) = *(r_inst.brain);
     }
     std::cout << "Cat copy assignement Constructor Called" << std::endl;
     return (*this);

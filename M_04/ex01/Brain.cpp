@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:06:53 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 14:22:17 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 19:32:37 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ Brain::Brain(Brain const &r_inst){
 };
 
 Brain &Brain::operator=(Brain const &r_inst){
-    for (int i = 1; i <= 100; i++){
-        this->setIdea(i, r_inst.getIdea(i));
+    if (this != &r_inst){
+        for (int i = 1; i <= 100; i++){
+            this->setIdea(i, r_inst.getIdea(i));
+        }
     }
     std::cout << "Brain Copy Assignement Operator Called" << std::endl;
     return (*this);
