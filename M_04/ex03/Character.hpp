@@ -1,45 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:55:08 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 10:57:58 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 10:38:24 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ICHARACTER_HPP_
-#define __ICHARACTER_HPP_
+#ifndef __CHARACTER_HPP_
+#define __CHARACTER_HPP_
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
-class ICharacter{
+class Character: public ICharacter{
+    private:
+        std::string name;
+        AMateria    *inventory[];
     public:
-        ICharacter();
-        ICharacter(ICharacter const &r_inst);
-        ICharacter &operator=(ICharacter const &r_inst);
-
-        virtual ~ICharacter();
-        virtual std::string const & getName() const = 0;
-        virtual void equip(AMateria* m) = 0;
-        virtual void unequip(int idx) = 0;
-        virtual void use(int idx, ICharacter& target) = 0;
+        Character();
+        Character(std::string name);
+        Character(Character const &r_inst);
+        Character &operator=(Character const &r_inst);
+        ~Character();
 };
-
-ICharacter::ICharacter(){
-};
-
-ICharacter::ICharacter(ICharacter const &r_inst){
-};
-
-ICharacter &ICharacter::operator=(ICharacter const &r_inst){
-};
-
-ICharacter::~ICharacter(){
-};
-
 
 #endif

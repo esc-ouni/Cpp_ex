@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:40:52 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 19:31:39 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 10:30:11 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,26 +19,52 @@
 class AMateria
 {
     protected:
+        std::string type;
         // [...]
     public:
-        AMateria(std::string const & type);
+        AMateria();
+        AMateria(AMateria const &r_inst);
+        AMateria(std::string const &type);
+        AMateria &operator=(AMateria const &r_inst);
+        
+        virtual ~AMateria();
         // [...]
-        std::string const &getType() const; //Returns the materia type
+
+        
+        std::string const &getType() const;
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
 };
 
-AMateria::AMateria(std::string const & type){
+AMateria::AMateria(AMateria const &r_inst){
+    
+};
+
+AMateria::AMateria(){
+    std::cout << "AMateria Default Constructor Called !" << std::endl;
+};
+
+AMateria &AMateria::operator=(AMateria const &r_inst){
+    (void)r_inst;
+    std::cout << "copying the type doesn’t make sense" << std::endl;
+};
+
+AMateria::~AMateria(){
+    std::cout << "AMateria Destructor Called !" << std::endl;
+};
+
+AMateria::AMateria(std::string const &type){
+    this->type = type;
 };
 
 std::string const &AMateria::getType() const{
+    return (this->type);
 };
-
 
 void AMateria::use(ICharacter& target){
+    std::cout << "Ice: \"* shoots an ice bolt at " << target. << "\" *" << std::endl;
+    std::cout << "Cure: \"* heals " << target. << "’s wounds *\"" << std::endl;
 };
 
-
-
-
+// file.cpp:42:42: error: childish behaviour 'this->corrector'
 #endif
