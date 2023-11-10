@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:02:48 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 16:14:51 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 17:40:39 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,10 @@ MateriaSource::~MateriaSource(){
 };
 
 void MateriaSource::learnMateria(AMateria* m){
-    if (this->idxx > 3)
+    if (this->idxx > 3){
+        // delete m; //TO CECKED
         return ;
+    }
     else
         this->Learned[idxx] = m;
     this->idxx++;

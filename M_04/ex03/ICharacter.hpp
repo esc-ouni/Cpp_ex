@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:55:08 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 15:47:16 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 17:42:08 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 
-class AMateria;
+class AMateria;  //Forward declarations
 
 class ICharacter{
     public:
