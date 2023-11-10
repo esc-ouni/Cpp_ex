@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:55:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 14:05:00 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 16:06:36 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ Character::~Character(){
             this->inventory[i] = NULL;
         }
     }
-    // delete[] this->inventory;
-    // this->inventory = NULL;
 };
 
 std::string const &Character::getName() const{
@@ -73,7 +71,7 @@ std::string const &Character::getName() const{
 void Character::equip(AMateria* m){
     if (this->idxx == 4)
         return ;
-    this->inventory[this->idxx] = m; //TO CHECK
+    this->inventory[this->idxx] = m;
     this->idxx++;
 };
 
@@ -91,8 +89,10 @@ void Character::use(int idx, ICharacter& target){
         std::cerr << "Err: invalid slot index !" << std::endl;
         return ;
     }
-    if (this->inventory[idx])
-        this->inventory[idx]->AMateria::use(target);
+    if (this->inventory[idx]){
+        this->inventory[idx]->use(target);
+        this->inventory[idx]-> AMateria::use(target);
+    }
     else
         std::cout << "Empty Inventory slot !" << std::endl;
 };

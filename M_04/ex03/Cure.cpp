@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:31:47 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 15:47:54 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 16:02:34 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cure::Cure(){
     this->type = "cure";
-    std::cout << "Cure Constructor Called !";
+    // std::cout << "Cure Constructor Called !";
 };
 
 Cure::Cure(Cure const &r_inst){
@@ -27,7 +27,7 @@ Cure &Cure::operator=(Cure const &r_inst){
 };
 
 Cure::~Cure(){
-    std::cout << "Cure Destructor Called !";
+    // std::cout << "Cure Destructor Called !";
 };
 
 AMateria* Cure::clone() const{
@@ -35,5 +35,5 @@ AMateria* Cure::clone() const{
 };
 
 void Cure::use(ICharacter& target){
-    std::cout << "Cure: \"* heals " << target.getName() << "’s wounds *" << std::endl;
+    std::cout << "Cure: \"* heals " << target.getName() << "'s wounds *" << std::endl;
 };
