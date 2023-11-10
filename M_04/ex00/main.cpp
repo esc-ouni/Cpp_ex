@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/09 13:56:14 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 19:56:23 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 #include "WrongCat.hpp"
 
 // void leak(){std::cout<<std::endl;std::system("leaks Polymorph | grep \" leaks \" | awk '{ print $3\" \"$4 }'");std::cout << std::endl;}
+// std::atexit(leak);
 
 int main(){
-    // std::atexit(leak);
     const Animal* meta = new Animal();
     const Animal* dog = new Dog();
     const Animal* cat = new Cat();
@@ -29,8 +29,8 @@ int main(){
     std::cout << cat->getType() << " " << std::endl 
               << std::endl;
               
-    cat->makeSound();
     dog->makeSound();
+    cat->makeSound();
     meta->makeSound();
     std::cout << std::endl
               << std::endl;
