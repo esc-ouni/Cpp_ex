@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:55:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 19:13:39 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 19:52:56 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void Character::equip(AMateria* m){
 void Character::unequip(int idx){
     if (idx < 0 || idx > 3)
         return ;
-    // this->Drops[this->drx] = this->inventory[idx];
     this->Dropped(this->inventory[idx]);
     this->inventory[idx] = NULL;
     if (!idx)

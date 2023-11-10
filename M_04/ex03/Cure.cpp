@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:31:47 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 17:32:20 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 19:53:08 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Cure::Cure(){
     this->type = "cure";
-    // std::cout << "Cure Constructor Called !";
 };
 
 Cure::Cure(Cure const &r_inst){
@@ -27,7 +26,6 @@ Cure &Cure::operator=(Cure const &r_inst){
 };
 
 Cure::~Cure(){
-    // std::cout << "Cure Destructor Called !" << std::endl;
 };
 
 AMateria* Cure::clone() const{
