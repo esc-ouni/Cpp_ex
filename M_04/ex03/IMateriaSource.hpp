@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:02:44 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 14:35:19 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 15:47:05 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,5 @@ class IMateriaSource{
         virtual void learnMateria(AMateria*) = 0;
         virtual AMateria* createMateria(std::string const & type) = 0;
 };
-
-IMateriaSource::IMateriaSource(){
-};
-
-IMateriaSource::IMateriaSource(IMateriaSource const &r_inst){
-    (void)r_inst;
-};
-
-IMateriaSource &IMateriaSource::operator=(IMateriaSource const &r_inst){
-    (void)r_inst;
-    return (*this);
-};
-
-IMateriaSource::~IMateriaSource(){
-};
-
 
 #endif

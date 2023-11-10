@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:55:08 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 14:20:57 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 15:47:16 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,6 @@ class ICharacter{
         virtual void equip(AMateria* m) = 0;
         virtual void unequip(int idx) = 0;
         virtual void use(int idx, ICharacter& target) = 0;
-};
-
-ICharacter::ICharacter(){
-};
-
-ICharacter::ICharacter(ICharacter const &r_inst){
-    (void)r_inst;
-};
-
-ICharacter &ICharacter::operator=(ICharacter const &r_inst){
-    (void)r_inst;
-    return (*this);
-};
-
-ICharacter::~ICharacter(){
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:02:44 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 14:35:36 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/10 15:46:50 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 #include <iostream>
 
 class MateriaSource: public IMateriaSource{
-    
+    private:
+        AMateria *Learned[4];
+        int      idxx;
+        
     public:
         MateriaSource();
         MateriaSource(MateriaSource const &r_inst);
@@ -28,27 +31,6 @@ class MateriaSource: public IMateriaSource{
 
         void learnMateria(AMateria*);
         AMateria* createMateria(std::string const & type);
-};
-
-MateriaSource::MateriaSource(){
-};
-
-MateriaSource::MateriaSource(MateriaSource const &r_inst){
-    (void)r_inst;
-};
-
-MateriaSource &MateriaSource::operator=(MateriaSource const &r_inst){
-    (void)r_inst;
-    return (*this);
-};
-
-MateriaSource::~MateriaSource(){
-};
-
-void MateriaSource::learnMateria(AMateria*){
-};
-
-AMateria* MateriaSource::createMateria(std::string const & type){
 };
 
 #endif
