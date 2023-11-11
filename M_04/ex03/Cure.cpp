@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:31:47 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 19:53:08 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/11 09:36:07 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ AMateria* Cure::clone() const{
 };
 
 void Cure::use(ICharacter& target){
-    std::cout << "Cure: \"* heals " << target.getName() << "'s wounds *" << std::endl;
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 };

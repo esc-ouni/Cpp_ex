@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:45:42 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 19:52:48 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/11 09:38:22 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ std::string const &AMateria::getType() const{
 };
 
 void AMateria::use(ICharacter& target){
-    std::cout << "Ice: \"* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-    std::cout << "Cure: \"* heals " << target.getName() << "'s wounds *" << std::endl;
+    (void)target;
+    std::cout << "Magic of Polymorphism !" << std::endl;
 };
