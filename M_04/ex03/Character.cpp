@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 18:55:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 19:52:56 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/11 09:30:14 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ std::string const &Character::getName() const{
 };
 
 void Character::equip(AMateria* m){
-    if (this->idxx == 4)
+    if (this->idxx == 4 || !m)
         return ;
     this->inventory[this->idxx] = m;
     this->idxx++;

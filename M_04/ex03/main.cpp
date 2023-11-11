@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:17:05 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/10 19:57:40 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/11 09:32:49 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "IMateriaSource.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
-
 
 int main()
 {
@@ -37,6 +36,7 @@ int main()
     delete bob;
     delete me;
     delete src;
+    
     return 0;
 }
 
