@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:55 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/12 15:24:14 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/12 15:29:06 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ class Bureaucrat{
         unsigned int getGrade() const;
 };
 
+std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
+    cout << r_inst.getName() << ", bureaucrat grade " << r_inst.getGrade() << std::endl;
+    return (cout);
+};
 
 Bureaucrat::Bureaucrat():name("Wout"){
     this->grade = 150;
