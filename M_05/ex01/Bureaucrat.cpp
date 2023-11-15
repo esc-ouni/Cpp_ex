@@ -6,11 +6,12 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 13:10:23 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/15 14:48:12 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat():name("Wout"){
     this->grade = 150;
@@ -71,6 +72,7 @@ std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
 void Bureaucrat::signForm(Form &Form){
     try{
         Form.beSigned(*this);
+        std::cout << this->getName() << " signed " << Form.getName() << std::endl;
     }
     catch(std::exception &e){
         std::cout << e.what() << std::endl;

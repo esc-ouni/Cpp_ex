@@ -6,11 +6,12 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:24:54 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 11:24:21 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/15 14:48:17 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(){
     
