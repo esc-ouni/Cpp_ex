@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 11:23:49 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/15 13:10:23 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,17 @@ unsigned int Bureaucrat::getGrade() const{
 std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
     cout << r_inst.getName() << ", bureaucrat grade " << r_inst.getGrade() << std::endl;
     return (cout);
+};
+
+void Bureaucrat::signForm(Form &Form){
+    try{
+        Form.beSigned(*this);
+    }
+    catch(std::exception &e){
+        std::cout << e.what() << std::endl;
+    }
+    if (Form.getSignature())
+        std::cout << this->getName() << "couldn't sign " << Form.getName() <<" because it's already signed !" << std::endl;
+    else
+        std::cout << this->getName() << "couldn't sign " << Form.getName() <<" because he's not eligible to signe it !" << std::endl;
 };
