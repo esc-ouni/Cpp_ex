@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:24:54 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 10:37:22 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/15 10:39:14 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int main(){
 
     try{
-        Bureaucrat biro9rati("oustad", 159);
-    }
-    catch(std::exception &e){
-        std::cout << e.what() << std::endl;
+        Bureaucrat employee("oustad", 159);
     }
     catch(char const *err_msg){
         std::cout << err_msg << std::endl;
@@ -26,6 +23,7 @@ int main(){
     catch(...){
         std::cout << "Ambigous exception caught !" << std::endl;
     }
-    std::cout << "so the program didn't end there !" << std::endl;
+
+    
     return (0);
 }
