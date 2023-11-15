@@ -6,16 +6,11 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 11:17:32 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/15 11:23:49 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
-    cout << r_inst.getName() << ", bureaucrat grade " << r_inst.getGrade() << std::endl;
-    return (cout);
-};
 
 Bureaucrat::Bureaucrat():name("Wout"){
     this->grade = 150;
@@ -66,4 +61,9 @@ std::string Bureaucrat::getName() const{
 
 unsigned int Bureaucrat::getGrade() const{
     return(this->grade);
+};
+
+std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
+    cout << r_inst.getName() << ", bureaucrat grade " << r_inst.getGrade() << std::endl;
+    return (cout);
 };
