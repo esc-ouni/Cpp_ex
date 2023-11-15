@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 10:37:41 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/15 10:46:57 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ Bureaucrat::~Bureaucrat(){
 };
 
 void Bureaucrat::incrementGrade(){
-    if (--(this->grade) < 1)
+    if (this->grade < 1 || --(this->grade) < 1)
         throw ("Bureaucrat::GradeTooHighException");
         // HERE THE HIGH EXCEPTION;
     return;
 };
 
 void Bureaucrat::decrementGrade(){
-    if (++(this->grade) > 150)
+    if (this->grade > 150 || ++(this->grade) > 150)
         throw ("Bureaucrat::GradeTooLowException");
         // HERE THE LOW EXCEPTION;
     return;
