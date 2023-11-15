@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:24:54 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 10:52:42 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/15 10:58:35 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ int main(){
     
     Bureaucrat employee("oustad", 1);
     for (unsigned long long i = 0; i < 200; i++){
-        try{
+        try
+        {
             employee.decrementGrade();
-            std::cout << "Grade decremented successfully !" << employee.getGrade() << std::endl;
+            std::cout << "Grade decremented successfully !. It becomes : " << employee.getGrade() << std::endl;
         }
-        catch(char const *err_msg){
-            std::cout << err_msg << std::endl;
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
         }
         catch(...){
             std::cout << "Ambigous exception caught !" << std::endl;
