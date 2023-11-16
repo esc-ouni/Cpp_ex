@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:26:11 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/16 12:03:07 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/16 12:31:13 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,19 @@ void Form::beSigned(Bureaucrat &Bureaucrat){
         this->signature = true;
         return ;   
     }
-    else if (this->getSignature())
+    else if (Bureaucrat.getGrade() > this->getWho_could_sign())
+        throw std::logic_error("Form::GradeTooLowException");
+    else if(this->getSignature())
         throw std::logic_error("Form::FormAlreadySigned");
     else
-        throw std::logic_error("Form::GradeTooLowException");
+        throw std::logic_error("Form::....");
+};
+
+std::ostream &operator<<(std::ostream &cout, Form &Form){
+    cout << std::endl << "==> Form info:" << std::endl
+         << "Form's name        : " << Form.getName() << std::endl
+         << "Form signed        : " << std::boolalpha << Form.getSignature() << std::endl
+         << "Should executed by : " << Form.getWho_should_execute() << std::endl
+         << "Who Could sign it  : " << Form.getWho_could_sign()  << std::endl << std::endl;
+    return (cout);
 };

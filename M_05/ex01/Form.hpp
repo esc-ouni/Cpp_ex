@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:26:07 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/16 12:03:44 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/16 12:20:16 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ class Form{
         
         void beSigned(Bureaucrat &Bureaucrat);
 };
+
+std::ostream &operator<<(std::ostream &cout, Form &Form);
 
 #endif

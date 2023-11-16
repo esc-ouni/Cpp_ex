@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/16 12:09:32 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/16 12:38:47 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,16 @@ std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
 };
 
 void Bureaucrat::signForm(Form &Form){
+    bool n = Form.getSignature();
     try{
         Form.beSigned(*this);
-        std::cout << this->getName() << " signed " << Form.getName() << std::endl;
+        std::cout << this->getName() << " signed " << Form.getName() << std::endl << std::endl;
     }
     catch(std::exception &e){
         std::cout << e.what() << std::endl;
+    if (n && this->getGrade() <= Form.getWho_could_sign())
+        std::cout << this->getName() << " couldn't sign " << Form.getName() <<" because it's already signed !" << std::endl << std::endl;
+    else 
+        std::cout << this->getName() << " couldn't sign " << Form.getName() <<" because he's not eligible to signe it !" << std::endl << std::endl;
     }
-    if (Form.getSignature())
-        std::cout << this->getName() << "couldn't sign " << Form.getName() <<" because it's already signed !" << std::endl;
-    else
-        std::cout << this->getName() << "couldn't sign " << Form.getName() <<" because he's not eligible to signe it !" << std::endl;
 };
