@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 14:48:12 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/16 12:09:32 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ Bureaucrat::Bureaucrat(std::string const name, unsigned int grade):name(name){
 };
 
 Bureaucrat::Bureaucrat(Bureaucrat const &r_inst):name(r_inst.name), grade(r_inst.grade){
+    const_cast<std::string&>(this->name) = r_inst.name;
+    this->grade = r_inst.grade;
 };
         
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &r_inst){
-    //this->name = "Const cast";
+    const_cast<std::string&>(this->name) = r_inst.name;
     this->grade = r_inst.grade;
     return (*this);
 };

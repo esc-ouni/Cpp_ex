@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:26:07 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 14:48:35 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/16 12:03:44 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ class Form{
         Form(Form const &r_inst);
         Form &operator=(Form const &r_inst);
         ~Form();
-
-
-
         
         std::string  getName() const;
         bool         getSignature() const;

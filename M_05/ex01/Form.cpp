@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:26:11 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 14:48:02 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/16 12:03:07 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ Form::Form(Form const &r_inst):name(r_inst.getName()), who_could_sign(r_inst.get
 };
 
 Form &Form::operator=(Form const &r_inst){
-    (void)r_inst;
-    // CONST CAST
-    // this->Form(r_inst.getName(), r_inst.getWho_could_sign(), r_inst.getWho_should_execute());
+    const_cast<std::string&>(this->name) = r_inst.getName();
+    this->signature = r_inst.getSignature();
+    const_cast<unsigned int &>(this->who_could_sign) = r_inst.getWho_could_sign();
+    const_cast<unsigned int &>(this->who_should_execute) = r_inst.getWho_should_execute();
     return (*this);
 };
 
