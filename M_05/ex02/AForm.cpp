@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,21 +11,21 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form():name("Empty.form"), who_could_sign(1), who_should_execute(150){
+AForm::AForm():name("Empty.form"), who_could_sign(1), who_should_execute(150){
     this->signature = false;
 };
 
-Form::Form(std::string name, unsigned int signer, unsigned int executer):name(name), who_could_sign(signer), who_should_execute(executer){
+AForm::AForm(std::string name, unsigned int signer, unsigned int executer):name(name), who_could_sign(signer), who_should_execute(executer){
     this->signature = false;    
 };
 
-Form::Form(Form const &r_inst):name(r_inst.getName()), who_could_sign(r_inst.getWho_could_sign()), who_should_execute(r_inst.getWho_should_execute()){
+AForm::AForm(AForm const &r_inst):name(r_inst.getName()), who_could_sign(r_inst.getWho_could_sign()), who_should_execute(r_inst.getWho_should_execute()){
     this->signature = r_inst.signature;
 };
 
-Form &Form::operator=(Form const &r_inst){
+AForm &AForm::operator=(AForm const &r_inst){
     const_cast<std::string&>(this->name) = r_inst.getName();
     this->signature = r_inst.getSignature();
     const_cast<unsigned int &>(this->who_could_sign) = r_inst.getWho_could_sign();
@@ -33,43 +33,43 @@ Form &Form::operator=(Form const &r_inst){
     return (*this);
 };
 
-Form::~Form(){
+AForm::~AForm(){
 };
 
-std::string  Form::getName() const{
+std::string  AForm::getName() const{
     return (this->name);
 };
 
-bool         Form::getSignature() const{
+bool         AForm::getSignature() const{
     return (this->signature);
 };
 
-unsigned int Form::getWho_could_sign() const{
+unsigned int AForm::getWho_could_sign() const{
     return (this->who_could_sign);
 };
 
-unsigned int Form::getWho_should_execute() const{
+unsigned int AForm::getWho_should_execute() const{
     return (this->who_should_execute);
 };
 
-void Form::beSigned(Bureaucrat &Bureaucrat){
+void AForm::beSigned(Bureaucrat &Bureaucrat){
     if (Bureaucrat.getGrade() <= this->getWho_could_sign() && !this->getSignature()){
         this->signature = true;
         return ;   
     }
     else if (Bureaucrat.getGrade() > this->getWho_could_sign())
-        throw std::logic_error("Form::GradeTooLowException");
+        throw std::logic_error("AForm::GradeTooLowException");
     else if(this->getSignature())
-        throw std::logic_error("Form::FormAlreadySigned");
+        throw std::logic_error("AForm::FormAlreadySigned");
     else
-        throw std::logic_error("Form::....");
+        throw std::logic_error("AForm::....");
 };
 
-std::ostream &operator<<(std::ostream &cout, Form &Form){
-    cout << std::endl << "==> Form info:" << std::endl
-         << "Form's name        : " << Form.getName() << std::endl
-         << "Form signed        : " << std::boolalpha << Form.getSignature() << std::endl
-         << "Should executed by : " << Form.getWho_should_execute() << std::endl
-         << "Who Could sign it  : " << Form.getWho_could_sign()  << std::endl << std::endl;
+std::ostream &operator<<(std::ostream &cout, AForm &AForm){
+    cout << std::endl << "==> AForm info:" << std::endl
+         << "AForm's name        : " << AForm.getName() << std::endl
+         << "AForm signed        : " << std::boolalpha << AForm.getSignature() << std::endl
+         << "Should executed by : " << AForm.getWho_should_execute() << std::endl
+         << "Who Could sign it  : " << AForm.getWho_could_sign()  << std::endl << std::endl;
     return (cout);
 };

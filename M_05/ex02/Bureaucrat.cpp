@@ -6,12 +6,12 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/16 12:38:47 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/17 11:19:52 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat():name("Wout"){
     this->grade = 150;
@@ -71,17 +71,17 @@ std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
     return (cout);
 };
 
-void Bureaucrat::signForm(Form &Form){
-    bool n = Form.getSignature();
+void Bureaucrat::signForm(AForm &AForm){
+    bool n = AForm.getSignature();
     try{
-        Form.beSigned(*this);
-        std::cout << this->getName() << " signed " << Form.getName() << std::endl << std::endl;
+        AForm.beSigned(*this);
+        std::cout << this->getName() << " signed " << AForm.getName() << std::endl << std::endl;
     }
     catch(std::exception &e){
         std::cout << e.what() << std::endl;
-    if (n && this->getGrade() <= Form.getWho_could_sign())
-        std::cout << this->getName() << " couldn't sign " << Form.getName() <<" because it's already signed !" << std::endl << std::endl;
+    if (n && this->getGrade() <= AForm.getWho_could_sign())
+        std::cout << this->getName() << " couldn't sign " << AForm.getName() <<" because it's already signed !" << std::endl << std::endl;
     else 
-        std::cout << this->getName() << " couldn't sign " << Form.getName() <<" because he's not eligible to signe it !" << std::endl << std::endl;
+        std::cout << this->getName() << " couldn't sign " << AForm.getName() <<" because he's not eligible to signe it !" << std::endl << std::endl;
     }
 };

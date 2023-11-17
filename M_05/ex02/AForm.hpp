@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,7 +16,7 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-class Form{
+class AForm{
     private:
         const std::string   name;
         bool                signature;
@@ -24,11 +24,11 @@ class Form{
         const unsigned int  who_should_execute;
         
     public:
-        Form();
-        Form(std::string name, unsigned int signer, unsigned int executer);
-        Form(Form const &r_inst);
-        Form &operator=(Form const &r_inst);
-        ~Form();
+        AForm();
+        AForm(std::string name, unsigned int signer, unsigned int executer);
+        AForm(AForm const &r_inst);
+        AForm &operator=(AForm const &r_inst);
+        ~AForm();
         
         std::string  getName() const;
         bool         getSignature() const;
@@ -39,6 +39,6 @@ class Form{
         void beSigned(Bureaucrat &Bureaucrat);
 };
 
-std::ostream &operator<<(std::ostream &cout, Form &Form);
+std::ostream &operator<<(std::ostream &cout, AForm &AForm);
 
 #endif
