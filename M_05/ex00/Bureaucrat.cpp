@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 11:23:49 by idouni           ###   ########.fr       */
+/*   Updated: 2023/11/20 13:13:48 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(std::string const name, unsigned int grade):name(name){
             throw (std::logic_error("Bureaucrat::GradeTooHighException"));
             // HERE THE HIGH EXCEPTION
         else
-            throw ("Bureaucrat::GradeTooLowException");
+            throw (std::logic_error("Bureaucrat::GradeTooLowException"));
             // HERE THE LOW EXCEPTION
     }
     else
