@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/16 12:38:47 by idouni           ###   ########.fr       */
+/*   Updated: 2023/12/20 15:17:24 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(std::string const name, unsigned int grade):name(name){
             throw (std::logic_error("Bureaucrat::GradeTooHighException"));
             // HERE THE HIGH EXCEPTION
         else
-            throw ("Bureaucrat::GradeTooLowException");
+            throw (std::logic_error("Bureaucrat::GradeTooLowException"));
             // HERE THE LOW EXCEPTION
     }
     else
@@ -31,12 +31,10 @@ Bureaucrat::Bureaucrat(std::string const name, unsigned int grade):name(name){
 };
 
 Bureaucrat::Bureaucrat(Bureaucrat const &r_inst):name(r_inst.name), grade(r_inst.grade){
-    const_cast<std::string&>(this->name) = r_inst.name;
-    this->grade = r_inst.grade;
 };
         
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &r_inst){
-    const_cast<std::string&>(this->name) = r_inst.name;
+    //this->name = "Const cast";
     this->grade = r_inst.grade;
     return (*this);
 };

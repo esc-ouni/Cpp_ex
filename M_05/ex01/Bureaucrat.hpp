@@ -6,18 +6,16 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:55 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/15 14:44:39 by idouni           ###   ########.fr       */
+/*   Updated: 2023/12/20 15:16:22 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __BUREAUCRAT_HPP_
 #define __BUREAUCRAT_HPP_
 
-// #include "Form.hpp"
 #include <iostream>
 
 class Form;
-class Bureaucrat;
 
 class Bureaucrat{
     private:
@@ -35,9 +33,8 @@ class Bureaucrat{
         std::string  getName() const;
         unsigned int getGrade() const;
 
-        void signForm(Form &Form);
+        void         signForm(Form &Form);
 };
-
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst);
 
