@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 11:55:18 by idouni            #+#    #+#             */
-/*   Updated: 2023/12/20 16:55:08 by idouni           ###   ########.fr       */
+/*   Updated: 2023/12/20 17:22:07 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 
 class ShrubberyCreationForm: public AForm {
     private:
+    public:
+        ShrubberyCreationForm();
+        ShrubberyCreationForm(std::string &target);
+        ShrubberyCreationForm(ShrubberyCreationForm const &r_inst);
+        ShrubberyCreationForm   &operator=(ShrubberyCreationForm const &r_inst);
+        ~ShrubberyCreationForm();
 };
 
 
