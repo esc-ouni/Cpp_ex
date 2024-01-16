@@ -13,20 +13,20 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-AForm::AForm():name("Empty.form"), who_could_sign(1), who_should_execute(150){
+AForm::AForm():_name("Empty.form"), who_could_sign(1), who_should_execute(150){
     this->signature = false;
 };
 
-AForm::AForm(std::string name, unsigned int signer, unsigned int executer):name(name), who_could_sign(signer), who_should_execute(executer){
+AForm::AForm(std::string _name, unsigned int signer, unsigned int executer):_name(_name), who_could_sign(signer), who_should_execute(executer){
     this->signature = false;    
 };
 
-AForm::AForm(AForm const &r_inst):name(r_inst.getName()), who_could_sign(r_inst.getWho_could_sign()), who_should_execute(r_inst.getWho_should_execute()){
+AForm::AForm(AForm const &r_inst):_name(r_inst.getName()), who_could_sign(r_inst.getWho_could_sign()), who_should_execute(r_inst.getWho_should_execute()){
     this->signature = r_inst.signature;
 };
 
 AForm &AForm::operator=(AForm const &r_inst){
-    const_cast<std::string&>(this->name) = r_inst.getName();
+    const_cast<std::string&>(this->_name) = r_inst.getName();
     this->signature = r_inst.getSignature();
     const_cast<unsigned int &>(this->who_could_sign) = r_inst.getWho_could_sign();
     const_cast<unsigned int &>(this->who_should_execute) = r_inst.getWho_should_execute();
@@ -37,7 +37,7 @@ AForm::~AForm(){
 };
 
 std::string  AForm::getName() const{
-    return (this->name);
+    return (this->_name);
 };
 
 bool         AForm::getSignature() const{
@@ -67,7 +67,7 @@ void AForm::beSigned(Bureaucrat &Bureaucrat){
 
 std::ostream &operator<<(std::ostream &cout, AForm &AForm){
     cout << std::endl << "==> AForm info:" << std::endl
-         << "AForm's name        : " << AForm.getName() << std::endl
+         << "AForm's _name        : " << AForm.getName() << std::endl
          << "AForm signed        : " << std::boolalpha << AForm.getSignature() << std::endl
          << "Should executed by : " << AForm.getWho_should_execute() << std::endl
          << "Who Could sign it  : " << AForm.getWho_could_sign()  << std::endl << std::endl;

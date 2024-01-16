@@ -19,11 +19,11 @@ class Form;
 
 class Bureaucrat{
     private:
-        const std::string name;
-        unsigned int      grade;
+        const std::string _name;
+        unsigned int      _grade;
     public:
         Bureaucrat();
-        Bureaucrat(std::string const name, unsigned int grade);
+        Bureaucrat(std::string const _name, unsigned int _grade);
         Bureaucrat(Bureaucrat const &r_inst);
         Bureaucrat &operator=(Bureaucrat const &r_inst);
         ~Bureaucrat();

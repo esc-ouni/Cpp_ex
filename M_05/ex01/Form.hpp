@@ -18,14 +18,14 @@
 
 class Form{
     private:
-        const std::string   name;
+        const std::string   _name;
         bool                signature;
         const unsigned int  who_could_sign;
         const unsigned int  who_should_execute;
         
     public:
         Form();
-        Form(std::string name, unsigned int signer, unsigned int executer);
+        Form(std::string _name, unsigned int signer, unsigned int executer);
         Form(Form const &r_inst);
         Form &operator=(Form const &r_inst);
         ~Form();

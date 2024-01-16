@@ -13,13 +13,13 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat():name("Wout"){
-    this->grade = 150;
+Bureaucrat::Bureaucrat():_name("Wout"){
+    this->_grade = 150;
 };
 
-Bureaucrat::Bureaucrat(std::string const name, unsigned int grade):name(name){
-    if (grade < 1 || grade > 150){
-        if (grade < 1)
+Bureaucrat::Bureaucrat(std::string const _name, unsigned int _grade):_name(_name){
+    if (_grade < 1 || _grade > 150){
+        if (_grade < 1)
             throw (std::logic_error("Bureaucrat::GradeTooHighException"));
             // HERE THE HIGH EXCEPTION
         else
@@ -27,15 +27,15 @@ Bureaucrat::Bureaucrat(std::string const name, unsigned int grade):name(name){
             // HERE THE LOW EXCEPTION
     }
     else
-        this->grade = grade;
+        this->_grade = _grade;
 };
 
-Bureaucrat::Bureaucrat(Bureaucrat const &r_inst):name(r_inst.name), grade(r_inst.grade){
+Bureaucrat::Bureaucrat(Bureaucrat const &r_inst):_name(r_inst._name), _grade(r_inst._grade){
 };
         
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &r_inst){
-    //this->name = "Const cast";
-    this->grade = r_inst.grade;
+    //this->_name = "Const cast";
+    this->_grade = r_inst._grade;
     return (*this);
 };
 
@@ -43,29 +43,29 @@ Bureaucrat::~Bureaucrat(){
 };
 
 void Bureaucrat::incrementGrade(){
-    if (this->grade < 1 || --(this->grade) < 1)
+    if (this->_grade < 1 || --(this->_grade) < 1)
         throw (std::logic_error("Bureaucrat::GradeTooHighException"));
         // HERE THE HIGH EXCEPTION;
     return;
 };
 
 void Bureaucrat::decrementGrade(){
-    if (this->grade > 150 || ++(this->grade) > 150)
+    if (this->_grade > 150 || ++(this->_grade) > 150)
         throw (std::logic_error("Bureaucrat::GradeTooLowException"));
         // HERE THE LOW EXCEPTION;
     return;
 };
 
 std::string Bureaucrat::getName() const{
-    return(this->name);
+    return(this->_name);
 };
 
 unsigned int Bureaucrat::getGrade() const{
-    return(this->grade);
+    return(this->_grade);
 };
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
-    cout << r_inst.getName() << ", bureaucrat grade " << r_inst.getGrade() << std::endl;
+    cout << r_inst.getName() << ", bureaucrat _grade " << r_inst.getGrade() << std::endl;
     return (cout);
 };
 

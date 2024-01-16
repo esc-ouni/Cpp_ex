@@ -19,14 +19,14 @@
 
 class AForm{
     private:
-        const std::string   name;
+        const std::string   _name;
         bool                signature;
         const unsigned int  who_could_sign;
         const unsigned int  who_should_execute;
         
     public:
         AForm();
-        AForm(std::string name, unsigned int signer, unsigned int executer);
+        AForm(std::string _name, unsigned int signer, unsigned int executer);
         AForm(AForm const &r_inst);
         AForm &operator=(AForm const &r_inst);
         ~AForm();
