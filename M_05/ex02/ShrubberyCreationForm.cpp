@@ -16,7 +16,8 @@ ShrubberyCreationForm::ShrubberyCreationForm():AForm("Wout", 145, 137){
     std::ofstream   outfile("Wout_shrubbery");
     
     if (!outfile.is_open()){
-        // err opening the file 
+        std::cerr << "err opening the file !" << std::endl;
+        return ;   
     }
 
     outfile << 
@@ -77,12 +78,12 @@ ShrubberyCreationForm::ShrubberyCreationForm():AForm("Wout", 145, 137){
 };
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string &target):AForm(target, 145, 137){
-    std::ofstream   outfile(target);
+    std::ofstream   outfile(target + "_shrubbery");
     
     if (!outfile.is_open()){
-        // err opening the file 
+        std::cerr << "err opening the file !" << std::endl;
+        return ;  
     }
-
     outfile << 
                 "                                                                ░░░░░░░░░░░░        ░░░░░░░░░░░░              \n"
                 "                                                            ░░░░░░░░░░░░░░░░░░░░  ░░▒▒░░▒▒░░░░░░░░            \n"
@@ -141,9 +142,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string &target):AForm(target, 
 };
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &r_inst){
+    (*this) = r_inst;
 };
 
 ShrubberyCreationForm   &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &r_inst){
+    this->setName(r_inst.getName());
+    this->setSignature(r_inst.getSignature());
+    this->setWho_could_sign(r_inst.getWho_could_sign());
+    this->setWho_should_execute(r_inst.getWho_should_execute());
+    return (*this);
 };
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){

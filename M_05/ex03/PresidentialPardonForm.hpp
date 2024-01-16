@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   PresidentialPardonAForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,14 +15,14 @@
 
 #include "AForm.hpp"
 
-class PresidentialPardonForm : public AForm{
+class PresidentialPardonAForm : public AForm{
     private:
     public:
-        PresidentialPardonForm();
-        PresidentialPardonForm(std::string &target);
-        PresidentialPardonForm(PresidentialPardonForm &r_inst);
-        PresidentialPardonForm &operator=(PresidentialPardonForm &r_inst);
-        ~PresidentialPardonForm();
+        PresidentialPardonAForm();
+        PresidentialPardonAForm(std::string &target);
+        PresidentialPardonAForm(PresidentialPardonAForm &r_inst);
+        PresidentialPardonAForm &operator=(PresidentialPardonAForm &r_inst);
+        ~PresidentialPardonAForm();
 
 };
 

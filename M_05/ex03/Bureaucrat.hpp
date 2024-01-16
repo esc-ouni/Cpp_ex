@@ -33,7 +33,7 @@ class Bureaucrat{
         std::string  getName() const;
         unsigned int getGrade() const;
 
-        void         signForm(AForm &Form);
+        void         signForm(AForm &AForm);
 };
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst);

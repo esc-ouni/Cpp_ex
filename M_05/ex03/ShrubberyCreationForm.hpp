@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationAForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,14 +15,14 @@
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm: public AForm {
+class ShrubberyCreationAForm: public AForm {
     private:
     public:
-        ShrubberyCreationForm();
-        ShrubberyCreationForm(std::string &target);
-        ShrubberyCreationForm(ShrubberyCreationForm const &r_inst);
-        ShrubberyCreationForm   &operator=(ShrubberyCreationForm const &r_inst);
-        ~ShrubberyCreationForm();
+        ShrubberyCreationAForm();
+        ShrubberyCreationAForm(std::string &target);
+        ShrubberyCreationAForm(ShrubberyCreationAForm const &r_inst);
+        ShrubberyCreationAForm   &operator=(ShrubberyCreationAForm const &r_inst);
+        ~ShrubberyCreationAForm();
 };
 
 

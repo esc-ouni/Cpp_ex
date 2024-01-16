@@ -13,17 +13,23 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm():AForm("Wout", 25, 5){
-    std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+    std::cout << "Target has been pardoned by Zaphod Beeblebrox" << std::endl;
 };
 
 PresidentialPardonForm::PresidentialPardonForm(std::string &target):AForm(target, 25, 5){
-    std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+    std::cout << target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 };
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &r_inst){
+    (*this) = r_inst;
 };
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &r_inst){
+    this->setName(r_inst.getName());
+    this->setSignature(r_inst.getSignature());
+    this->setWho_could_sign(r_inst.getWho_could_sign());
+    this->setWho_should_execute(r_inst.getWho_should_execute());
+    return (*this);
 };
 
 PresidentialPardonForm::~PresidentialPardonForm(){

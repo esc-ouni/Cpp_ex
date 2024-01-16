@@ -25,5 +25,4 @@ class ShrubberyCreationForm: public AForm {
         ~ShrubberyCreationForm();
 };
 
-
 #endif

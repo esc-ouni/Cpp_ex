@@ -18,7 +18,7 @@ class AForm;
 class Intern{
     private:
     public:
-        AForm *makeForm(std::string _name, std::string target);
+        AForm *makeAForm(std::string _name, std::string target);
 };
 
 #endif

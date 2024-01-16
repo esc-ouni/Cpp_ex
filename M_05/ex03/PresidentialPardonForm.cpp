@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*   PresidentialPardonAForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialPardonForm.hpp"
+#include "PresidentialPardonAForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm():AForm("Wout", 25, 5){
+PresidentialPardonAForm::PresidentialPardonAForm():AForm("Wout", 25, 5){
     std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 };
 
-PresidentialPardonForm::PresidentialPardonForm(std::string &target):AForm(target, 25, 5){
+PresidentialPardonAForm::PresidentialPardonAForm(std::string &target):AForm(target, 25, 5){
     std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 };
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &r_inst){
+PresidentialPardonAForm::PresidentialPardonAForm(PresidentialPardonAForm &r_inst){
 };
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &r_inst){
+PresidentialPardonAForm &PresidentialPardonAForm::operator=(PresidentialPardonAForm &r_inst){
 };
 
-PresidentialPardonForm::~PresidentialPardonForm(){
+PresidentialPardonAForm::~PresidentialPardonAForm(){
 };

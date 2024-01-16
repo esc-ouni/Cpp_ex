@@ -14,32 +14,54 @@
 #define __FORM_HPP_
 
 #include "Bureaucrat.hpp"
-#include <iostream>
-#include <fstream>
+
+class AlreadySigned: public std::exception{
+    public:
+        const char *what() const _NOEXCEPT{
+            return "Form Already Signed !";
+        }
+}; 
+
+class FormNotSigned: public std::exception{
+    public:
+        const char * what() const _NOEXCEPT{
+            return "Form Not Signed !";
+        }
+};
+
 
 class AForm{
     private:
-        const std::string   _name;
-        bool                signature;
-        const unsigned int  who_could_sign;
-        const unsigned int  who_should_execute;
+        const std::string  _name;
+        bool               _signature;
+        const int          _who_could_sign;
+        const int          _who_should_execute;
         
     public:
         AForm();
-        AForm(std::string _name, unsigned int signer, unsigned int executer);
+        AForm(std::string _name, int signer, int executer);
         AForm(AForm const &r_inst);
         AForm &operator=(AForm const &r_inst);
-        ~AForm();
+        virtual ~AForm() = 0;
         
-        std::string  getName() const;
-        bool         getSignature() const;
-        unsigned int getWho_could_sign() const;
-        unsigned int getWho_should_execute() const;
-    
+        std::string               getName() const;
+        bool                      getSignature() const;
+        int                       getWho_could_sign() const;
+        int                       getWho_should_execute() const;
+
+        void                      setName(std::string name);
+        void                      setSignature(bool signature);
+        void                      setWho_could_sign(int signer);
+        void                      setWho_should_execute(int executer);
         
-        void beSigned(Bureaucrat &Bureaucrat);
+        class HighGradeException  GradeTooHighException;
+        class LowGradeException   GradeTooLowException;
+        class AlreadySigned       AlreadySignedException;
+        class FormNotSigned       NotSignedException;
+
+        void                      beSigned(Bureaucrat &Bureaucrat);
+        void                      execute(Bureaucrat const & executor) const;
 };
 
 std::ostream &operator<<(std::ostream &cout, AForm &AForm);
-
 #endif

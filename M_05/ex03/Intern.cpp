@@ -13,6 +13,6 @@
 #include "Intern.hpp"
 #include "AForm.hpp"
 
-AForm *Intern::makeForm(std::string _name, std::string target){
+AForm *Intern::makeAForm(std::string _name, std::string target){
     std::cout << "Intern creates <" << _name << std::endl;
 };

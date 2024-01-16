@@ -18,12 +18,12 @@
 class RobotomyRequestForm : public AForm{
     private:
     public:
+        static bool var;
         RobotomyRequestForm();
         RobotomyRequestForm(std::string &target);
         RobotomyRequestForm(RobotomyRequestForm const &r_inst);
         RobotomyRequestForm &operator=(RobotomyRequestForm const &r_inst);
         ~RobotomyRequestForm();
-
 };
 
 

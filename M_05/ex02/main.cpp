@@ -19,9 +19,22 @@
 
 int main() {
     std::string str = "form";
-    ShrubberyCreationForm form(str);
+    // ShrubberyCreationForm form(str);
 
-    std::cout << form.getName() << std::endl;
+    // std::cout << form.getName() << std::endl;
+
+    Bureaucrat him("omar", 140);
+
+    RobotomyRequestForm robot(str);
+    RobotomyRequestForm robot1(str);
+    RobotomyRequestForm robot2(str);
+    RobotomyRequestForm robot3(str);
+
+
+    him.signForm(robot3);
+    him.executeForm(robot3);
+    // std::cout << robot.getName() << std::endl;
+
     
     return 0;
 }

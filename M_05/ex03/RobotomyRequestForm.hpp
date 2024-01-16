@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   RobotomyRequestAForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,14 +15,14 @@
 
 #include "AForm.hpp"
 
-class RobotomyRequestForm : public AForm{
+class RobotomyRequestAForm : public AForm{
     private:
     public:
-        RobotomyRequestForm();
-        RobotomyRequestForm(std::string &target);
-        RobotomyRequestForm(RobotomyRequestForm const &r_inst);
-        RobotomyRequestForm &operator=(RobotomyRequestForm const &r_inst);
-        ~RobotomyRequestForm();
+        RobotomyRequestAForm();
+        RobotomyRequestAForm(std::string &target);
+        RobotomyRequestAForm(RobotomyRequestAForm const &r_inst);
+        RobotomyRequestAForm &operator=(RobotomyRequestAForm const &r_inst);
+        ~RobotomyRequestAForm();
 
 };
 

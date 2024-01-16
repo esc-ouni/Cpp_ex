@@ -15,6 +15,13 @@
 
 #include "Bureaucrat.hpp"
 
+class AlreadySigned: public std::exception{
+    public:
+        const char *what() const _NOEXCEPT{
+            return "Form Already Signed !";
+        }
+}; 
+
 class Form{
     private:
         const std::string  _name;
@@ -36,6 +43,8 @@ class Form{
         
         class HighGradeException  GradeTooHighException;
         class LowGradeException   GradeTooLowException;
+        class AlreadySigned       AlreadySignedException;
+        
 
         void                      beSigned(Bureaucrat &Bureaucrat);
 };

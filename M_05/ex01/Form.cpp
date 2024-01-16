@@ -57,11 +57,14 @@ int Form::getWho_should_execute() const{
     return (this->_who_should_execute);
 };
 
+
 void Form::beSigned(Bureaucrat &Bureaucrat){
+    if (this->getSignature())
+        throw Form::AlreadySignedException;
     if ((Bureaucrat.getGrade() <= this->getWho_could_sign()) && !this->getSignature()){
         this->_signature = true;
     }
-    else if (!this->getSignature())
+    else
         throw Form::GradeTooLowException;
 };
 

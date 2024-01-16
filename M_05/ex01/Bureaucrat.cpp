@@ -67,14 +67,11 @@ std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
 };
 
 void  Bureaucrat::signForm(Form &Form){
-    if (Form.getSignature()){
-        std::cout << this->getName() << " couldn't sign " << Form.getName() << " because it's already signed !" << std::endl;
-        return ;
-    }
-    if (this->getGrade() <= Form.getWho_could_sign()){
+    try {
+        Form.beSigned((*this));
         std::cout << this->getName() << " signed " << Form.getName() << std::endl;
-    }else if (!(this->getGrade() <= Form.getWho_could_sign())){
-        std::cout << this->getName() << " couldn't sign " << Form.getName() << " because it's " ;
+    }
+    catch (std::exception &e){
+        std::cout << this->getName() << " couldn't sign " << Form.getName() << " because " << e.what() << std::endl;
     } 
-    Form.beSigned((*this));
 };

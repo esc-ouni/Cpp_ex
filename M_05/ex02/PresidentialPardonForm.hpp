@@ -23,7 +23,6 @@ class PresidentialPardonForm : public AForm{
         PresidentialPardonForm(PresidentialPardonForm &r_inst);
         PresidentialPardonForm &operator=(PresidentialPardonForm &r_inst);
         ~PresidentialPardonForm();
-
 };
 
 

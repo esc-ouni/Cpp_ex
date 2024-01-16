@@ -60,7 +60,7 @@ void AForm::beSigned(Bureaucrat &Bureaucrat){
     else if (Bureaucrat.getGrade() > this->getWho_could_sign())
         throw std::logic_error("AForm::GradeTooLowException");
     else if(this->getSignature())
-        throw std::logic_error("AForm::FormAlreadySigned");
+        throw std::logic_error("AForm::AFormAlreadySigned");
     else
         throw std::logic_error("AForm::....");
 };

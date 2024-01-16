@@ -23,7 +23,6 @@ all: $(EXEC)
 $(EXEC): $(OBJS) $(H_FILES)
 	@$(CC) $(FLAGS) $(OBJS) -o $(EXEC)
 	@clear && echo "==$(EXEC)_compiled==========="
-	./$(EXEC)
 
 %.o: %.cpp $(H_FILES)
 	$(CC) $(FLAGS) -c $< -o $@ 
@@ -40,6 +39,5 @@ fclean: clean
 
 re: fclean all
 	@clear && echo "==Compilation_reseted========"
-	./$(EXEC)
 
 .PHONY: all clean fclean re

@@ -12,14 +12,14 @@
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonAForm.hpp"
+#include "RobotomyRequestAForm.hpp"
+#include "ShrubberyCreationAForm.hpp"
 
 
 int main() {
     std::string str = "form";
-    ShrubberyCreationForm form(str);
+    ShrubberyCreationAForm form(str);
 
     std::cout << form.getName() << std::endl;
     

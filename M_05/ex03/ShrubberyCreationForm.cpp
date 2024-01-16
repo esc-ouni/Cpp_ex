@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationAForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "ShrubberyCreationAForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm():AForm("Wout", 145, 137){
+ShrubberyCreationAForm::ShrubberyCreationAForm():AForm("Wout", 145, 137){
     std::ofstream   outfile("Wout_shrubbery");
     
     if (!outfile.is_open()){
@@ -76,7 +76,7 @@ ShrubberyCreationForm::ShrubberyCreationForm():AForm("Wout", 145, 137){
     outfile.close();
 };
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string &target):AForm(target, 145, 137){
+ShrubberyCreationAForm::ShrubberyCreationAForm(std::string &target):AForm(target, 145, 137){
     std::ofstream   outfile(target);
     
     if (!outfile.is_open()){
@@ -140,11 +140,11 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string &target):AForm(target, 
     outfile.close();
 };
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &r_inst){
+ShrubberyCreationAForm::ShrubberyCreationAForm(ShrubberyCreationAForm const &r_inst){
 };
 
-ShrubberyCreationForm   &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &r_inst){
+ShrubberyCreationAForm   &ShrubberyCreationAForm::operator=(ShrubberyCreationAForm const &r_inst){
 };
 
-ShrubberyCreationForm::~ShrubberyCreationForm(){
+ShrubberyCreationAForm::~ShrubberyCreationAForm(){
 };

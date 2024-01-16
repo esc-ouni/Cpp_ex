@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   RobotomyRequestAForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,23 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "RobotomyRequestAForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm():AForm("Wout", 72, 45){
+RobotomyRequestAForm::RobotomyRequestAForm():AForm("Wout", 72, 45){
     std::cout << "Makes some drilling noises" << std::endl;
     std::cout << this->getName() << " has been robotomized successfully 50\% of the time" << std::endl;
 };
 
-RobotomyRequestForm::RobotomyRequestForm(std::string &target):AForm(target, 72, 45){
+RobotomyRequestAForm::RobotomyRequestAForm(std::string &target):AForm(target, 72, 45){
     std::cout << "Makes some drilling noises" << std::endl;
     std::cout << this->getName() << " has been robotomized successfully 50\% of the time" << std::endl;
 };
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &r_inst){
+RobotomyRequestAForm::RobotomyRequestAForm(RobotomyRequestAForm const &r_inst){
 };
 
-RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &r_inst){
+RobotomyRequestAForm &RobotomyRequestAForm::operator=(RobotomyRequestAForm const &r_inst){
 };
 
-RobotomyRequestForm::~RobotomyRequestForm(){
+RobotomyRequestAForm::~RobotomyRequestAForm(){
 };
