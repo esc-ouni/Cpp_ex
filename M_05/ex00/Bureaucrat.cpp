@@ -6,61 +6,58 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/11/20 13:13:48 by idouni           ###   ########.fr       */
+/*   Updated: 2024/01/14 09:45:51 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat():name("Wout"){
-    this->grade = 150;
+Bureaucrat::Bureaucrat():_name("Wout"){
+    this->_grade = 150;
 };
 
-Bureaucrat::Bureaucrat(std::string const name, unsigned int grade):name(name){
-    if (grade < 1 || grade > 150){
-        if (grade < 1)
-            throw (std::logic_error("Bureaucrat::GradeTooHighException"));
-            // HERE THE HIGH EXCEPTION
-        else
-            throw (std::logic_error("Bureaucrat::GradeTooLowException"));
-            // HERE THE LOW EXCEPTION
+Bureaucrat::Bureaucrat(std::string const name, int grade):_name(name){
+    if (grade < 1) {
+        throw Bureaucrat::GradeTooHighException;
+    } else if (grade > 150) {
+        throw Bureaucrat::GradeTooLowException;
     }
     else
-        this->grade = grade;
+        this->_grade = grade;
 };
 
-Bureaucrat::Bureaucrat(Bureaucrat const &r_inst):name(r_inst.name), grade(r_inst.grade){
+Bureaucrat::Bureaucrat(Bureaucrat const &r_inst):_name(r_inst._name), _grade(r_inst._grade){
 };
         
-Bureaucrat &Bureaucrat::operator=(Bureaucrat const &r_inst){
-    //this->name = "Const cast";
-    this->grade = r_inst.grade;
-    return (*this);
-};
-
 Bureaucrat::~Bureaucrat(){
 };
 
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &r_inst){
+    this->_grade = r_inst._grade;
+    const_cast<std::string&>(this->_name) = r_inst._name;
+    return (*this);
+};
+
 void Bureaucrat::incrementGrade(){
-    if (this->grade < 1 || --(this->grade) < 1)
-        throw (std::logic_error("Bureaucrat::GradeTooHighException"));
-        // HERE THE HIGH EXCEPTION;
+    if ((this->_grade - 1) < 1)
+        throw Bureaucrat::GradeTooHighException;
+    --(this->_grade);
     return;
 };
 
 void Bureaucrat::decrementGrade(){
-    if (this->grade > 150 || ++(this->grade) > 150)
-        throw (std::logic_error("Bureaucrat::GradeTooLowException"));
-        // HERE THE LOW EXCEPTION;
+    if ((this->_grade + 1) > 150)
+        throw Bureaucrat::GradeTooLowException;
+    ++(this->_grade);
     return;
 };
 
 std::string Bureaucrat::getName() const{
-    return(this->name);
+    return(this->_name);
 };
 
 unsigned int Bureaucrat::getGrade() const{
-    return(this->grade);
+    return(this->_grade);
 };
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){

@@ -12,25 +12,37 @@
 
 #include "Bureaucrat.hpp"
 
-int main(){
-    
-    // std::cout << employee;
-    // for (unsigned long long i = 0; i < 200; i++){
-        try
-        {
-            Bureaucrat employee("oustad", 157);
-            // employee.decrementGrade();
-            // std::cout << "Grade decremented successfully !. It becomes : " << employee.getGrade() << std::endl;
+int main(){    
+    for (int i = 0; i < 160; i++){
+        try{
+            Bureaucrat employee("oustad", i);
+            std::cout << employee << "  ";
+            std::cout << "decrementing Bureaucrat's grade to : " ;
+            employee.decrementGrade();
+            std::cout << employee.getGrade() << std::endl;
+
         }
-        catch (std::exception &e)
-        {
+        catch (std::exception &e){
             std::cout << e.what() << std::endl;
         }
-        // catch(...){
-        //     std::cout << "Ambigous exception caught !" << std::endl;
-        // }
-        
-    // }
-    
+        catch(...){
+            std::cout << "Ambigous exception caught !" << std::endl;
+        }   
+    }
+    for (int i = 160; i >= 0; i--){
+        try{
+            Bureaucrat employee("oustad", i);
+            std::cout << employee << " ";
+            std::cout << "incrementing Bureaucrat's grade to : " ;
+            employee.incrementGrade();
+            std::cout << employee.getGrade() << std::endl;
+        }
+        catch (std::exception &e){
+            std::cout << e.what() << std::endl;
+        }
+        catch(...){
+            std::cout << "Ambigous exception caught !" << std::endl;
+        }   
+    }
     return (0);
 }
