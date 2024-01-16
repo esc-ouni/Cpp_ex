@@ -23,8 +23,6 @@ all: $(EXEC)
 $(EXEC): $(OBJS) $(H_FILES)
 	@$(CC) $(FLAGS) $(OBJS) -o $(EXEC)
 	@clear && echo "==$(EXEC)_compiled==========="
-	./$(EXEC)
-
 
 %.o: %.cpp $(H_FILES)
 	$(CC) $(FLAGS) -c $< -o $@ 

@@ -13,23 +13,28 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Form::Form():_name("Empty.form"), who_could_sign(1), who_should_execute(150){
-    this->signature = false;
+Form::Form():_name("Empty.form"), _who_could_sign(1), _who_should_execute(150){
+    this->_signature = false;
 };
 
-Form::Form(std::string _name, unsigned int signer, unsigned int executer):_name(_name), who_could_sign(signer), who_should_execute(executer){
-    this->signature = false;    
+Form::Form(std::string _name, int signer, int executer):_name(_name), _who_could_sign(signer), _who_should_execute(executer){
+    if (signer < 1 || executer < 1){
+        throw Form::GradeTooHighException;
+    } else if (signer > 150 || executer > 150){
+        throw Form::GradeTooLowException;
+    }
+    this->_signature = false;
 };
 
-Form::Form(Form const &r_inst):_name(r_inst.getName()), who_could_sign(r_inst.getWho_could_sign()), who_should_execute(r_inst.getWho_should_execute()){
-    this->signature = r_inst.signature;
+Form::Form(Form const &r_inst):_name(r_inst.getName()), _who_could_sign(r_inst.getWho_could_sign()), _who_should_execute(r_inst.getWho_should_execute()){
+    this->_signature = r_inst._signature;
 };
 
 Form &Form::operator=(Form const &r_inst){
     const_cast<std::string&>(this->_name) = r_inst.getName();
-    this->signature = r_inst.getSignature();
-    const_cast<unsigned int &>(this->who_could_sign) = r_inst.getWho_could_sign();
-    const_cast<unsigned int &>(this->who_should_execute) = r_inst.getWho_should_execute();
+    this->_signature = r_inst.getSignature();
+    const_cast<int &>(this->_who_could_sign) = r_inst.getWho_could_sign();
+    const_cast<int &>(this->_who_should_execute) = r_inst.getWho_should_execute();
     return (*this);
 };
 
@@ -41,35 +46,30 @@ std::string  Form::getName() const{
 };
 
 bool         Form::getSignature() const{
-    return (this->signature);
+    return (this->_signature);
 };
 
-unsigned int Form::getWho_could_sign() const{
-    return (this->who_could_sign);
+int Form::getWho_could_sign() const{
+    return (this->_who_could_sign);
 };
 
-unsigned int Form::getWho_should_execute() const{
-    return (this->who_should_execute);
+int Form::getWho_should_execute() const{
+    return (this->_who_should_execute);
 };
 
 void Form::beSigned(Bureaucrat &Bureaucrat){
-    if (Bureaucrat.getGrade() <= this->getWho_could_sign() && !this->getSignature()){
-        this->signature = true;
-        return ;   
+    if ((Bureaucrat.getGrade() <= this->getWho_could_sign()) && !this->getSignature()){
+        this->_signature = true;
     }
-    else if (Bureaucrat.getGrade() > this->getWho_could_sign())
-        throw std::logic_error("Form::GradeTooLowException");
-    else if(this->getSignature())
-        throw std::logic_error("Form::FormAlreadySigned");
-    else
-        throw std::logic_error("Form::....");
+    else if (!this->getSignature())
+        throw Form::GradeTooLowException;
 };
 
 std::ostream &operator<<(std::ostream &cout, Form &Form){
-    cout << std::endl << "==> Form info:" << std::endl
+    cout << std::endl << "==> Form's info:" << std::endl
          << "Form's _name        : " << Form.getName() << std::endl
-         << "Form signed        : " << std::boolalpha << Form.getSignature() << std::endl
-         << "Should executed by : " << Form.getWho_should_execute() << std::endl
-         << "Who Could sign it  : " << Form.getWho_could_sign()  << std::endl << std::endl;
+         << "Form signed         : " << std::boolalpha << Form.getSignature() << std::endl
+         << "Should executed by  : " << Form.getWho_should_execute() << std::endl
+         << "Who Could sign it   : " << Form.getWho_could_sign()  << std::endl << std::endl;
     return (cout);
 };

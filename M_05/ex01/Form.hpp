@@ -14,29 +14,30 @@
 #define __FORM_HPP_
 
 #include "Bureaucrat.hpp"
-#include <iostream>
 
 class Form{
     private:
-        const std::string   _name;
-        bool                signature;
-        const unsigned int  who_could_sign;
-        const unsigned int  who_should_execute;
+        const std::string  _name;
+        bool               _signature;
+        const int          _who_could_sign;
+        const int          _who_should_execute;
         
     public:
         Form();
-        Form(std::string _name, unsigned int signer, unsigned int executer);
+        Form(std::string _name, int signer, int executer);
         Form(Form const &r_inst);
         Form &operator=(Form const &r_inst);
         ~Form();
         
-        std::string  getName() const;
-        bool         getSignature() const;
-        unsigned int getWho_could_sign() const;
-        unsigned int getWho_should_execute() const;
-    
+        std::string               getName() const;
+        bool                      getSignature() const;
+        int                       getWho_could_sign() const;
+        int                       getWho_should_execute() const;
         
-        void beSigned(Bureaucrat &Bureaucrat);
+        class HighGradeException  GradeTooHighException;
+        class LowGradeException   GradeTooLowException;
+
+        void                      beSigned(Bureaucrat &Bureaucrat);
 };
 
 std::ostream &operator<<(std::ostream &cout, Form &Form);

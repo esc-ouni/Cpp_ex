@@ -15,78 +15,31 @@
 
 
 int main() {
-    // try {
-    //     Form form1("Form1", 50, 25);
-    //     Bureaucrat bureaucrat1("John", 45);
-    //     Bureaucrat bureaucrat2("Jane", 55);
-    //     Bureaucrat bureaucrat3("Mehdi", 150);
-    //     Bureaucrat bureaucrat4("Mouad", 1);
-
-    //     std::cout << form1 << std::endl;
-    //     bureaucrat3.signForm(form1); // Should be successful
-    //     bureaucrat1.signForm(form1); // Should be successful
-    //     bureaucrat2.signForm(form1); // Should fail
-    //     bureaucrat4.signForm(form1); // Should fail
-        
-
-    //     std::cout << form1 << std::endl;
-    // } catch (const std::exception& e) {
-    //     std::cerr << e.what() << std::endl;
-    // }
-
-    // try {
-    //     Form form2("Form2", 0, 25); // Should throw an exception
-    // } catch (const std::exception& e) {
-    //     std::cerr << e.what() << std::endl;
-    // }
-
-    // // ... Additional tests for other scenarios ...
-
     try {
-        // Testing form creation
-        Form formLow("LowForm", 150, 150);
-        Form formHigh("HighForm", 1, 1);
-        Form formBoundary("BoundaryForm", 1, 150);
-        Bureaucrat bureaucratBoundary("BoundaryBureaucrat", 150);
-        Bureaucrat middleBureaucrat("MiddleBureaucrat", 75);
-        Form formMiddle("MiddleForm", 74, 74);
+        Form       low_form("LowForm", 150, 150);
+        Form       high_form("HighForm", 1, 1);
+        Form       midd_form("MiddleForm", 75, 75);
+        Bureaucrat low_Bureaucrat("LowBureaucrat", 150);
+        Bureaucrat high_Bureaucrat("HighBureaucrat", 1);
 
-        // Testing bureaucrat creation
-        Bureaucrat lowBureaucrat("LowBureaucrat", 150);
-        Bureaucrat highBureaucrat("HighBureaucrat", 1);
-        std::cout << lowBureaucrat << std::endl;
-        std::cout << highBureaucrat << std::endl;
-        std::cout << middleBureaucrat << std::endl;
-        std::cout << bureaucratBoundary << std::endl; 
+        std::cout << low_Bureaucrat << std::endl;
+        std::cout << high_Bureaucrat << std::endl;
 
-        std::cout << formMiddle << std::endl;
-        std::cout << formBoundary << std::endl;
-        std::cout << formLow << std::endl;
-        std::cout << formHigh << std::endl;
-        std::cout << formMiddle << std::endl;
+        std::cout << low_form << std::endl;
+        std::cout << high_form << std::endl;
+        std::cout << midd_form << std::endl;
+
+        high_Bureaucrat.signForm(low_form);  // Should succeed
+        high_Bureaucrat.signForm(midd_form); // Should succeed
+        high_Bureaucrat.signForm(high_form); // Should succeed
         
-
-        // Signing tests
-        lowBureaucrat.signForm(formLow); // Should succeed
-        highBureaucrat.signForm(formHigh); // Should succeed
-
-        middleBureaucrat.signForm(formMiddle); // Should fail
-
-        // Test boundary conditions
-        bureaucratBoundary.signForm(formBoundary); // Should fail
-
-    } catch (const std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
+        low_Bureaucrat.signForm(low_form);  // Should succeed
+        low_Bureaucrat.signForm(midd_form); // Should fail
+        low_Bureaucrat.signForm(high_form); // Should fail
+        
+    } catch (std::exception& e) {
+        std::cerr << e.what() << std::endl;
     }
-
-    try {
-        Form invalidForm("Invalid", 0, 151); // Should throw an exception
-    } catch (const std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-
-    // ... Additional tests for other scenarios ...
-    
     
     return 0;
 }

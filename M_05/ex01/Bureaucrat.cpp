@@ -6,7 +6,7 @@
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:53:58 by idouni            #+#    #+#             */
-/*   Updated: 2023/12/20 15:17:24 by idouni           ###   ########.fr       */
+/*   Updated: 2024/01/14 09:45:51 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,42 +17,39 @@ Bureaucrat::Bureaucrat():_name("Wout"){
     this->_grade = 150;
 };
 
-Bureaucrat::Bureaucrat(std::string const _name, unsigned int _grade):_name(_name){
-    if (_grade < 1 || _grade > 150){
-        if (_grade < 1)
-            throw (std::logic_error("Bureaucrat::GradeTooHighException"));
-            // HERE THE HIGH EXCEPTION
-        else
-            throw (std::logic_error("Bureaucrat::GradeTooLowException"));
-            // HERE THE LOW EXCEPTION
+Bureaucrat::Bureaucrat(std::string const name, int grade):_name(name){
+    if (grade < 1) {
+        throw Bureaucrat::GradeTooHighException;
+    } else if (grade > 150) {
+        throw Bureaucrat::GradeTooLowException;
     }
     else
-        this->_grade = _grade;
+        this->_grade = grade;
 };
 
 Bureaucrat::Bureaucrat(Bureaucrat const &r_inst):_name(r_inst._name), _grade(r_inst._grade){
 };
         
-Bureaucrat &Bureaucrat::operator=(Bureaucrat const &r_inst){
-    //this->_name = "Const cast";
-    this->_grade = r_inst._grade;
-    return (*this);
-};
-
 Bureaucrat::~Bureaucrat(){
 };
 
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &r_inst){
+    this->_grade = r_inst._grade;
+    const_cast<std::string&>(this->_name) = r_inst._name;
+    return (*this);
+};
+
 void Bureaucrat::incrementGrade(){
-    if (this->_grade < 1 || --(this->_grade) < 1)
-        throw (std::logic_error("Bureaucrat::GradeTooHighException"));
-        // HERE THE HIGH EXCEPTION;
+    if ((this->_grade - 1) < 1)
+        throw Bureaucrat::GradeTooHighException;
+    --(this->_grade);
     return;
 };
 
 void Bureaucrat::decrementGrade(){
-    if (this->_grade > 150 || ++(this->_grade) > 150)
-        throw (std::logic_error("Bureaucrat::GradeTooLowException"));
-        // HERE THE LOW EXCEPTION;
+    if ((this->_grade + 1) > 150)
+        throw Bureaucrat::GradeTooLowException;
+    ++(this->_grade);
     return;
 };
 
@@ -60,26 +57,24 @@ std::string Bureaucrat::getName() const{
     return(this->_name);
 };
 
-unsigned int Bureaucrat::getGrade() const{
+int Bureaucrat::getGrade() const{
     return(this->_grade);
 };
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat const &r_inst){
-    cout << r_inst.getName() << ", bureaucrat _grade " << r_inst.getGrade() << std::endl;
+    cout << r_inst.getName() << ", bureaucrat grade " << r_inst.getGrade() << std::endl;
     return (cout);
 };
 
-void Bureaucrat::signForm(Form &Form){
-    bool n = Form.getSignature();
-    try{
-        Form.beSigned(*this);
-        std::cout << this->getName() << " signed " << Form.getName() << std::endl << std::endl;
+void  Bureaucrat::signForm(Form &Form){
+    if (Form.getSignature()){
+        std::cout << this->getName() << " couldn't sign " << Form.getName() << " because it's already signed !" << std::endl;
+        return ;
     }
-    catch(std::exception &e){
-        std::cout << e.what() << std::endl;
-    if (n && this->getGrade() <= Form.getWho_could_sign())
-        std::cout << this->getName() << " couldn't sign " << Form.getName() <<" because it's already signed !" << std::endl << std::endl;
-    else 
-        std::cout << this->getName() << " couldn't sign " << Form.getName() <<" because he's not eligible to signe it !" << std::endl << std::endl;
-    }
+    if (this->getGrade() <= Form.getWho_could_sign()){
+        std::cout << this->getName() << " signed " << Form.getName() << std::endl;
+    }else if (!(this->getGrade() <= Form.getWho_could_sign())){
+        std::cout << this->getName() << " couldn't sign " << Form.getName() << " because it's " ;
+    } 
+    Form.beSigned((*this));
 };
