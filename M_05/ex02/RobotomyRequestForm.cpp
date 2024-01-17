@@ -15,19 +15,19 @@
 bool RobotomyRequestForm::var = true;
 
 RobotomyRequestForm::RobotomyRequestForm():AForm("Wout", 72, 45){
-    std::cout << "Makes some drilling noises" << std::endl;
+    std::cout << "Makes some drilling noises ..." << std::endl;
     if (RobotomyRequestForm::var)
-        std::cout << "Target has been robotomized successfully !" << std::endl, RobotomyRequestForm::var = false;
+        std::cout << " => Target has been robotomized successfully !" << std::endl, RobotomyRequestForm::var = false;
     else
-        std::cout << "The robotomy has been failed !" << std::endl, RobotomyRequestForm::var = true;
+        std::cout << " => The robotomy has been failed !" << std::endl, RobotomyRequestForm::var = true;
 };
 
 RobotomyRequestForm::RobotomyRequestForm(std::string &target):AForm(target, 72, 45){
-    std::cout << "Makes some drilling noises" << std::endl;
+    std::cout << "Makes some drilling noises ..." << std::endl;
     if (RobotomyRequestForm::var)
-        std::cout << target << " has been robotomized successfully !" << std::endl, RobotomyRequestForm::var = false;
+        std::cout << " => " << target << " has been robotomized successfully !" << std::endl, RobotomyRequestForm::var = false;
     else
-        std::cout << "The robotomy has been failed !" << std::endl, RobotomyRequestForm::var = true;
+        std::cout << " => The robotomy has been failed !" << std::endl, RobotomyRequestForm::var = true;
 };
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &r_inst){

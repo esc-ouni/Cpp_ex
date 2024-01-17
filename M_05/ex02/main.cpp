@@ -16,25 +16,25 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-
 int main() {
     std::string str = "form";
-    // ShrubberyCreationForm form(str);
 
-    // std::cout << form.getName() << std::endl;
-
-    Bureaucrat him("omar", 140);
-
+    Bureaucrat him("him", 15);
+    Bureaucrat her("her", 120);
     RobotomyRequestForm robot(str);
+
+    her.signForm(robot);
+    him.signForm(robot);
+    her.executeForm(robot);
+    him.executeForm(robot);
+
     RobotomyRequestForm robot1(str);
     RobotomyRequestForm robot2(str);
     RobotomyRequestForm robot3(str);
 
-
-    him.signForm(robot3);
-    him.executeForm(robot3);
-    // std::cout << robot.getName() << std::endl;
-
+    ;
+    str = "Tree"; ShrubberyCreationForm Shrubbery(str);
+    str = "slave"; PresidentialPardonForm PresidentialPardonForm(str);
     
     return 0;
 }
