@@ -20,7 +20,7 @@ class RobotomyRequestForm : public AForm{
     public:
         static bool var;
         RobotomyRequestForm();
-        RobotomyRequestForm(std::string &target);
+        RobotomyRequestForm(std::string const &target);
         RobotomyRequestForm(RobotomyRequestForm const &r_inst);
         RobotomyRequestForm &operator=(RobotomyRequestForm const &r_inst);
         ~RobotomyRequestForm();

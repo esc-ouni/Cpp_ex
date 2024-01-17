@@ -12,6 +12,47 @@
 
 #include "Intern.hpp"
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+
+AForm *createPresidentialPardon(const std::string& target) {
+    return new PresidentialPardonForm(target);
+};
+
+AForm *createShrubberyCreation(const std::string& target) {
+    return new ShrubberyCreationForm(target);
+};
+
+AForm *createRobotomyRequest(const std::string& target) {
+    return new RobotomyRequestForm(target);
+};
+
+typedef struct iteem{
+    std::string form;
+    AForm       *(*ptr)(const std::string &target);
+} Item;
+
+Item arr[3] = {{"shrubbery creation", &createShrubberyCreation}, 
+               {"robotomy request", &createRobotomyRequest}, 
+               {"presidential pardon", &createPresidentialPardon}};
+
+
+
+AForm *Intern::makeForm(const std::string &name, const std::string &target){
+    for (int i = 0; i < 3; i++){
+        if (arr[i].form == name){
+            try{
+                return arr[i].ptr(target);
+            }
+            catch (...){
+                throw std::runtime_error("Bad Alloc !");
+            }
+        }
+    }
+    throw std::runtime_error("Invalid Form Name !");
+    return NULL;
+};
 
 Intern::Intern(){
 };
@@ -26,23 +67,4 @@ Intern &Intern::operator=(Intern const &r_inst){
 };
 
 Intern::~Intern(){
-};
-
-std::string arr[3] = {"ShrubberyCreationForm", 
-                      "RobotomyRequestForm", 
-                      "PresidentialPardonForm"};
-
-AForm *Intern::makeAForm(std::string name, std::string target){
-    for (int i = 0; i < 3; i++){
-        if (arr[i] == name){
-            try{
-                return (new arr[i](target));
-            }
-            catch (...){
-                return NULL;
-            }
-        }
-    }
-    std::cerr << "Invalid Form name !" << std::endl;
-    return NULL;
 };

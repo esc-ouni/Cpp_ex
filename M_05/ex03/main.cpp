@@ -12,16 +12,34 @@
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-
 int main() {
-    std::string str = "form";
-    ShrubberyCreationAForm form(str);
+    Intern someRandomIntern;
+    AForm* rrf;
 
-    std::cout << form.getName() << std::endl;
-    
+    try {
+        rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+        delete rrf;
+    } catch (std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    try {
+        rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+        delete rrf;
+    } catch (std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    try {
+        rrf = someRandomIntern.makeForm("invalid form", "Bender");
+        delete rrf;
+    } catch (std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
     return 0;
 }

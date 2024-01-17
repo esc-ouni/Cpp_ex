@@ -22,7 +22,7 @@ RobotomyRequestForm::RobotomyRequestForm():AForm("Wout", 72, 45){
         std::cout << " => The robotomy has been failed !" << std::endl, RobotomyRequestForm::var = true;
 };
 
-RobotomyRequestForm::RobotomyRequestForm(std::string &target):AForm(target, 72, 45){
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target):AForm(target, 72, 45){
     std::cout << "Makes some drilling noises ..." << std::endl;
     if (RobotomyRequestForm::var)
         std::cout << " => " << target << " has been robotomized successfully !" << std::endl, RobotomyRequestForm::var = false;

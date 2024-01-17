@@ -77,7 +77,7 @@ ShrubberyCreationForm::ShrubberyCreationForm():AForm("Wout", 145, 137){
     outfile.close();
 };
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string &target):AForm(target, 145, 137){
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target):AForm(target, 145, 137){
     std::ofstream   outfile(target + "_shrubbery");
     
     if (!outfile.is_open()){
