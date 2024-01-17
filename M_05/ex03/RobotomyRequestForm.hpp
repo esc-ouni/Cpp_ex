@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 10:24:54 by idouni            #+#    #+#             */
-/*   Updated: 2023/12/21 12:33:15 by idouni           ###   ########.fr       */
+/*   Created: 2023/11/19 12:00:43 by idouni            #+#    #+#             */
+/*   Updated: 2023/12/20 18:47:17 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#ifndef __ROBOTMYREQUEST_HPP_
+#define __ROBOTMYREQUEST_HPP_
+
 #include "AForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+
+class RobotomyRequestForm : public AForm{
+    private:
+    public:
+        static bool var;
+        RobotomyRequestForm();
+        RobotomyRequestForm(std::string &target);
+        RobotomyRequestForm(RobotomyRequestForm const &r_inst);
+        RobotomyRequestForm &operator=(RobotomyRequestForm const &r_inst);
+        ~RobotomyRequestForm();
+};
 
 
-int main() {
-    std::string str = "form";
-    ShrubberyCreationAForm form(str);
-
-    std::cout << form.getName() << std::endl;
-    
-    return 0;
-}
+#endif

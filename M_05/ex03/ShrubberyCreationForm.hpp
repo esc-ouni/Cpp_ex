@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 10:24:54 by idouni            #+#    #+#             */
-/*   Updated: 2023/12/21 12:33:15 by idouni           ###   ########.fr       */
+/*   Created: 2023/11/19 11:55:18 by idouni            #+#    #+#             */
+/*   Updated: 2023/12/20 17:22:07 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#ifndef __SHRUBBERY_HPP__
+#define __SHRUBBERY_HPP__
+
 #include "AForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 
+class ShrubberyCreationForm: public AForm {
+    private:
+    public:
+        ShrubberyCreationForm();
+        ShrubberyCreationForm(std::string &target);
+        ShrubberyCreationForm(ShrubberyCreationForm const &r_inst);
+        ShrubberyCreationForm   &operator=(ShrubberyCreationForm const &r_inst);
+        ~ShrubberyCreationForm();
+};
 
-int main() {
-    std::string str = "form";
-    ShrubberyCreationAForm form(str);
-
-    std::cout << form.getName() << std::endl;
-    
-    return 0;
-}
+#endif

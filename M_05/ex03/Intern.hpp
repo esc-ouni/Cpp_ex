@@ -13,12 +13,20 @@
 #ifndef __INTERN_HPP_
 #define __INTERN_HPP_
 
+#include <iostream>
+
+
 class AForm;
 
 class Intern{
     private:
     public:
-        AForm *makeAForm(std::string _name, std::string target);
+        Intern();
+        Intern(Intern const &r_inst);
+        Intern &operator=(Intern const &r_inst);
+        ~Intern();
+
+        AForm *makeAForm(std::string name, std::string target);
 };
 
 #endif

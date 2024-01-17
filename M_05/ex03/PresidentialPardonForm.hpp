@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idouni <idouni@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 10:24:54 by idouni            #+#    #+#             */
-/*   Updated: 2023/12/21 12:33:15 by idouni           ###   ########.fr       */
+/*   Created: 2023/11/19 12:03:26 by idouni            #+#    #+#             */
+/*   Updated: 2023/12/20 18:49:36 by idouni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#ifndef __PRESIDENTIALPARDON_HPP__
+#define __PRESIDENTIALPARDON_HPP__
+
 #include "AForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+
+class PresidentialPardonForm : public AForm{
+    private:
+    public:
+        PresidentialPardonForm();
+        PresidentialPardonForm(std::string &target);
+        PresidentialPardonForm(PresidentialPardonForm &r_inst);
+        PresidentialPardonForm &operator=(PresidentialPardonForm &r_inst);
+        ~PresidentialPardonForm();
+};
 
 
-int main() {
-    std::string str = "form";
-    ShrubberyCreationAForm form(str);
-
-    std::cout << form.getName() << std::endl;
-    
-    return 0;
-}
+#endif
