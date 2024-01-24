@@ -4,9 +4,7 @@ int main(int argc, char const *argv[]){
     
     if (argc != 2)
         exit(EXIT_FAILURE);
- 
-    std::cout << "Hola !" << std::endl;
-    
+
     ScalarConverter::convert(argv[1]);
 
     return (0);

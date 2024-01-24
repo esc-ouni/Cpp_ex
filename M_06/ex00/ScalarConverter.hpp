@@ -2,6 +2,7 @@
 #define __SCALAR_CONVERTER_
 
 #include <iostream>
+#include <sstream>
 
 class ScalarConverter{
     public:
@@ -12,5 +13,12 @@ class ScalarConverter{
 
         static void convert(std::string const &param);
 };
+
+std::string Char_form(std::string const &param);
+std::string Int_form(std::string const &param);
+std::string Float_form(std::string const &param);
+std::string Double_form(std::string const &param);
+std::string ft_stof(std::string const &param);
+std::string ft_stod(std::string const &param);
 
 #endif
