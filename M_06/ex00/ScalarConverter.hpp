@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 class ScalarConverter{
     public:
@@ -18,7 +19,5 @@ std::string Char_form(std::string const &param);
 std::string Int_form(std::string const &param);
 std::string Float_form(std::string const &param);
 std::string Double_form(std::string const &param);
-std::string ft_stof(std::string const &param);
-std::string ft_stod(std::string const &param);
 
 #endif
