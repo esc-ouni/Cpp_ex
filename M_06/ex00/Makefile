@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-EXEC    = Scalar
+EXEC    = convert
 CC      = c++
 RM      = rm -rf
 FLAGS   = -std=c++98 -Wall -Wextra -Werror
