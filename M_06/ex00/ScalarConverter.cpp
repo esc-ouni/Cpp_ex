@@ -16,7 +16,8 @@ ScalarConverter::~ScalarConverter(){
 };
 
 void ScalarConverter::convert(std::string const &param){
-    // std::cout << "Raw    : <" << param << ">" <<std::endl;  
+    // std::cout << "Raw    : <" << param << ">" <<std::endl;
+
     std::cout << "Char   : " << Char_form(param) << std::endl;
     std::cout << "Int    : " << Int_form(param) << std::endl;
     std::cout << "Float  : " << Float_form(param) << std::endl;
