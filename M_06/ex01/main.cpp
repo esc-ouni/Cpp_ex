@@ -1,10 +1,6 @@
 #include "Serializer.hpp"
 
-int main(int argc, char const *argv[]){
-    (void)argc;
-    (void)argv;
-    std::cout << "Serializer !" << std::endl;
-
+int main(){
     Data *ptr = new(std::nothrow) Data;
     uintptr_t serlize;
 
