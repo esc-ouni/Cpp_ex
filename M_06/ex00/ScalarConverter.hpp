@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <limits.h>
 
 class ScalarConverter{
     public:
