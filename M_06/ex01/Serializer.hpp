@@ -8,11 +8,11 @@
 #include "Data.h"
 
 class Serializer{
-    public:
         Serializer();
+    public:
         Serializer(Serializer const &r_inst);
         Serializer &operator=(Serializer const &r_inst);
-        virtual ~Serializer() = 0;
+        ~Serializer();
 
         static uintptr_t serialize(Data* ptr);
         static Data* deserialize(uintptr_t raw);

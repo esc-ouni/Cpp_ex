@@ -7,11 +7,11 @@
 #include <limits.h>
 
 class ScalarConverter{
-    public:
         ScalarConverter();
+    public:
         ScalarConverter(ScalarConverter const &r_inst);
         ScalarConverter &operator=(ScalarConverter const &r_inst);
-        virtual ~ScalarConverter() = 0;
+        ~ScalarConverter();
 
         static void convert(std::string const &param);
 };

@@ -35,14 +35,21 @@ void identify(Base *p){
 };
 
 void identify(Base &p){
-    if (dynamic_cast<A*>(&p)){
+    try{
+        p = dynamic_cast<A&>(p);
         std::cout << "=> A Instance Detected" << std::endl; return;
-    } else if (dynamic_cast<B*>(&p)){
+    }
+    catch (...){
+    } try{
+        p = dynamic_cast<B&>(p);
         std::cout << "=> B Instance Detected" << std::endl; return;
-
-    } else if (dynamic_cast<C*>(&p)){
+    }
+    catch (...){
+    } try{
+        p = dynamic_cast<C&>(p);    
         std::cout << "=> C Instance Detected" << std::endl; return;
     }
-    else
+    catch (...){
         std::cout << "=> Instance Type Not Recognized !" << std::endl; return;
+    }
 };
