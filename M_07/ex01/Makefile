@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-EXEC    = Swff
+EXEC    = Iter
 CC      = c++
 RM      = rm -rf
 FLAGS   = -std=c++98 -Wall -Wextra -Werror          -Wno-unused  -fsanitize=address
