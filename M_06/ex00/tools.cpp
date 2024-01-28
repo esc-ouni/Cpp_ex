@@ -68,7 +68,6 @@ std::string Int_form(std::string const &param){
 
 std::string yeah_science(std::string const &param){
     std::string ret;
-
     if (param == "+inf" || param == "-inf" || param == "nan")
         return param;
     else if (param == "+inff" || param == "-inff" || param == "nanf")
