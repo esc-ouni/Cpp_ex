@@ -13,8 +13,8 @@
 EXEC    = Array
 CC      = c++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror          -Wno-unused  -fsanitize=address
-H_FILES = ${shell ls *.hpp}
+FLAGS   = -std=c++98 -Wall -Wextra -Werror
+H_FILES = ${shell ls *.hpp} ${shell ls *.tpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)
 
