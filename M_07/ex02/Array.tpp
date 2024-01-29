@@ -1,7 +1,6 @@
 
 template <typename T>
 Array<T>::Array(){
-    std::cout << "Constructor called " << std::endl;
     this->_size = 0;
     this->elements = NULL;
 };
@@ -53,6 +52,13 @@ Array<T> &Array<T>::operator=(Array const &r_inst){
 
 template <typename T>
 T  &Array<T>::operator[](unsigned int index){
+    if (index >= this->_size)
+        throw std::runtime_error("Bad access !");
+    return this->elements[index];
+};
+
+template <typename T>
+T   Array<T>::operator[](unsigned int index) const {
     if (index >= this->_size)
         throw std::runtime_error("Bad access !");
     return this->elements[index];

@@ -1,9 +1,9 @@
 #include "Array.hpp"
-#define MAX_VAL 10
+#define MAX_VAL 750
 
 // void leak(){
-    // system ("leaks Array | grep \"total leaked bytes\" | awk \'{print $4\" \"$3 }\'");
-    // atexit(leak);
+//     system ("leaks Array | grep \"total leaked bytes\" | awk \'{print $4\" \"$3 }\'");
+//     atexit(leak);
 // };
 
 int main(int, char**)
