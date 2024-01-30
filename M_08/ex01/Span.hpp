@@ -6,7 +6,7 @@
 class Span{
     private:
         int          *_storage;
-        unsigned int _N;
+        unsigned int _N, _i;
     public:
         Span();
         Span(unsigned int N);
@@ -15,6 +15,7 @@ class Span{
         ~Span();
 
         void addNumber(unsigned int element);
+        int  getNumber(unsigned int idx);
         unsigned int shortestSpan();
         unsigned int longestSpan();
 };
