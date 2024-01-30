@@ -5,6 +5,8 @@
 
 template <typename T, typename Z>
 void iter(T *Array, int length, Z Func){
+    if (!Array)
+        return ;
     for (int i = 0; i < length; i++){
         Func(Array[i]);
     }
