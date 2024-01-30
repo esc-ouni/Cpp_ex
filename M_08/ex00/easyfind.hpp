@@ -3,6 +3,11 @@
 
 #include <iostream>
 
+template <typename T>
+T easyfind(T , int){
+
+};
+
 
 #include "easyfind.tpp"
 #endif
