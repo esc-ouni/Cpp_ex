@@ -70,12 +70,26 @@ void Span::addNumber(unsigned int element){
     }
 };
 
-unsigned int Span::shortestSpan(){
-    // 
-    return 0;
+unsigned int Span::longestSpan(){
+    if (this->_i <= 1){
+        throw std::range_error("No span can be found !");
+    }
+    int _min = INT_MAX;
+    int _max = INT_MIN;
+
+    for (size_t i = 0; i < this->_i; i++){
+        if (this->_storage[i] <= _min)
+            _min = this->_storage[i];
+        if (this->_storage[i] >= _max)
+            _max = this->_storage[i];
+    }
+    return (std::abs(_max - _min));
+    // return 0;
 };
 
-unsigned int Span::longestSpan(){
-    // 
+unsigned int Span::shortestSpan(){
+    if (this->_i <= 1){
+        throw std::range_error("No span can be found !");
+    }
     return 0;
 };
