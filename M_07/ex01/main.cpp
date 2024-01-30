@@ -6,13 +6,13 @@ int main() {
     std::string stringArray[] = {"one", "two", "three", "four", "five"};
 
     std::cout << "int array:" << std::endl;
-    iter(intArray, 5, print);
+    iter(intArray, 5, print<int>);
 
     std::cout << std::endl << "char array:" << std::endl;
-    iter(charArray, 5, print);
+    iter(charArray, 5, print<char>);
 
     std::cout << std::endl  << "string array:" << std::endl;
-    iter(stringArray, 5, print);
+    iter(stringArray, 5, print<std::string>);
 
     return 0;
 }

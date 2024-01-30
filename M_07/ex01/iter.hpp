@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-template <typename T>
-void iter(T *Array, int length, void (*Func )(T &param)){
+template <typename T, typename Z>
+void iter(T *Array, int length, Z Func){
     for (int i = 0; i < length; i++){
         Func(Array[i]);
     }
@@ -13,6 +13,7 @@ void iter(T *Array, int length, void (*Func )(T &param)){
 template <typename T>
 void print(T &element) {
     std::cout << element << std::endl;
+    return;
 };
 
 #endif
