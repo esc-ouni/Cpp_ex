@@ -87,9 +87,29 @@ unsigned int Span::longestSpan(){
     // return 0;
 };
 
+
 unsigned int Span::shortestSpan(){
     if (this->_i <= 1){
         throw std::range_error("No span can be found !");
     }
-    return 0;
+    int intArray[this->_i];
+    int _short_span = INT_MAX;
+    int _prev_elem = 0, _this_elem = 0;
+
+    for (size_t i = 0; i < this->_i; i++)
+        intArray[i] = this->getNumber(i);
+
+    std::sort(intArray, intArray + this->_i);
+
+    _prev_elem = intArray[0];
+    _this_elem = intArray[1];
+    for (size_t i = 0; i < this->_i; i++){
+        i ? _this_elem = intArray[i] : _this_elem;
+        if (fabs(_this_elem - _prev_elem) <= _short_span)
+            _short_span = fabs(_this_elem - _prev_elem);
+        _prev_elem = intArray[i];
+    }
+
+
+    return _short_span;
 };

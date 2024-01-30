@@ -2,7 +2,7 @@
 #define __SPAN_HPP_
 
 #include <iostream>
-
+#include <algorithm>
 class Span{
     private:
         int          *_storage;
