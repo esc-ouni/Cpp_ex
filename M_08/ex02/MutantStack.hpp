@@ -4,14 +4,19 @@
 #include <iostream>
 #include <stack>
 
-// class MutantStack : public std::stack {
-//     private:
-//     public:
-//         // iterators
+template<typename T>
+class MutantStack : public std::stack<T> {
+    private:
+    public:
+        MutantStack();
+        MutantStack(MutantStack const &r_inst);
+        MutantStack &operator=(MutantStack const &r_inst);
+        ~MutantStack();
 
-// };
-
-
+        // iterators
+        // begin();
+        // end();
+};
 
 #include "MutantStack.tpp"
 #endif
