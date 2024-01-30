@@ -18,7 +18,6 @@ class Array{
         T &operator[](unsigned int index);
         T operator[](unsigned int index) const;
         unsigned int size();
-
 };
 
 #include "Array.tpp"
