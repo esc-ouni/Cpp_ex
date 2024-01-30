@@ -31,7 +31,7 @@ Array<T> &Array<T>::operator=(Array const &r_inst){
     this->_size = r_inst._size;
     if (this != &r_inst){
         if (this->_size && this->elements){
-            delete this->elements;
+            delete[] this->elements;
             this->elements = NULL;
         }
         try{
