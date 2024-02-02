@@ -6,8 +6,11 @@
 class Span{
     private:
         int          *_storage;
-        unsigned int _N, _i;
+        unsigned int _Capacity;
+        unsigned int _Size;
     public:
+    
+        // std::initializer_list
         Span();
         Span(unsigned int N);
         Span(Span const &r_inst);
