@@ -13,7 +13,7 @@
 EXEC    = ex02
 CC      = c++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror -fsanitize=address,undefined
+FLAGS   = -std=c++98 -Wall -Wextra -Werror
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)

@@ -1,7 +1,6 @@
 #include "MutantStack.hpp"
 
 int main(){
-
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
@@ -46,5 +45,6 @@ int main(){
         std::cout << *list_it << std::endl;
         ++list_it;
     }
+
     return 0;
 }
