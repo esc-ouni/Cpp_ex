@@ -1,26 +1,43 @@
 #include "easyfind.hpp"
 
 int main(){
-    std::cout << "EASY FIND !" << std::endl;
-
-    // int n;
+    int n;
     std::vector<int> Container(4);
+    // std::list<int> Container(4);
 
-    Container[0] = 1;
-    Container[1] = 2;
-    Container[2] = 3;
-    Container[3] = 4;
-
-    std::vector<int>::iterator it = std::find(Container.begin(), Container.end(), 7);
-
-    std::cout << *it << std::endl;
+    Container.push_back(1);
+    Container.push_back(2);
+    Container.push_back(3);
+    Container.push_back(4);
     
-    // n = -1; std::cout << "EFind found " << n << "\t: " << std::boolalpha << easyfind(Container, n) << std::endl;
-    // n =  1; std::cout << "EFind found " << n << "\t: " << std::boolalpha << easyfind(Container, n) << std::endl;
-    // n =  7; std::cout << "EFind found " << n << "\t: " << std::boolalpha << easyfind(Container, n) << std::endl;
-    // n =  3; std::cout << "EFind found " << n << "\t: " << std::boolalpha << easyfind(Container, n) << std::endl;
-    // n = 13; std::cout << "EFind found " << n << "\t: " << std::boolalpha << easyfind(Container, n) << std::endl;
-    // n =  4; std::cout << "EFind found " << n << "\t: " << std::boolalpha << easyfind(Container, n) << std::endl;
+    try{
+        n = -1; std::cout << "Easy Find with " << n << "\t: " << easyfind(Container, n);
+        std::cout << " Found !" << std::endl;
+    }
+    catch(const std::exception& e){
+        std::cerr << e.what() << std::endl;
+    }
+    try{
+        n =  1; std::cout << "Easy Find with " << n << "\t: " << easyfind(Container, n);
+        std::cout << " Found !" << std::endl;
+    }
+    catch(const std::exception& e){
+        std::cerr << e.what() << std::endl;
+    }
+    try{
+        n = 17; std::cout << "Easy Find with " << n << "\t: " << easyfind(Container, n);
+        std::cout << " Found !" << std::endl;
+    }
+    catch(const std::exception& e){
+        std::cerr << e.what() << std::endl;
+    }
+    try{
+        n = 3; std::cout << "Easy Find with " << n << "\t: " << easyfind(Container, n);
+        std::cout << " Found !" << std::endl;
+    }
+    catch(const std::exception& e){
+        std::cerr << e.what() << std::endl;
+    }
 
     return 0;
 };

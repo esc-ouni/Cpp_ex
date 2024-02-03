@@ -3,9 +3,10 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 
 template <typename T>
-bool easyfind(T &Container , int param);
+int &easyfind(T &Container , int param);
 
 #include "easyfind.tpp"
 #endif

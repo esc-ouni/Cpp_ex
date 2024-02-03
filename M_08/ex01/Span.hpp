@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <algorithm>
+#include <vector>
+
 class Span{
     private:
         int          *_storage;
@@ -10,7 +12,6 @@ class Span{
         unsigned int _Size;
     public:
     
-        // std::initializer_list
         Span();
         Span(unsigned int N);
         Span(Span const &r_inst);
@@ -21,6 +22,14 @@ class Span{
         int  getNumber(unsigned int idx);
         unsigned int shortestSpan();
         unsigned int longestSpan();
+
+
+        template <typename T>
+        void Ranges(T begin, T end){
+            for (T iter = begin; iter != end; ++iter){
+                this->addNumber(*iter);
+            }    
+        };
 };
 
 

@@ -1,12 +1,14 @@
 #include "Span.hpp"
 
 int main(){
-    Span sp = Span(5);
+    Span sp(5);
+
     sp.addNumber(6);
     sp.addNumber(3);
     sp.addNumber(17);
     sp.addNumber(9);
     sp.addNumber(11);
+
 
     try {
         std::cout << "Shortest Span : " << sp.shortestSpan() << std::endl;
@@ -42,6 +44,7 @@ int main(){
     } catch (std::exception &e) {
         std::cerr << "Err : " << e.what() << '\n';
     }
+    std::cout << std::endl;
 
     Span emptySpan(10);
     Span oneElementSpan(10);
@@ -49,7 +52,7 @@ int main(){
     oneElementSpan.addNumber(42);
 
     try {
-        std::cout << "Empty Span Shortest Span : " << emptySpan.shortestSpan() << std::endl;
+        std::cout << "Empty Span Shortest Span      : " << emptySpan.shortestSpan() << std::endl;
     } catch (std::exception &e) {
         std::cerr << "Err : " << e.what() << '\n';
     }
@@ -59,7 +62,22 @@ int main(){
     } catch (std::exception &e) {
         std::cerr << "Err : " << e.what() << '\n';
     }
+    std::cout << std::endl;
 
+    std::vector<int> v;
+    // v = {1, 2, 3, 4, 5};
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(4);
+    v.push_back(5);
+
+    Span span(5);
+    sp.Ranges(v.begin(), v.end());
+
+    for (int i = 0; i < 5; ++i){
+        std::cout << "element [" << i << "] : " << sp.getNumber(i) << std::endl; 
+    }
     
 
     return 0;
