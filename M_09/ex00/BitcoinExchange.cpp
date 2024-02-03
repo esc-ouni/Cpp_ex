@@ -6,18 +6,14 @@ void print(std::map<std::string, double> &Map){
     }
 }
 
-
 double ft_stod(std::string &str){
     double n;
     char *ptr = NULL;
 
     n = std::strtod(str.c_str(), &ptr);
-    // return (n);
     std::string string(ptr);
-    // string = ptr;
 
     if (!string.length()){
-        // std::cout << "No GARBEGE " << std::endl;
         if (n < 0)
             throw std::runtime_error("Error: not a positive number.");
         if (n == HUGE_VAL || n > 1000)
@@ -25,8 +21,7 @@ double ft_stod(std::string &str){
         return (n);
     }
     else 
-        throw std::runtime_error("Error: bad input => ");
-        // std::cout << "GARBEGE : <"<< string << ">" << std::endl;
+        throw std::logic_error("Error: bad input => ");
     return (0);
 }
 
@@ -49,23 +44,13 @@ void exctract_input(std::stringstream &stream, std::string &token, std::string &
 
     std::stringstream stream2;
 
-    // std::cout << "token  : <" << token << ">" << std::endl;
-    // std::cout << "token2 : <" << token2 << ">" << std::endl;
-    // std::cout << "token3 : <" << token3 << ">" << std::endl;
-    // std::cout << "Error: bad input => " << token << std::endl;
+    if (!token.length() || !token2.length() || token3.length())
+        throw std::logic_error("Error: bad input => ");
     
     //problem reusing the same stream
-    
-    // std::cout << "only stream : " << token3 << "\t the value in float : "<< ft_stod(token2) << std::endl;
 
-    // try{
-        stream2 << ft_stod(token2);
-        token3 = stream2.str();
-    // }
-    // catch(const std::exception& e){
-        // std::cerr << e.what() << '\n';
-        // throw e;
-    // }
+    stream2 << ft_stod(token2);
+    token3 = stream2.str();
 }
 
 void output(std::string &line, std::map<std::string, double> &DB_Map, char dilimeter){
@@ -75,6 +60,9 @@ void output(std::string &line, std::map<std::string, double> &DB_Map, char dilim
     try{
         exctract_input(stream, token, token2, token3, dilimeter);
         std::cout << token << " => " << token2 << "\t = " << token3 << std::endl;
+    }
+    catch(const std::logic_error& e){
+        std::cout << e.what() << token << std::endl;
     }
     catch(const std::exception& e){
         std::cout << e.what() << std::endl;
@@ -92,7 +80,6 @@ void output(std::string &line, std::map<std::string, double> &DB_Map, char dilim
 //             Map[token] = 0; }
 //         // reasonable error rading DB
 //     }
-
 // };
 
 
@@ -118,11 +105,13 @@ void __init(int argc, char *argv[], std::map<std::string, double> &Map){
     //     exctract_kv(line, DB_Map, ',');
     //     line.clear();
     // }
+    
+    //create a function to fetch for the value to multiply with
+
 
     // iterate over the file's lines
     while (std::getline(infile, line)){
         output(line, DB_Map, '|');
-        line.clear();
     }
 
     // std::cout << std::endl << "DB_MAP :" << std::endl;
