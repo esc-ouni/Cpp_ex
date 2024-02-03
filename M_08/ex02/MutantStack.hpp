@@ -15,10 +15,6 @@ class MutantStack : public std::stack<T> {
         MutantStack &operator=(MutantStack const &r_inst);
         ~MutantStack();
 
-        // typedef typename std::deque<T>::iterator iterator;
-        // iterator begin();
-        // iterator end();
-
         typedef typename std::deque<T>::iterator iterator;
         iterator begin();
         iterator end();
