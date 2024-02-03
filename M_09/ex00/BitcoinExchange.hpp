@@ -9,6 +9,6 @@
 #include <sstream>
 
 
-void __init(int argc, char *argv[], std::map<std::string, unsigned int> &Map);
+void __init(int argc, char *argv[], std::map<std::string, double> &Map);
 
 #endif

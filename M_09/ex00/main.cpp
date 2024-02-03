@@ -1,6 +1,6 @@
 #include "BitcoinExchange.hpp"
 
-void print(std::map<std::string, unsigned int> &Map){
+void print(std::map<std::string, double> &Map){
     for (auto elem : Map){
         std::cout << "<"<< elem.first << ">\t= <" << elem.second << ">" << std::endl;
     }
@@ -8,7 +8,7 @@ void print(std::map<std::string, unsigned int> &Map){
 
 int main(int argc, char *argv[]){
 
-    std::map<std::string, unsigned int> Map;
+    std::map<std::string, double> Map;
 
     try{
         __init(argc, argv, Map); }

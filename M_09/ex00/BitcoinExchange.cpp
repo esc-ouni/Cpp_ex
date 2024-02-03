@@ -1,18 +1,18 @@
 #include "BitcoinExchange.hpp"
 
-void exctract_kv(std::string &line, std::map<std::string, unsigned int> &Map, char dilimeter){
+void exctract_kv(std::string &line, std::map<std::string, double> &Map, char dilimeter){
     std::stringstream stream(line);
 
     std::string token, token2;
     std::getline(stream, token, dilimeter);
     std::getline(stream, token2, dilimeter);
     try{
-        Map[token] = std::stoul(token2); }
+        Map[token] = std::stod(token2); }
     catch(const std::exception& e){
         Map[token] = 0; }
 };
 
-void __init(int argc, char *argv[], std::map<std::string, unsigned int> &Map){
+void __init(int argc, char *argv[], std::map<std::string, double> &Map){
     std::string line;
 
     if (argc != 2)
