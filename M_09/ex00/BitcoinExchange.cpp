@@ -35,16 +35,13 @@ void trim(std::string &line) {
 };
 
 void exctract_input(std::stringstream &stream, std::string &token, std::string &token2, std::string &token3, char dilimeter){
-    std::getline(stream, token, dilimeter);
-    std::getline(stream, token2, dilimeter);
-    std::getline(stream, token3, dilimeter);
-    trim(token);
-    trim(token2);
-    trim(token3);
+    std::getline(stream, token, dilimeter);  trim(token);
+    std::getline(stream, token2, dilimeter); trim(token2);
+    std::getline(stream, token3, dilimeter); trim(token3);
 
     std::stringstream stream2;
 
-    if (!token.length() || !token2.length() || token3.length())
+    if (!token2.length() || token3.length())
         throw std::logic_error("Error: bad input => ");
     
     //problem reusing the same stream
@@ -69,18 +66,19 @@ void output(std::string &line, std::map<std::string, double> &DB_Map, char dilim
     }
 }
 
-// void exctract_kv(std::string &line, std::map<std::string, double> &Map, char dilimeter){
-//     std::stringstream stream(line);
-//     std::string       token, token2, token3;
+void exctract_kv(std::string &line, std::map<std::string, double> &Map, char dilimeter){
+    std::stringstream stream(line);
+    std::string       token, token2, token3;
 
-//     if(valid_line(stream, token, token2, token3, dilimeter)){
-//         try{
-//             Map[token] = ft_stod(token2); }
-//         catch(const std::exception& e){
-//             Map[token] = 0; }
-//         // reasonable error rading DB
-//     }
-// };
+        try{
+            exctract_input(stream, token, token2, token3, ',');
+            Map[token] = ft_stod(token2);
+        }
+        catch(const std::exception& e){
+            // reasonable error rading DB
+            throw std::runtime_error("Error: unclear Data-Base info.");
+        }
+};
 
 
 void __init(int argc, char *argv[], std::map<std::string, double> &Map){
@@ -103,7 +101,6 @@ void __init(int argc, char *argv[], std::map<std::string, double> &Map){
     // extract db file
     // while (std::getline(dbfile, line)){
     //     exctract_kv(line, DB_Map, ',');
-    //     line.clear();
     // }
     
     //create a function to fetch for the value to multiply with
@@ -116,8 +113,8 @@ void __init(int argc, char *argv[], std::map<std::string, double> &Map){
         output(line, DB_Map, '|');
     }
 
-    // std::cout << std::endl << "DB_MAP :" << std::endl;
-    // print(DB_Map);
+    std::cout << std::endl << "DB_MAP :" << std::endl;
+    print(DB_Map);
 
     infile.close();
     dbfile.close();
