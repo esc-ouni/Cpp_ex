@@ -12,15 +12,16 @@ double ft_stod(std::string &str){
     char *ptr = NULL;
 
     n = std::strtod(str.c_str(), &ptr);
-    return (n);
-    std::string string = "";
-    string = *ptr;
+    // return (n);
+    std::string string(ptr);
+    // string = ptr;
 
     if (!string.length()){
         // std::cout << "No GARBEGE " << std::endl;
-        if (n == HUGE_VAL || n > 1000 || n < 0)
+        if (n < 0)
+            throw std::runtime_error("Error: not a positive number.");
+        if (n == HUGE_VAL || n > 1000)
             throw std::runtime_error("Error: number out of range .");
-        std::cout << "Wht !" << std::endl;
         return (n);
     }
     else 
@@ -55,18 +56,15 @@ void exctract_input(std::stringstream &stream, std::string &token, std::string &
     
     //problem reusing the same stream
     
-    stream2 << ft_stod(token2);
-    token3 = stream2.str();
     // std::cout << "only stream : " << token3 << "\t the value in float : "<< ft_stod(token2) << std::endl;
 
     // try{
-    //     stream.clear();
-    //     stream << ft_stod(token2);
-    //     token3 = stream.str();
+        stream2 << ft_stod(token2);
+        token3 = stream2.str();
     // }
     // catch(const std::exception& e){
-    //     std::cerr << e.what() << '\n';
-    //     throw e;
+        // std::cerr << e.what() << '\n';
+        // throw e;
     // }
 }
 
