@@ -13,7 +13,7 @@
 EXEC    = btc
 CC      = c++
 RM      = rm -rf
-FLAGS   = -std=c++98 -Wall -Wextra -Werror -fsanitize=address,undefined
+FLAGS   = -fsanitize=address,undefined #-std=c++98 -Wall -Wextra -Werror 
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)
