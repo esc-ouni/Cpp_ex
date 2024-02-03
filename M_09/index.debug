@@ -1,0 +1,8 @@
+ex00:
+    => map
+ex01:
+    => deque (stack)
+
+ex02:
+    => vector
+    => list
