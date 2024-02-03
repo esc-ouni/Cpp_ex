@@ -108,7 +108,5 @@ unsigned int Span::shortestSpan(){
             _short_span = fabs(_this_elem - _prev_elem);
         _prev_elem = intArray[i];
     }
-
-
     return _short_span;
 };

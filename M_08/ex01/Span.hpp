@@ -23,14 +23,15 @@ class Span{
         unsigned int shortestSpan();
         unsigned int longestSpan();
 
-
         template <typename T>
-        void Ranges(T begin, T end){
-            for (T iter = begin; iter != end; ++iter){
-                this->addNumber(*iter);
-            }    
-        };
+        void Ranges(T begin, T end);
 };
 
+template <typename T>
+void Span::Ranges(T begin, T end){
+    for (T iter = begin; iter != end; ++iter){
+        this->addNumber(*iter);
+    }    
+};
 
 #endif

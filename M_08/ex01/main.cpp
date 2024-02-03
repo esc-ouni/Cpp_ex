@@ -9,7 +9,6 @@ int main(){
     sp.addNumber(9);
     sp.addNumber(11);
 
-
     try {
         std::cout << "Shortest Span : " << sp.shortestSpan() << std::endl;
     } catch (std::exception &e) {
