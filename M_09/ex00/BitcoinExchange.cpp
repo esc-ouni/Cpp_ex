@@ -8,7 +8,7 @@ void print(std::map<std::string, double> &Map){
 
 double ft_stod(std::string &str){
     double n;
-    char *ptr = NULL;
+    char   *ptr = NULL;
 
     n = std::strtod(str.c_str(), &ptr);
     std::string string(ptr);
@@ -111,6 +111,8 @@ void __init(int argc, char *argv[], std::map<std::string, double> &Map){
 
     // iterate over the file's lines
     while (std::getline(infile, line)){
+        if (line.find("date") != std::string::npos)
+            continue ;
         output(line, DB_Map, '|');
     }
 
