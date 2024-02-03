@@ -35,6 +35,7 @@ fclean: clean
 	$(RM) $(EXEC)
 	$(RM) .vscode
 	$(RM) *.dSYM
+	$(RM) *.debug
 	@clear && echo "==All_created_files_deleted=="
 
 re: fclean all
