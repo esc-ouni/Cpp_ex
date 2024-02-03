@@ -46,5 +46,25 @@ int main(){
         ++list_it;
     }
 
+    MutantStack<int> mstack9;
+
+    mstack9.push(1);
+    mstack9.push(2);
+    mstack9.push(3);
+
+    MutantStack<int>::iterator _it;
+    MutantStack<int>::const_iterator _c_it;
+
+    std::cout << std::endl;
+    for (_it = mstack9.begin(); _it != mstack9.end(); ++_it){
+        // (*_it) += 5;
+        std::cout << *_it << std::endl;
+    }
+    std::cout << std::endl;
+    for (_c_it = mstack9.cbegin(); _c_it != mstack9.cend(); ++_c_it){
+        // (*_c_it) += 5;
+        std::cout << *_c_it << std::endl;
+    }
+
     return 0;
 }
