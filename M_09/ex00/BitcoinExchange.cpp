@@ -22,7 +22,6 @@ double ft_stod(std::string &str, bool limit){
     }
     else 
         throw std::logic_error("Error: bad input => ");
-    return (0);
 }
 
 void trim(std::string &line) {
@@ -34,10 +33,20 @@ void trim(std::string &line) {
     }
 };
 
-float fetch_db_exchange_rate(std::string &date, std::map<std::string, double> &DB_Map){
-    return (DB_Map.find(date) != DB_Map.end() ? DB_Map.find(date)->second : 0.3);
-}
+float get_closest_date(std::string &date, std::map<std::string, double> &DB_Map){
+    std::map<std::string, double>::iterator it;
 
+    it = DB_Map.lower_bound(date);
+
+    if (it == DB_Map.begin())
+        return DB_Map.begin()->second;
+    --it;
+    return it->second;
+};
+
+float fetch_db_exchange_rate(std::string &date, std::map<std::string, double> &DB_Map){
+    return (DB_Map.find(date) != DB_Map.end() ? DB_Map.find(date)->second : get_closest_date(date, DB_Map));
+}
 
 bool valid_num(std::string &number, int date_part){
     if (number.empty())
@@ -91,6 +100,7 @@ void exctract_input(std::map<std::string, double> &DB_Map, std::stringstream &st
 
     if (!valid_date(token) || !token2.length() || token3.length())
         throw std::logic_error("Error: bad input => ");
+        
     //problem reusing the same stream
 
     stream2 << (ft_stod(token2, true) * fetch_db_exchange_rate(token, DB_Map));
@@ -124,8 +134,6 @@ void output(std::string &line, std::map<std::string, double> &DB_Map, char dilim
     }
 }
 
-
-
 void exctract_kv(std::string &line, std::map<std::string, double> &Map, char dilimeter){
     std::stringstream stream(line);
     std::string       token, token2, token3;
@@ -139,7 +147,6 @@ void exctract_kv(std::string &line, std::map<std::string, double> &Map, char dil
         throw std::runtime_error("Error: unclear Data-Base info.");
     }
 };
-
 
 void __init(int argc, char *argv[]){
     std::string                   line;
@@ -165,9 +172,8 @@ void __init(int argc, char *argv[]){
         }
         exctract_kv(line, DB_Map, ',');
     }
-    
-    //create a function to fetch for the value to multiply with
-
+    if (!DB_Map.size())
+        throw std::runtime_error("Error: Empty Data-Base file.");
 
     // iterate over the file's lines
     while (std::getline(infile, line)){
