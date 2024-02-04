@@ -35,8 +35,53 @@ void trim(std::string &line) {
 };
 
 float fetch_db_exchange_rate(std::string &date, std::map<std::string, double> &DB_Map){
-
     return (DB_Map.find(date) != DB_Map.end() ? DB_Map.find(date)->second : 0.3);
+}
+
+
+bool valid_num(std::string &number, int date_part){
+    if (number.empty())
+        return (false);
+    for (size_t i = 0; i < number.length(); ++i){
+        if (!isdigit(number.c_str()[i]) || i == 5)
+            return (false);
+    }
+    // std::cout << "(std::atoi(number.c_str()) : " << std::atoi(number.c_str()) << std::endl;
+    switch (date_part){
+        case 0:
+            if (!(std::atoi(number.c_str()) <= 2047 && std::atoi(number.c_str()) >= 2009) || number.length() != 4)
+                return (false);
+            break;
+        case 1:
+            if (!(std::atoi(number.c_str()) <= 12 && std::atoi(number.c_str()) >= 1) || number.length() != 2)
+                return (false);
+            break;
+        case 2:
+            if (!(std::atoi(number.c_str()) <= 31 && std::atoi(number.c_str()) >= 1) || number.length() != 2)
+                return (false);
+            break;
+    }
+    return (true);
+}
+
+bool valid_date(std::string &date){
+    std::string       token;
+    std::stringstream stream(date);
+    int i = 0, k = 0;
+
+    //case_getline_doesn't_check_('-''\0')
+    for (int n = 0; n != std::string::npos ; ++k)
+        n = date.find('-', n + 1);
+    if (k != 3)
+        return (false);
+    
+    //year-month-day
+    for (i; std::getline(stream, token, '-'); ++i){
+        // std::cout << "token : <" << token << ">" << std::endl;
+        if(!valid_num(token, i))
+            return (false);
+    }
+    return ((i != 3) ? false : true );
 }
 
 void exctract_input(std::map<std::string, double> &DB_Map, std::stringstream &stream, std::string &token, std::string &token2, std::string &token3, char dilimeter){
@@ -46,9 +91,9 @@ void exctract_input(std::map<std::string, double> &DB_Map, std::stringstream &st
 
     std::stringstream stream2;
 
-    if (!token2.length() || token3.length())
+    // std::cout << std::boolalpha << valid_date(token) << std::endl;
+    if (!valid_date(token) || !token2.length() || token3.length())
         throw std::logic_error("Error: bad input => ");
-    
     //problem reusing the same stream
 
     stream2 << (ft_stod(token2, true) * fetch_db_exchange_rate(token, DB_Map));
