@@ -1,10 +1,10 @@
 #include "PmergeMe.hpp"
 
-time_t run_using_vector(std::deque<unsigned int> &deque, std::vector<unsigned int> &vector){
+time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
     return (0);
 };
 
-time_t run_using_list(std::deque<unsigned int> &deque, std::list<unsigned int> &list){
+time_t run_using_list(std::deque<unsigned int> &Input, std::list<unsigned int> &list){
     return (0);
 };
 
