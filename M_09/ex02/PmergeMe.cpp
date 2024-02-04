@@ -26,7 +26,6 @@ void __init(int argc, char *argv[], std::deque<unsigned int> &deque){
 
     for (int i = 1; i < argc; ++i){
         token = argv[i];
-        deque.push_back(extract_num(token)); // 
-        // std::cout << "<" << token << ">" << std::endl;
+        deque.push_back(extract_num(token)); 
     }
 };

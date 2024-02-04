@@ -27,12 +27,12 @@ int main(int argc, char *argv[]){
         std::cerr << e.what() << std::endl;
         return 1;
     }
+
     // std::cout << "=> List   :"<< std::endl;
     // print(list);
-
     // std::cout << std::endl << "=> Vector :"<< std::endl;
     // print(vector);
-
+    
     std::cout << "Before : ";
     print(deque);
     std::cout << "After  : ";
