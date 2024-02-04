@@ -2,10 +2,8 @@
 
 int main(int argc, char *argv[]){
 
-    std::map<std::string, double> Map;
-
     try{
-        __init(argc, argv, Map); }
+        __init(argc, argv); }
     catch(const std::exception& e){
         std::cerr << e.what() << std::endl; }
 
