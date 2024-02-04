@@ -34,12 +34,11 @@ void __init(int argc, char *argv[]){
     int n,n1,r;
     std::string       token;
     std::stack<int>   Conatiner;
-    std::stringstream stream(argv[1]);
-
 
     if (argc != 2)
         throw std::runtime_error("Error: Wrong Arg Count !");
 
+    std::stringstream stream(argv[1]);
     for (; std::getline(stream, token, ' ') ;){
         if (is_num(token))
             Conatiner.push(std::atoi(token.c_str()));
