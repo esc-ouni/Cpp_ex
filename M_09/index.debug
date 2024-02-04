@@ -1,8 +1,8 @@
 ex00:
     => map
 ex01:
-    => deque (stack / queue)
-
+    => stack
 ex02:
+    => deque (store input)
     => vector
     => list
