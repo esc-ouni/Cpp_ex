@@ -2,7 +2,7 @@
 
 double spent_time(time_t &raw_value){
     // convert to us (microseconds)
-    return (1);
+    return (raw_value * (1000000 / CLOCKS_PER_SEC));
 }
 
 void print_input(int argc, char *argv[]){

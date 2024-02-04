@@ -1,7 +1,14 @@
 #include "PmergeMe.hpp"
 
 time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
-    return (0);
+    clock_t t,t2;
+    if ((t = clock()) == -1)
+        throw std::runtime_error("Error: Problem Calculating Time !");
+
+    
+    if ((t2 = clock()) == -1)
+        throw std::runtime_error("Error: Problem Calculating Time !");
+    return ((t2 - t));
 };
 
 time_t run_using_list(std::deque<unsigned int> &Input, std::list<unsigned int> &list){
