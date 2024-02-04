@@ -4,15 +4,15 @@
 #include <iostream>
 #include <vector>
 #include <list>
-#include <fstream>
+#include <queue>
 #include <map>
 #include <set>
 #include <algorithm>
 #include <sstream>
 
-void   __init(int argc, char *argv[], std::set<unsigned int> &set);
-time_t run_using_vector(std::set<unsigned int> &set, std::vector<unsigned int> &vector);
-time_t run_using_list(std::set<unsigned int> &set, std::list<unsigned int> &list);
+void   __init(int argc, char *argv[], std::deque<unsigned int> &deque);
+time_t run_using_vector(std::deque<unsigned int> &deque, std::vector<unsigned int> &vector);
+time_t run_using_list(std::deque<unsigned int> &deque, std::list<unsigned int> &list);
 
 template <typename T>
 void print(T Conatiner){

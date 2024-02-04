@@ -5,16 +5,23 @@ double spent_time(time_t &raw_value){
     return (1);
 }
 
+void print_input(int argc, char *argv[]){
+    for (size_t i = 1; i < argc; i++){
+        std::cout << "<"<< argv[i] << ">, ";
+    }
+    std::cout << std::endl;
+}
+
 int main(int argc, char *argv[]){
     time_t n, n1;
-    std::set<unsigned int>    set;
     std::list<unsigned int>   list;
+    std::deque<unsigned int>  deque;
     std::vector<unsigned int> vector;
 
     try{
-        __init(argc, argv, set);
-        n  = run_using_vector(set, vector);
-        n1 = run_using_list(set, list);
+        __init(argc, argv, deque);
+        n  = run_using_vector(deque, vector);
+        n1 = run_using_list(deque, list);
     }
     catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
@@ -27,7 +34,7 @@ int main(int argc, char *argv[]){
     // print(vector);
 
     std::cout << "Before : ";
-    print(set);
+    print(deque);
     std::cout << "After  : ";
     print(vector);
     std::cout << "Time to process a range of " << vector.size() << " elements with std::vector : " << spent_time(n) << " µs" << std::endl;
