@@ -46,7 +46,6 @@ bool valid_num(std::string &number, int date_part){
         if (!isdigit(number.c_str()[i]) || i == 5)
             return (false);
     }
-    // std::cout << "(std::atoi(number.c_str()) : " << std::atoi(number.c_str()) << std::endl;
     switch (date_part){
         case 0:
             if (!(std::atoi(number.c_str()) <= 2047 && std::atoi(number.c_str()) >= 2009) || number.length() != 4)
@@ -77,7 +76,6 @@ bool valid_date(std::string &date){
     
     //year-month-day
     for (i; std::getline(stream, token, '-'); ++i){
-        // std::cout << "token : <" << token << ">" << std::endl;
         if(!valid_num(token, i))
             return (false);
     }
@@ -91,7 +89,6 @@ void exctract_input(std::map<std::string, double> &DB_Map, std::stringstream &st
 
     std::stringstream stream2;
 
-    // std::cout << std::boolalpha << valid_date(token) << std::endl;
     if (!valid_date(token) || !token2.length() || token3.length())
         throw std::logic_error("Error: bad input => ");
     //problem reusing the same stream
@@ -107,10 +104,8 @@ void exctract_DB_input(std::stringstream &stream, std::string &token, std::strin
 
     std::stringstream stream2;
 
-    if (!token2.length() || token3.length())
+    if (!token.length() || !token2.length() || token3.length())
         throw std::logic_error("Error: bad input => ");
-    
-    //problem reusing the same stream
 }
 
 void output(std::string &line, std::map<std::string, double> &DB_Map, char dilimeter){
