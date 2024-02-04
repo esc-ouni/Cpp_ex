@@ -1,7 +1,7 @@
 ex00:
     => map
 ex01:
-    => deque (stack)
+    => deque (stack / queue)
 
 ex02:
     => vector
