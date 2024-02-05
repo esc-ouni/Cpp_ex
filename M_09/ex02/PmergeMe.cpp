@@ -2,45 +2,7 @@
 
 double spent_time(time_t &raw_value){
     return (raw_value * (1000000 / CLOCKS_PER_SEC));
-}
-
-time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
-    Timer timer(clock());
-
-    // for (size_t i = 0; i < 500000000; i++){
-    // }
-
-    return (timer.GetSpentTime(clock()));
 };
-
-time_t run_using_list(std::deque<unsigned int> &Input, std::list<unsigned int> &list){
-    Timer timer(clock());
-
-    return (timer.GetSpentTime(clock()));
-};
-
-unsigned int extract_num(std::string &number){
-    unsigned int n;
-    if (number.empty())
-        throw std::runtime_error("Error: Invalid Input !");
-    for (size_t i = 0; i < number.length(); i++){
-        if (!isdigit(number.c_str()[i]) || i == 11)
-            throw std::runtime_error("Error: Invalid Input !");
-    }
-    return (((n = std::atoi(number.c_str())) <= INT_MAX) ? n : throw std::runtime_error("Error: Invalid Input !"));
-};
-
-void __init(int argc, char *argv[], std::deque<unsigned int> &deque){
-    std::string token;
-    if (argc < 2)
-        throw std::runtime_error("Error: Wrong Arg Count !");
-
-    for (int i = 1; i < argc; ++i){
-        token = argv[i];
-        deque.push_back(extract_num(token)); 
-    }
-};
-
 
 Timer::Timer(){
 };
@@ -65,4 +27,38 @@ time_t Timer::GetSpentTime(clock_t const &end) const{
     if (this->_start == -1 || end == -1)
         throw std::runtime_error("Error: Problem Calculating Time !");
     return ((end - this->_start)); // check overflows
+};
+
+unsigned int extract_num(std::string &number){
+    unsigned int n;
+    if (number.empty())
+        throw std::runtime_error("Error: Invalid Input !");
+    for (size_t i = 0; i < number.length(); i++){
+        if (!isdigit(number.c_str()[i]) || i == 11)
+            throw std::runtime_error("Error: Invalid Input !");
+    }
+    return (((n = std::atoi(number.c_str())) <= INT_MAX) ? n : throw std::runtime_error("Error: Invalid Input !"));
+};
+
+void __init(int argc, char *argv[], std::deque<unsigned int> &deque){
+    std::string token;
+    if (argc < 2)
+        throw std::runtime_error("Error: Wrong Arg Count !");
+
+    for (int i = 1; i < argc; ++i){
+        token = argv[i];
+        deque.push_back(extract_num(token)); 
+    }
+};
+
+time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
+    Timer timer(clock());
+
+    return (timer.GetSpentTime(clock()));
+};
+
+time_t run_using_list(std::deque<unsigned int> &Input, std::list<unsigned int> &list){
+    Timer timer(clock());
+
+    return (timer.GetSpentTime(clock()));
 };
