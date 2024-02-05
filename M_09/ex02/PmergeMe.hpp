@@ -10,7 +10,6 @@
 #include <algorithm>
 #include <sstream>
 
-
 class Timer{
     private:
         clock_t _start;
@@ -29,7 +28,6 @@ time_t run_using_vector(std::deque<unsigned int> &deque, std::vector<unsigned in
 time_t run_using_list(std::deque<unsigned int> &deque, std::list<unsigned int> &list);
 double spent_time(time_t &raw_value);
 
-//
 template <typename T>
 void print(T Conatiner){
     for (auto &elem : Conatiner){
@@ -37,6 +35,5 @@ void print(T Conatiner){
     };
     std::cout << std::endl;
 };
-//
 
 #endif
