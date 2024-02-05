@@ -42,7 +42,7 @@ unsigned int extract_num(std::string &number){
 
 void __init(int argc, char *argv[], std::deque<unsigned int> &deque){
     std::string token;
-    if (argc < 2)
+    if (argc < 3)
         throw std::runtime_error("Error: Wrong Arg Count !");
 
     for (int i = 1; i < argc; ++i){
@@ -59,25 +59,37 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
 
     if ((Input.size() % 2))
         remain = *(Input.end()-1);
-
-    //divide the container elements into pairs && sort pairs
+ 
+    //divide the container elements into pairs && sort element in the pair
     for (std::deque<unsigned int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
-        if (*(it) < *(it+1))
+        if (*(it) > *(it+1))
             pair_container.push_back(std::make_pair(*(it),*(it+1)));
         else
             pair_container.push_back(std::make_pair(*(it+1), *(it)));
     }
 
+    //sort pair_container by first element on the pair (sort uses quicksort / uses recursion)
+    std::sort(pair_container.begin(), pair_container.end());
+
     //print pairs
-    std::cout << "=> PAIR_CONTAINER :" << std::endl; 
+    std::cout << "=> PAIR_CONTAINER (after):" << std::endl; 
     print_pair(pair_container);
     if ((Input.size() % 2))
         std::cout << "With remain : " << remain << std::endl;
     std::cout << std::endl;
-
-
     
-    //...
+    //store S(sequence w big elems) + smallest head from both sequence
+    if (pair_container.begin()->second < pair_container.begin()->first)
+        vector.push_back(pair_container.begin()->second);
+
+    for (std::vector<std::pair<unsigned int, unsigned int> >::iterator it = pair_container.begin(); it != pair_container.end() ; ++it){
+        vector.push_back(it->first);
+    }
+
+    //print S + smallest head from both sequence
+    std::cout << "=> print S + smallest head from both sequence" << std::endl;
+    print(vector);
+
 
     return (timer.GetSpentTime(clock()));
 };
