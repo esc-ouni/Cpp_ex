@@ -37,4 +37,12 @@ void print(T Conatiner){
     std::cout << std::endl;
 };
 
+template <typename T>
+void print_pair(T Conatiner){
+    for (auto &elem : Conatiner){
+        std::cout << "[" << elem.first << ", " << elem.second << "], ";
+    };
+    std::cout << std::endl;
+};
+
 #endif
