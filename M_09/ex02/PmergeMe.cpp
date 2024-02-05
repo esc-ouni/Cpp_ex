@@ -60,18 +60,23 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
     if ((Input.size() % 2))
         remain = *(Input.end()-1);
 
-    //divide the container elements into pairs
+    //divide the container elements into pairs && sort pairs
     for (std::deque<unsigned int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
-        pair_container.push_back(std::make_pair(*(it),*(it+1)));
+        if (*(it) < *(it+1))
+            pair_container.push_back(std::make_pair(*(it),*(it+1)));
+        else
+            pair_container.push_back(std::make_pair(*(it+1), *(it)));
     }
 
-    std::cout << "PAIR_CONTAINER :" << std::endl; 
+    //print pairs
+    std::cout << "=> PAIR_CONTAINER :" << std::endl; 
     print_pair(pair_container);
     if ((Input.size() % 2))
         std::cout << "With remain : " << remain << std::endl;
     std::cout << std::endl;
 
-    //sort pairs 
+
+    
     //...
 
     return (timer.GetSpentTime(clock()));
