@@ -3,6 +3,9 @@
 time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
     Timer timer(clock());
 
+    // for (size_t i = 0; i < 500000000; i++){
+    // }
+
     return (timer.GetSpentTime(clock()));
 };
 
