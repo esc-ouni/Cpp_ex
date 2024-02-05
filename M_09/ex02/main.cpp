@@ -1,7 +1,7 @@
 #include "PmergeMe.hpp"
 
 double spent_time(time_t &raw_value){
-    // convert to us (microseconds)
+    // convert to µs (microseconds)
     return (raw_value * (1000000 / CLOCKS_PER_SEC));
 }
 

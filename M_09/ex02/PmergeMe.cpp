@@ -1,18 +1,15 @@
 #include "PmergeMe.hpp"
 
 time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
-    clock_t t,t2;
-    if ((t = clock()) == -1)
-        throw std::runtime_error("Error: Problem Calculating Time !");
+    Timer timer(clock());
 
-    
-    if ((t2 = clock()) == -1)
-        throw std::runtime_error("Error: Problem Calculating Time !");
-    return ((t2 - t));
+    return (timer.GetSpentTime(clock()));
 };
 
 time_t run_using_list(std::deque<unsigned int> &Input, std::list<unsigned int> &list){
-    return (0);
+    Timer timer(clock());
+
+    return (timer.GetSpentTime(clock()));
 };
 
 unsigned int extract_num(std::string &number){
@@ -35,4 +32,30 @@ void __init(int argc, char *argv[], std::deque<unsigned int> &deque){
         token = argv[i];
         deque.push_back(extract_num(token)); 
     }
+};
+
+
+Timer::Timer(){
+};
+
+Timer::Timer(clock_t const &start){
+    this->_start = start;
+};
+
+Timer::Timer(Timer const &r_inst){
+    (*this) = r_inst;
+};
+
+Timer &Timer::operator=(Timer const &r_inst){
+    (void)r_inst;
+    return (*this);
+};
+
+Timer::~Timer(){
+};
+
+time_t Timer::GetSpentTime(clock_t const &end) const{
+    if (this->_start == -1 || end == -1)
+        throw std::runtime_error("Error: Problem Calculating Time !");
+    return ((end - this->_start));
 };
