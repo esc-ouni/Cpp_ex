@@ -1,5 +1,9 @@
 #include "PmergeMe.hpp"
 
+double spent_time(time_t &raw_value){
+    return (raw_value * (1000000 / CLOCKS_PER_SEC));
+}
+
 time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
     Timer timer(clock());
 
@@ -60,5 +64,5 @@ Timer::~Timer(){
 time_t Timer::GetSpentTime(clock_t const &end) const{
     if (this->_start == -1 || end == -1)
         throw std::runtime_error("Error: Problem Calculating Time !");
-    return ((end - this->_start));
+    return ((end - this->_start)); // check overflows
 };

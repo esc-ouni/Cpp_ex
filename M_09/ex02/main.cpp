@@ -1,17 +1,5 @@
 #include "PmergeMe.hpp"
 
-double spent_time(time_t &raw_value){
-    // convert to µs (microseconds)
-    return (raw_value * (1000000 / CLOCKS_PER_SEC));
-}
-
-void print_input(int argc, char *argv[]){
-    for (size_t i = 1; i < argc; i++){
-        std::cout << "<"<< argv[i] << ">, ";
-    }
-    std::cout << std::endl;
-}
-
 int main(int argc, char *argv[]){
     time_t n, n1;
     std::list<unsigned int>   list;
@@ -28,11 +16,6 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    // std::cout << "=> List   :"<< std::endl;
-    // print(list);
-    // std::cout << std::endl << "=> Vector :"<< std::endl;
-    // print(vector);
-    
     std::cout << "Before : ";
     print(deque);
     std::cout << "After  : ";

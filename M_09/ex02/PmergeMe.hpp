@@ -27,7 +27,7 @@ class Timer{
 void   __init(int argc, char *argv[], std::deque<unsigned int> &deque);
 time_t run_using_vector(std::deque<unsigned int> &deque, std::vector<unsigned int> &vector);
 time_t run_using_list(std::deque<unsigned int> &deque, std::list<unsigned int> &list);
-
+double spent_time(time_t &raw_value);
 
 //
 template <typename T>
