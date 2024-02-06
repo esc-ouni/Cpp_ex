@@ -51,6 +51,17 @@ void __init(int argc, char *argv[], std::deque<unsigned int> &deque){
     }
 };
 
+
+void generate_jseq(std::vector<unsigned int> &Container, unsigned int Msize){
+    Container.push_back(0);
+    Container.push_back(1);
+    for (size_t i = 1; Container[i] <= Msize; ++i){
+        Container.push_back(Container[i] + (Container[i - 1] * 2));
+    }
+    Container.erase(Container.begin());
+    Container.erase(Container.begin()+1); 
+}
+
 time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
     Timer timer(clock());
 
@@ -70,7 +81,7 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
 
     std::sort(pair_container.begin(), pair_container.end());
 
-    if (pair_container.begin()->second < pair_container.begin()->first)
+    if (pair_container.begin()->second <= pair_container.begin()->first)
         vector.push_back(pair_container.begin()->second);
     else
         Y.push_back(pair_container.begin()->second);
@@ -82,26 +93,19 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
     for (std::vector<std::pair<unsigned int, unsigned int> >::iterator it = pair_container.begin() + 1; it != pair_container.end() ; ++it){
         Y.push_back(it->second);
     };
-    if ((Input.size() % 2))
-        Y.push_back(remain);
-    
-    std::vector<unsigned int>::iterator it;
-    while (Y.size()){
-        it = Y.begin();
-        for (it; it != Y.end() ; ++it){
-            if (Y.size() == 1){
-                it = Y.begin();
-                vector.insert(std::lower_bound(vector.begin(), vector.end(), (*it)), (*it));
-                Y.erase(it);
-                break ;
-            }
-            else if (!(vector.size() % ((*it) ? (*it) : 1))){
-                vector.insert(std::lower_bound(vector.begin(), vector.end(), (*it)), (*it));
-                Y.erase(it);
-                it = Y.begin();
-            }
+
+    std::vector<unsigned int> Jacobsthal_seq;
+    generate_jseq(Jacobsthal_seq, Y.size());
+
+    for (size_t i = 0; Jacobsthal_seq[i] < Y.size(); ++i){
+        for (size_t k = Jacobsthal_seq[i]; (k != -1) && (Y.at(k) != -1); --k){
+            vector.insert(std::lower_bound(vector.begin(), vector.end(), Y[k]), Y[k]); //begin()+k
+            Y[k] = -1;
         }
     }
+
+    if ((Input.size() % 2))
+        vector.insert(std::lower_bound(vector.begin(), vector.end(), remain), remain);
 
     return (timer.GetSpentTime(clock()));
 };
@@ -123,10 +127,9 @@ time_t run_using_list(std::deque<unsigned int> &Input, std::list<unsigned int> &
             pair_container.push_back(std::make_pair(*(it+1), *(it)));
     }
 
-    // std::sort(pair_container.begin(), pair_container.end());
     pair_container.sort(); //does it use recursion ?
 
-    if (pair_container.begin()->second < pair_container.begin()->first)
+    if (pair_container.begin()->second <= pair_container.begin()->first)
         list.push_back(pair_container.begin()->second);
     else
         Y.push_back(pair_container.begin()->second);
@@ -141,26 +144,38 @@ time_t run_using_list(std::deque<unsigned int> &Input, std::list<unsigned int> &
         Y.push_back(it_->second);
     };
 
-    if ((Input.size() % 2))
-        Y.push_back(remain);
+    std::vector<unsigned int> Jacobsthal_seq;
+    generate_jseq(Jacobsthal_seq, Y.size());
+
+    // for (size_t i = 0; Jacobsthal_seq[i] < Y.size(); ++i){
+    //     size_t k = Jacobsthal_seq[i];
+    //     size_t n = 0;
+    //     for (std::list<unsigned int>::iterator it = Y.begin(); it != Y.end() && n;++it, --n){
+    //         for (k; (it != Y.begin()) && (*it != -1); --it){
+    //             list.insert(std::lower_bound(list.begin(), list.end(), *it), *it);
+    //             *it = -1;
+    //         }
+    //     }
+    // }
     
-    std::list<unsigned int>::iterator it;
-    while (Y.size()){
-        it = Y.begin();
-        for (it; it != Y.end() ; ++it){
-            if (Y.size() == 1){
-                it = Y.begin();
-                list.insert(std::lower_bound(list.begin(), list.end(), (*it)), (*it));
-                Y.erase(it);
-                break ;
+    auto Y_it = Y.begin();
+    for (size_t i = 0; i < Jacobsthal_seq.size() && Y_it != Y.end(); ++i) {
+        size_t count = Jacobsthal_seq[i]; // Use Jacobsthal_seq[i] to determine how many elements to process
+        while (count > 0 && Y_it != Y.end()) {
+            auto insert_pos = list.begin();
+            while (insert_pos != list.end() && *insert_pos < *Y_it) {
+                ++insert_pos; // Find the correct position to insert *Y_it in list
             }
-            else if (!(list.size() % ((*it) ? (*it) : 1))){
-                list.insert(std::lower_bound(list.begin(), list.end(), (*it)), (*it));
-                Y.erase(it);
-                it = Y.begin();
-            }
+            list.insert(insert_pos, *Y_it); // Insert the element from Y into the correct position in list
+            Y_it = Y.erase(Y_it); // Remove the inserted element from Y and move to the next element
+            --count;
         }
     }
+
+
+
+    if ((Input.size() % 2))
+        list.insert(std::lower_bound(list.begin(), list.end(), remain), remain);
 
     return (timer.GetSpentTime(clock()));
 };
