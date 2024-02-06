@@ -99,7 +99,7 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
     std::vector<unsigned int> Jacobsthal_seq;
     generate_jseq(Jacobsthal_seq, Y.size() + 1);
 
-    for (size_t i = 0; i < Jacobsthal_seq.size() && Jacobsthal_seq[i] < Y.size(); ++i){
+    for (size_t i = 0; Jacobsthal_seq[i] < Y.size(); ++i){
         for (size_t k = Jacobsthal_seq[i]; (k != -1) && (Y.at(k) != -1); --k){
             vector.insert(std::lower_bound(vector.begin(), vector.end(), Y[k]), Y[k]);
             Y[k] = -1;
@@ -107,7 +107,8 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
     }
 
     for (std::vector<unsigned int>::iterator it = Y.begin(); it != Y.end();++it){
-        vector.insert(std::lower_bound(vector.begin(), vector.end(), *it), *it);
+        if (*it != -1)
+            vector.insert(std::lower_bound(vector.begin(), vector.end(), *it), *it);
     }
     
 
@@ -150,17 +151,11 @@ time_t run_using_vector_v2(std::deque<unsigned int> &Input, std::vector<unsigned
     };
 
     std::vector<unsigned int> Jacobsthal_seq;
-    generate_jseq(Jacobsthal_seq, Y.size());
+    generate_jseq(Jacobsthal_seq, Y.size() + 1);
 
-    // for (size_t i = 0; Jacobsthal_seq[i] < Y.size(); ++i){
-    //     for (size_t k = Jacobsthal_seq[i]; (k != -1) && (Y.at(k) != -1); --k){
-    //         vector.insert(std::lower_bound(vector.begin(), vector.end(), Y[k]), Y[k]); //begin()+k
-    //         Y[k] = -1;
-    //     }
-    // }
 
-    for (auto &elem : Y){
-        vector.insert(std::lower_bound(vector.begin(), vector.end(), elem), elem); //begin()+k
+    for (auto elem : Y){
+        vector.insert(std::lower_bound(vector.begin(), vector.end(), elem), elem);
     }
     
     if ((Input.size() % 2))

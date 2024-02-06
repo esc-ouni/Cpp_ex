@@ -10,7 +10,7 @@ int main(int argc, char *argv[]){
     try{
         __init(argc, argv, deque);
         n  = run_using_vector(deque, vector);
-        n1  = run_using_vector_v2(deque, vector2);
+        n1 = run_using_vector_v2(deque, vector2);
         // n1 = run_using_list(deque, list);
     }
     catch(const std::exception& e){
