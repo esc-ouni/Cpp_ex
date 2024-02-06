@@ -73,10 +73,10 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
     std::sort(pair_container.begin(), pair_container.end());
 
     //print pairs
-    std::cout << "=> PAIR_CONTAINER (after):" << std::endl; 
-    print_pair(pair_container);
-    if ((Input.size() % 2))
-        std::cout << "With remain : " << remain << std::endl;
+    // std::cout << "=> PAIR_CONTAINER (after):" << std::endl; 
+    // print_pair(pair_container);
+    // if ((Input.size() % 2))
+    //     std::cout << "With remain : " << remain << std::endl;
     
     //store S(sequence w big elems) + smallest head from both sequence
     if (pair_container.begin()->second < pair_container.begin()->first)
@@ -89,8 +89,8 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
     }
 
     //print S + smallest head from both sequence
-    std::cout << std::endl << "=> print S + smallest head from both sequence" << std::endl;
-    print(vector);
+    // std::cout << std::endl << "=> print S + smallest head from both sequence" << std::endl;
+    // print(vector);
 
     for (std::vector<std::pair<unsigned int, unsigned int> >::iterator it = pair_container.begin() + 1; it != pair_container.end() ; ++it){
         Y.push_back(it->second);
@@ -99,33 +99,32 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
         Y.push_back(remain);
     
     //print Y 
-    std::cout << std::endl << "=> Y :" << std::endl;
-    print(Y);
+    // std::cout << std::endl << "=> Y :" << std::endl;
+    // print(Y);
 
     //inserting Y elements that divide S into optimal subsequence
     std::vector<unsigned int>::iterator it;
-    // while (Y.size()){
-    //     it = Y.begin();
-    //     for (it; it != Y.end() ; ++it){
-    //         if (vector.size() % ((*it) ? (*it) : vector.size() + 1)){
-    //             vector.insert(std::lower_bound(vector.begin(), vector.end(), (*it)), (*it));
-    //             Y.erase(it);
-    //         }
-    //         else if ((it + 1) == Y.end() && Y.size()){
-    //             vector.insert(std::lower_bound(vector.begin(), vector.end(), (*it)), (*it));
-    //             Y.erase(it);
-    //         }
-    //         else{
-    //             std::cout << std::endl << "=> S :" << std::endl;
-    //             print(vector);
-    //             std::cout << std::endl << "=> Y :" << std::endl;
-    //             print(Y);
-    //             break ;
-    //         }
-    //     };
-    // }
-    
-
+    while (Y.size()){
+        it = Y.begin();
+        for (it; it != Y.end() ; ++it){
+            if (Y.size() == 1){
+                it = Y.begin();
+                vector.insert(std::lower_bound(vector.begin(), vector.end(), (*it)), (*it));
+                Y.erase(it);
+                break ;
+            }
+            else if (!(vector.size() % ((*it) ? (*it) : 1))){
+                vector.insert(std::lower_bound(vector.begin(), vector.end(), (*it)), (*it));
+                Y.erase(it);
+                it = Y.begin();
+            }
+        }
+        // std::cout << std::endl << "=> Y size : " << Y.size() << std::endl;
+        // std::cout << std::endl << "=> S :" << std::endl;
+        // print(vector);
+        // std::cout << std::endl << "=> Y :" << std::endl;
+        // print(Y);
+    }
     return (timer.GetSpentTime(clock()));
 };
 
