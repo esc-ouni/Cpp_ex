@@ -16,10 +16,12 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    std::cout << "Before : ";
+    std::cout << "Before     : ";
     print(deque);
-    std::cout << "After  : ";
+    std::cout << "After(vec) : ";
     print(vector);
+    std::cout << "After(list): ";
+    print(list);
     std::cout << "Time to process a range of " << vector.size() << " elements with std::vector : " << spent_time(n) << " µs" << std::endl;
     std::cout << "Time to process a range of " << list.size()   << " elements with std::list   : " << spent_time(n1) << " µs" << std::endl;
     return 0;
