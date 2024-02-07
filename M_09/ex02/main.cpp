@@ -18,15 +18,15 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    std::cout << "Before     : ";
+    std::cout << "Before        : ";
     print(deque);
-    std::cout << "After(vec) : ";
+    std::cout << "After w Jacob : ";
     print(vector);
-    std::cout << "After(vec2): ";
+    std::cout << "After         : ";
     print(vector2);
     // print(list);
-    std::cout << "Time to process a range of " << vector.size() << " elements with std::vector   :\t" << spent_time(n) << " µs" << std::endl;
-    std::cout << "Time to process a range of " << vector2.size() << " elements with std::vector_2 :\t" << spent_time(n1) << " µs" << std::endl;
+    std::cout << "Time to process a range of " << vector.size() << " elements with w Jacob   :\t" << spent_time(n) << " µs" << std::endl;
+    std::cout << "Time to process a range of " << vector2.size() << " elements without.       :\t" << spent_time(n1) << " µs" << std::endl;
     // std::cout << "Time to process a range of " << list.size()   << " elements with std::list   : " << spent_time(n1) << " µs" << std::endl;
     return 0;
 }

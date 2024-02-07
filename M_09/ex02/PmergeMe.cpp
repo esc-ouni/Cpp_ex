@@ -30,7 +30,7 @@ time_t Timer::GetSpentTime(clock_t const &end) const{
 };
 
 int extract_num(std::string &number){
-    int n;
+    unsigned int n;
     if (number.empty())
         throw std::runtime_error("Error: Invalid Input !");
     for (size_t i = 0; i < number.length(); i++){
