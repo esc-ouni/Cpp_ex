@@ -1,7 +1,7 @@
 #include "PmergeMe.hpp"
 
 int main(int argc, char *argv[]){
-    time_t n, n1;
+    clock_t n, n1;
     std::list<int>   list;
     std::deque<int>  deque;
     std::vector<int> vector;
@@ -10,8 +10,9 @@ int main(int argc, char *argv[]){
     try{
         __init(argc, argv, deque);
         n  = run_using_vector(deque, vector);
-        n1 = run_using_vector_v2(deque, vector2);
-        // n1 = run_using_list(deque, list);
+        // n1 = run_using_vector(deque, vector2);
+        // n1 = run_using_vector_v2(deque, vector2);
+        n1 = run_using_list(deque, list);
     }
     catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
@@ -22,19 +23,19 @@ int main(int argc, char *argv[]){
     // print(deque);
 
 
-    std::cout << "After w Jacob : ";
+    // std::cout << "After.        : ";
+    // print(vector);
+    // std::cout << "After w Jacob : ";
+    // print(vector2);
+    // std::cout << "Time to process a range of " << vector.size() << " elements without    : " << n << " µs" << std::endl;
+    // std::cout << "Time to process a range of " << vector2.size() << " elements with Jacob : " << n1 << " µs" << std::endl;
+
+    std::cout << "After         : ";
     print(vector);
     std::cout << "After         : ";
-    print(vector2);
-    std::cout << "Time to process a range of " << vector.size() << " elements with Jacob : " << spent_time(n) << " µs" << std::endl;
-    std::cout << "Time to process a range of " << vector2.size() << " elements without    : " << spent_time(n1) << " µs" << std::endl;
-
-    // std::cout << "After         : ";
-    // print(vector);
-    // std::cout << "After         : ";
-    // print(list);
-    // std::cout << "Time to process a range of " << vector.size()   << " elements with std::vector : " << spent_time(n) << " µs" << std::endl;
-    // std::cout << "Time to process a range of " << list.size()   << " elements with std::list   : " << spent_time(n1) << " µs" << std::endl;
+    print(list);
+    std::cout << "Time to process a range of " << vector.size()   << " elements with std::vector : " << spent_time(n) << " µs" << std::endl;
+    std::cout << "Time to process a range of " << list.size()   << " elements with std::list   : " << spent_time(n1) << " µs" << std::endl;
 
 
     return 0;
