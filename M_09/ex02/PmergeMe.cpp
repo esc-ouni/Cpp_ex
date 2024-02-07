@@ -51,17 +51,16 @@ void __init(int argc, char *argv[], std::deque<int> &deque){
     }
 };
 
-
 void generate_jseq(std::vector<int> &Container, int Msize){
-    if (!Msize)
-        return ;
     Container.push_back(0);
     Container.push_back(1);
+    if (!Msize)
+        return ;
     for (size_t i = 1; Container[i] <= Msize; ++i){
         Container.push_back(Container[i] + (Container[i - 1] * 2));
     }
-    Container.erase(Container.begin());
-    Container.erase(Container.begin()+1); 
+    // Container.erase(Container.begin());
+    Container.erase(Container.begin() + 1); 
 }
 
 time_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
@@ -83,8 +82,10 @@ time_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
 
     std::sort(pair_container.begin(), pair_container.end());
 
-    if (pair_container.begin()->second <= pair_container.begin()->first)
+    if (pair_container.begin()->second <= pair_container.begin()->first){
         vector.push_back(pair_container.begin()->second);
+        Y.push_back(-1);
+    }
     else
         Y.push_back(pair_container.begin()->second);
 
@@ -97,20 +98,22 @@ time_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     };
 
     std::vector<int> Jacobsthal_seq;
-    generate_jseq(Jacobsthal_seq, Y.size() + 1);
+    generate_jseq(Jacobsthal_seq, (Y.size() + 1));
 
-    for (size_t i = 0; Jacobsthal_seq[i] < Y.size(); ++i){
-        for (size_t k = Jacobsthal_seq[i]; (k != -1) && (Y.at(k) != -1); --k){
-            vector.insert(std::lower_bound(vector.begin(), vector.end(), Y[k]), Y[k]);
-            Y[k] = -1;
+    for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
+        // std::cout << std::endl;
+        for (int k = Jacobsthal_seq[i]; k >= 0 ; --k){
+            // std::cout << "k value : " << k << std::endl;
+            if (k >= Y.size())
+                k = Y.size();
+            else if (Y[k] == -1)
+                break ;
+            else if ((Y[k] != -1)){
+                vector.insert(std::lower_bound(vector.begin(), vector.end(), Y[k]), Y[k]);
+                Y[k] = -1;
+            }
         }
     }
-
-    for (std::vector<int>::iterator it = Y.begin(); it != Y.end();++it){
-        if (*it != -1)
-            vector.insert(std::lower_bound(vector.begin(), vector.end(), *it), *it);
-    }
-    
 
     if ((Input.size() % 2))
         vector.insert(std::lower_bound(vector.begin(), vector.end(), remain), remain);
@@ -137,8 +140,10 @@ time_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector){
 
     std::sort(pair_container.begin(), pair_container.end());
 
-    if (pair_container.begin()->second <= pair_container.begin()->first)
+    if (pair_container.begin()->second <= pair_container.begin()->first){
         vector.push_back(pair_container.begin()->second);
+        Y.push_back(-1);
+    }
     else
         Y.push_back(pair_container.begin()->second);
 
@@ -151,12 +156,23 @@ time_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector){
     };
 
     std::vector<int> Jacobsthal_seq;
-    generate_jseq(Jacobsthal_seq, Y.size() + 1);
+    generate_jseq(Jacobsthal_seq, (Y.size() + 1));
 
+    // for (size_t i = 0; Jacobsthal_seq[i] < Y.size(); ++i){
+    //     for (size_t k = Jacobsthal_seq[i]; (k != -1) && (Y.at(k) != -1); --k){
+    //         vector.insert(std::lower_bound(vector.begin(), vector.end(), Y[k]), Y[k]);
+    //         Y[k] = -1;
+    //     }
+    // }
 
-    for (auto elem : Y){
-        vector.insert(std::lower_bound(vector.begin(), vector.end(), elem), elem);
+    for (std::vector<int>::iterator it = Y.begin(); it != Y.end();++it){
+        if (*it != -1)
+            vector.insert(std::lower_bound(vector.begin(), vector.end(), *it), *it);
     }
+
+    // for (auto elem : Y){
+    //     vector.insert(std::lower_bound(vector.begin(), vector.end(), elem), elem);
+    // }
     
     if ((Input.size() % 2))
         vector.insert(std::lower_bound(vector.begin(), vector.end(), remain), remain);
