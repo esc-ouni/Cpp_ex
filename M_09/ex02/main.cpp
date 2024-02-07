@@ -20,14 +20,22 @@ int main(int argc, char *argv[]){
 
     // std::cout << "Before        : ";
     // print(deque);
-    // std::cout << "After w Jacob : ";
-    // print(vector);
-    // std::cout << "After         : ";
-    // print(vector2);
-    // // print(list);
+
+
+    std::cout << "After w Jacob : ";
+    print(vector);
+    std::cout << "After         : ";
+    print(vector2);
     std::cout << "Time to process a range of " << vector.size() << " elements with Jacob : " << spent_time(n) << " µs" << std::endl;
     std::cout << "Time to process a range of " << vector2.size() << " elements without    : " << spent_time(n1) << " µs" << std::endl;
 
+    // std::cout << "After         : ";
+    // print(vector);
+    // std::cout << "After         : ";
+    // print(list);
+    // std::cout << "Time to process a range of " << vector.size()   << " elements with std::vector : " << spent_time(n) << " µs" << std::endl;
     // std::cout << "Time to process a range of " << list.size()   << " elements with std::list   : " << spent_time(n1) << " µs" << std::endl;
+
+
     return 0;
 }
