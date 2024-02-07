@@ -107,7 +107,7 @@ time_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
             else if (Y[k] == -1)
                 break ;
             else if ((Y[k] != -1)){
-                vector.insert(std::lower_bound(vector.begin(), vector.end(), Y[k]), Y[k]);
+                vector.insert(std::lower_bound(vector.begin(), vector.begin() + k, Y[k]), Y[k]); // limit ranges !
                 Y[k] = -1;
             }
         }
