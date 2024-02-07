@@ -27,8 +27,8 @@ int main(){
         std::cerr << "Exception: " << e.what() << '\n';
     }
 
-    Span largeSpan(500);
-    for (int i = 0; i < 500; ++i) {
+    Span largeSpan(20000);
+    for (int i = 0; i < 20000; ++i) {
         largeSpan.addNumber(rand());
     }
 

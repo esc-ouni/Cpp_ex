@@ -61,7 +61,7 @@ int Span::getNumber(unsigned int idx){
 };
 
 
-void Span::addNumber(unsigned int element){
+void Span::addNumber(int element){
     if (this->_Size < this->_Capacity){
         this->_storage[this->_Size] = element;
         if (this->_Size == UINT_MAX)
