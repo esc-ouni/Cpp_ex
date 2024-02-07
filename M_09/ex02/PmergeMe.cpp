@@ -29,8 +29,8 @@ time_t Timer::GetSpentTime(clock_t const &end) const{
     return ((end - this->_start)); // check overflows
 };
 
-unsigned int extract_num(std::string &number){
-    unsigned int n;
+int extract_num(std::string &number){
+    int n;
     if (number.empty())
         throw std::runtime_error("Error: Invalid Input !");
     for (size_t i = 0; i < number.length(); i++){
@@ -40,7 +40,7 @@ unsigned int extract_num(std::string &number){
     return (((n = std::atoi(number.c_str())) <= INT_MAX) ? n : throw std::runtime_error("Error: Invalid Input !"));
 };
 
-void __init(int argc, char *argv[], std::deque<unsigned int> &deque){
+void __init(int argc, char *argv[], std::deque<int> &deque){
     std::string token;
     if (argc < 3)
         throw std::runtime_error("Error: Wrong Arg Count !");
@@ -52,7 +52,7 @@ void __init(int argc, char *argv[], std::deque<unsigned int> &deque){
 };
 
 
-void generate_jseq(std::vector<unsigned int> &Container, unsigned int Msize){
+void generate_jseq(std::vector<int> &Container, int Msize){
     if (!Msize)
         return ;
     Container.push_back(0);
@@ -64,17 +64,17 @@ void generate_jseq(std::vector<unsigned int> &Container, unsigned int Msize){
     Container.erase(Container.begin()+1); 
 }
 
-time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
+time_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     Timer timer(clock());
 
-    std::vector<std::pair<unsigned int, unsigned int> > pair_container;
-    std::vector<unsigned int> Y;
-    unsigned int remain;
+    std::vector<std::pair<int, int> > pair_container;
+    std::vector<int> Y;
+    int remain;
 
     if ((Input.size() % 2))
         remain = *(Input.end()-1);
  
-    for (std::deque<unsigned int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
+    for (std::deque<int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
         if (*(it) > *(it+1))
             pair_container.push_back(std::make_pair(*(it),*(it+1)));
         else
@@ -88,15 +88,15 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
     else
         Y.push_back(pair_container.begin()->second);
 
-    for (std::vector<std::pair<unsigned int, unsigned int> >::iterator it = pair_container.begin(); it != pair_container.end() ; ++it){
+    for (std::vector<std::pair<int, int> >::iterator it = pair_container.begin(); it != pair_container.end() ; ++it){
         vector.push_back(it->first);
     }
 
-    for (std::vector<std::pair<unsigned int, unsigned int> >::iterator it = pair_container.begin() + 1; it != pair_container.end() ; ++it){
+    for (std::vector<std::pair<int, int> >::iterator it = pair_container.begin() + 1; it != pair_container.end() ; ++it){
         Y.push_back(it->second);
     };
 
-    std::vector<unsigned int> Jacobsthal_seq;
+    std::vector<int> Jacobsthal_seq;
     generate_jseq(Jacobsthal_seq, Y.size() + 1);
 
     for (size_t i = 0; Jacobsthal_seq[i] < Y.size(); ++i){
@@ -106,7 +106,7 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
         }
     }
 
-    for (std::vector<unsigned int>::iterator it = Y.begin(); it != Y.end();++it){
+    for (std::vector<int>::iterator it = Y.begin(); it != Y.end();++it){
         if (*it != -1)
             vector.insert(std::lower_bound(vector.begin(), vector.end(), *it), *it);
     }
@@ -118,17 +118,17 @@ time_t run_using_vector(std::deque<unsigned int> &Input, std::vector<unsigned in
     return (timer.GetSpentTime(clock()));
 };
 
-time_t run_using_vector_v2(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector){
+time_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector){
     Timer timer(clock());
 
-    std::vector<std::pair<unsigned int, unsigned int> > pair_container;
-    std::vector<unsigned int> Y;
-    unsigned int remain;
+    std::vector<std::pair<int, int> > pair_container;
+    std::vector<int> Y;
+    int remain;
 
     if ((Input.size() % 2))
         remain = *(Input.end()-1);
  
-    for (std::deque<unsigned int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
+    for (std::deque<int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
         if (*(it) > *(it+1))
             pair_container.push_back(std::make_pair(*(it),*(it+1)));
         else
@@ -142,15 +142,15 @@ time_t run_using_vector_v2(std::deque<unsigned int> &Input, std::vector<unsigned
     else
         Y.push_back(pair_container.begin()->second);
 
-    for (std::vector<std::pair<unsigned int, unsigned int> >::iterator it = pair_container.begin(); it != pair_container.end() ; ++it){
+    for (std::vector<std::pair<int, int> >::iterator it = pair_container.begin(); it != pair_container.end() ; ++it){
         vector.push_back(it->first);
     }
 
-    for (std::vector<std::pair<unsigned int, unsigned int> >::iterator it = pair_container.begin() + 1; it != pair_container.end() ; ++it){
+    for (std::vector<std::pair<int, int> >::iterator it = pair_container.begin() + 1; it != pair_container.end() ; ++it){
         Y.push_back(it->second);
     };
 
-    std::vector<unsigned int> Jacobsthal_seq;
+    std::vector<int> Jacobsthal_seq;
     generate_jseq(Jacobsthal_seq, Y.size() + 1);
 
 
@@ -165,17 +165,17 @@ time_t run_using_vector_v2(std::deque<unsigned int> &Input, std::vector<unsigned
 };
 
 
-time_t run_using_list(std::deque<unsigned int> &Input, std::list<unsigned int> &list){
+time_t run_using_list(std::deque<int> &Input, std::list<int> &list){
     Timer timer(clock());
 
-    std::list<std::pair<unsigned int, unsigned int> > pair_container;
-    std::list<unsigned int> Y;
-    unsigned int remain;
+    std::list<std::pair<int, int> > pair_container;
+    std::list<int> Y;
+    int remain;
 
     if ((Input.size() % 2))
         remain = *(Input.end()-1);
  
-    for (std::deque<unsigned int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
+    for (std::deque<int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
         if (*(it) > *(it+1))
             pair_container.push_back(std::make_pair(*(it),*(it+1)));
         else
@@ -189,23 +189,23 @@ time_t run_using_list(std::deque<unsigned int> &Input, std::list<unsigned int> &
     else
         Y.push_back(pair_container.begin()->second);
 
-    for (std::list<std::pair<unsigned int, unsigned int> >::iterator it = pair_container.begin(); it != pair_container.end() ; ++it){
+    for (std::list<std::pair<int, int> >::iterator it = pair_container.begin(); it != pair_container.end() ; ++it){
         list.push_back(it->first);
     }
 
-    std::list<std::pair<unsigned int, unsigned int> >::iterator it_ = pair_container.begin();
+    std::list<std::pair<int, int> >::iterator it_ = pair_container.begin();
     ++it_;
     for (it_ ; it_ != pair_container.end() ; ++it_){
         Y.push_back(it_->second);
     };
 
-    std::vector<unsigned int> Jacobsthal_seq;
+    std::vector<int> Jacobsthal_seq;
     generate_jseq(Jacobsthal_seq, Y.size());
 
     // for (size_t i = 0; Jacobsthal_seq[i] < Y.size(); ++i){
     //     size_t k = Jacobsthal_seq[i];
     //     size_t n = 0;
-    //     for (std::list<unsigned int>::iterator it = Y.begin(); it != Y.end() && n;++it, --n){
+    //     for (std::list<int>::iterator it = Y.begin(); it != Y.end() && n;++it, --n){
     //         for (k; (it != Y.begin()) && (*it != -1); --it){
     //             list.insert(std::lower_bound(list.begin(), list.end(), *it), *it);
     //             *it = -1;

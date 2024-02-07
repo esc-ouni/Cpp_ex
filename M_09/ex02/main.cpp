@@ -2,10 +2,10 @@
 
 int main(int argc, char *argv[]){
     time_t n, n1;
-    std::list<unsigned int>   list;
-    std::deque<unsigned int>  deque;
-    std::vector<unsigned int> vector;
-    std::vector<unsigned int> vector2;
+    std::list<int>   list;
+    std::deque<int>  deque;
+    std::vector<int> vector;
+    std::vector<int> vector2;
 
     try{
         __init(argc, argv, deque);

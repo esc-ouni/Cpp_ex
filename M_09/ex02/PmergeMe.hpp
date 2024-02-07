@@ -24,10 +24,10 @@ class Timer{
         time_t GetSpentTime(clock_t const &end) const;
 };
 
-void   __init(int argc, char *argv[], std::deque<unsigned int> &deque);
-time_t run_using_vector(std::deque<unsigned int> &deque, std::vector<unsigned int> &vector);
-time_t run_using_vector_v2(std::deque<unsigned int> &Input, std::vector<unsigned int> &vector);
-time_t run_using_list(std::deque<unsigned int> &deque, std::list<unsigned int> &list);
+void   __init(int argc, char *argv[], std::deque<int> &deque);
+time_t run_using_vector(std::deque<int> &deque, std::vector<int> &vector);
+time_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector);
+time_t run_using_list(std::deque<int> &deque, std::list<int> &list);
 double spent_time(time_t &raw_value);
 
 template <typename T>
