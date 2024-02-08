@@ -56,7 +56,7 @@ int main(int argc, char *argv[]){
         n12 = run_using_deque(deque, deque_c);
         // vector2.clear();
         
-        nt3 = ((double)(n9 + n10 + n11) / 3);
+        nt3 = ((double)(n10 + n11 + n12) / 3);
     }
     catch(const std::exception& e){
         std::cerr << e.what() << std::endl;
@@ -80,7 +80,7 @@ int main(int argc, char *argv[]){
     std::cout << "estimatation   ~: " << spent_time(nt2) << " µs" << std::endl << std::endl;
 
     std::cout << "=> Ford-Johnson (deque) :" << std::endl;
-    // print(vector2);
+    // print(deque_c);
     std::cout << "Time to process : " << spent_time(n9) << " µs" << std::endl;
     std::cout << "Time to process : " << spent_time(n10) << " µs" << std::endl;
     std::cout << "Time to process : " << spent_time(n11) << " µs" << std::endl;

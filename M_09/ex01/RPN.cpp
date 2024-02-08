@@ -45,19 +45,17 @@ void __init(int argc, char *argv[]){
             Conatiner.push(std::atoi(token.c_str()));
         else if (token == "*" || token == "/" || token == "-" || token == "+"){
             if (Conatiner.size() < 2)
-                throw std::runtime_error("Error: Not Enough Operands !"); // not enough operands
+                throw std::runtime_error("Error: Not Enough Operands !");
             n1 = Conatiner.top();Conatiner.pop();
             n  = Conatiner.top();Conatiner.pop();
             Conatiner.push((r = result(token, n, n1)));
         }
-        else if (token.size()){
-            // std::cout << "<" << token <<">" << std::endl;
+        else if (token.size())
             throw std::runtime_error("Error: Unexpected Input !");
-        }
     }
-    r = Conatiner.top();
+    Conatiner.size() ? r = Conatiner.top() :  throw std::runtime_error("Error: Unexpected Syntax !");
     if (Conatiner.size() > 1)
-            throw std::runtime_error("Error: Unexpected Syntax !");
+        throw std::runtime_error("Error: Unexpected Syntax !");
     std::cout << "Result : " << r << std::endl;
 };
 
