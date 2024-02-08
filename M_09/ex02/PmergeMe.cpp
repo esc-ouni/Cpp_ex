@@ -70,6 +70,7 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
 
     std::vector<std::pair<int, int> > pair_container;
     std::vector<int> Y;
+    size_t inserted_elements = 0;
     int remain;
 
     if ((Input.size() % 2))
@@ -87,6 +88,7 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     if (pair_container.begin()->second <= pair_container.begin()->first){
         vector.push_back(pair_container.begin()->second);
         Y.push_back(-1);
+        ++inserted_elements;
     }
     else
         Y.push_back(pair_container.begin()->second);
@@ -102,17 +104,17 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     std::vector<int> Jacobsthal_seq;
     generate_jseq(Jacobsthal_seq, (Y.size() + 1));
 
-    size_t inserted_elements = 1;
     for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
         
         int k = Jacobsthal_seq[i];
         if (k >= Y.size())
             k = Y.size() - 1;
     
-        for (; k > 0  ; --k){
+        for (; k > 0 ; --k){
             if (Y[k] == -1)
                 break ;
             else if ((Y[k] != -1)){
+                // std::cout << "=> size of S + 1 : " << std::distance(vector.begin(), (vector.begin() + k + inserted_elements)) + 1 << std::endl;
                 vector.insert(std::lower_bound(vector.begin(), (vector.begin() + k + inserted_elements) , Y[k]), Y[k]); // limit ranges 
                 Y[k] = -1;
                 ++inserted_elements;
@@ -129,8 +131,9 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
 clock_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector){
     Timer timer(clock());
 
-    std::vector<std::pair<int, int> > pair_container;
+   std::vector<std::pair<int, int> > pair_container;
     std::vector<int> Y;
+    size_t inserted_elements = 0;
     int remain;
 
     if ((Input.size() % 2))
@@ -148,6 +151,7 @@ clock_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector){
     if (pair_container.begin()->second <= pair_container.begin()->first){
         vector.push_back(pair_container.begin()->second);
         Y.push_back(-1);
+        ++inserted_elements;
     }
     else
         Y.push_back(pair_container.begin()->second);
@@ -176,8 +180,9 @@ clock_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector){
 clock_t run_using_deque(std::deque<int> &Input, std::deque<int> &deque){
     Timer timer(clock());
 
-    std::deque<std::pair<int, int> > pair_container;
+   std::deque<std::pair<int, int> > pair_container;
     std::deque<int> Y;
+    size_t inserted_elements = 0;
     int remain;
 
     if ((Input.size() % 2))
@@ -195,6 +200,7 @@ clock_t run_using_deque(std::deque<int> &Input, std::deque<int> &deque){
     if (pair_container.begin()->second <= pair_container.begin()->first){
         deque.push_back(pair_container.begin()->second);
         Y.push_back(-1);
+        ++inserted_elements;
     }
     else
         Y.push_back(pair_container.begin()->second);
@@ -210,18 +216,18 @@ clock_t run_using_deque(std::deque<int> &Input, std::deque<int> &deque){
     std::vector<int> Jacobsthal_seq;
     generate_jseq(Jacobsthal_seq, (Y.size() + 1));
 
-    size_t inserted_elements = 1;
     for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
         
         int k = Jacobsthal_seq[i];
         if (k >= Y.size())
             k = Y.size() - 1;
     
-        for (; k > 0  ; --k){
+        for (; k > 0 ; --k){
             if (Y[k] == -1)
                 break ;
             else if ((Y[k] != -1)){
-                deque.insert(std::lower_bound(deque.begin(), (deque.begin() + k + inserted_elements) , Y[k]), Y[k]); // imit ranges 
+                // std::cout << "=> size of S + 1 : " << std::distance(deque.begin(), (deque.begin() + k + inserted_elements)) + 1 << std::endl;
+                deque.insert(std::lower_bound(deque.begin(), (deque.begin() + k + inserted_elements) , Y[k]), Y[k]);
                 Y[k] = -1;
                 ++inserted_elements;
             }

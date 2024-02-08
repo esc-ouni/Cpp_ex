@@ -12,49 +12,34 @@ int main(int argc, char *argv[]){
 
     try{
         __init(argc, argv, deque);
-        // n  = run_using_vector(deque, vector);
 
-        n  = run_using_vector_v2(deque, vector);
+        n  = run_using_vector(deque, vector);
         vector.clear();
-       
-        n1 = run_using_vector_v2(deque, vector);
+        n1 = run_using_vector(deque, vector);
         vector.clear();
-       
-        n2 = run_using_vector_v2(deque, vector);
+        n2 = run_using_vector(deque, vector);
         vector.clear();
-       
-        n3 = run_using_vector_v2(deque, vector);
-        // vector.clear();
+        n3 = run_using_vector(deque, vector);
        
         nt = ((double)(n1 + n2 + n3) / 3);
 
-
         n5 = run_using_vector_v2(deque, vector2);
         vector2.clear();
-        
         n6 = run_using_vector_v2(deque, vector2);
         vector2.clear();
-        
         n7 = run_using_vector_v2(deque, vector2);
         vector2.clear();
-        
         n8 = run_using_vector_v2(deque, vector2);
-        // vector2.clear();
         
         nt2 = ((double)(n6 + n7 + n8) / 3);
 
-
         n9 = run_using_deque(deque, deque_c);
         deque_c.clear();
-        
         n10 = run_using_deque(deque, deque_c);
         deque_c.clear();
-        
         n11 = run_using_deque(deque, deque_c);
         deque_c.clear();
-        
         n12 = run_using_deque(deque, deque_c);
-        // vector2.clear();
         
         nt3 = ((double)(n10 + n11 + n12) / 3);
     }
