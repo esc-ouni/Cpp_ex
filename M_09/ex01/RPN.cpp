@@ -35,10 +35,11 @@ void __init(int argc, char *argv[]){
     std::string       token;
     std::stack<int>   Conatiner;
 
-    if (argc != 2)
+    if (argc != 2 || !(*argv[1]))
         throw std::runtime_error("Error: Wrong Arg Count !");
 
     std::stringstream stream(argv[1]);
+
     for (; std::getline(stream, token, ' ') ;){
         if (is_num(token))
             Conatiner.push(std::atoi(token.c_str()));
@@ -49,8 +50,10 @@ void __init(int argc, char *argv[]){
             n  = Conatiner.top();Conatiner.pop();
             Conatiner.push((r = result(token, n, n1)));
         }
-        else
+        else if (token.size()){
+            // std::cout << "<" << token <<">" << std::endl;
             throw std::runtime_error("Error: Unexpected Input !");
+        }
     }
     r = Conatiner.top();
     if (Conatiner.size() > 1)

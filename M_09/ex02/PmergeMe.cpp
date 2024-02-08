@@ -117,6 +117,8 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     print(Jacobsthal_seq);
 
 
+    std::cerr << "==> Y init size : " << std::distance(Y.begin(), Y.end()) << std::endl;
+
     size_t inserted_elements = 1;
     for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
         
@@ -135,6 +137,7 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
                 print(Y);
                 std::cout << std::endl;
 
+                // std::cerr << "==> inserting "<< Y[k]<< ", in range of size (2^n - 1 ) + 1: " << std::distance(vector.begin(), vector.begin() + k + inserted_elements) + 1 << std::endl;
                 std::cerr << "==> (2^n - 1 ) + 1: " << std::distance(vector.begin(), vector.begin() + k + inserted_elements) + 1 << std::endl;
                 // vector.insert(std::lower_bound(vector.begin(), (vector.begin() + k) , Y[k]), Y[k]); // limit ranges ! begin() + k
 
@@ -150,6 +153,7 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
             }
         }
     }
+    std::cerr << "==> S final size : " << std::distance(vector.begin(), vector.end()) << std::endl;
     
     // there:
 
