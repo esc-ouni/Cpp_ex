@@ -1,35 +1,33 @@
 #include "PmergeMe.hpp"
 
-double spent_time(clock_t &raw_value){
-    // return ((double)raw_value / CLOCKS_PER_SEC);
-    return ((double)raw_value);
+double spent_time(clock_t const &raw_value){
+    return (raw_value * (1000000 / CLOCKS_PER_SEC));
 };
 
-// Timer::Timer(){
-//     this->_start = clock();
-// };
+Timer::Timer(){
+};
 
-// Timer::Timer(clock_t const &start){
-//     this->_start = start;
-// };
+Timer::Timer(clock_t const &start){
+    this->_start = start;
+};
 
-// Timer::Timer(Timer const &r_inst){
-//     (*this) = r_inst;
-// };
+Timer::Timer(Timer const &r_inst){
+    (*this) = r_inst;
+};
 
-// Timer &Timer::operator=(Timer const &r_inst){
-//     (void)r_inst;
-//     return (*this);
-// };
+Timer &Timer::operator=(Timer const &r_inst){
+    (void)r_inst;
+    return (*this);
+};
 
-// Timer::~Timer(){
-// };
+Timer::~Timer(){
+};
 
-// clock_t Timer::GetSpentTime(clock_t const &end) const{
-//     if (this->_start == -1 || end == -1)
-//         throw std::runtime_error("Error: Problem Calculating Time !");
-//     return ((end - this->_start));
-// };
+clock_t Timer::GetSpentTime(clock_t const &end) const{
+    if (this->_start == -1 || end == -1)
+        throw std::runtime_error("Error: Problem Calculating Time !");
+    return ((end - this->_start)); // check overflows
+};
 
 int extract_num(std::string &number){
     unsigned int n;
@@ -62,38 +60,10 @@ void generate_jseq(std::vector<int> &Container, int Msize){
         Container.push_back(Container[i] + (Container[i - 1] * 2));
     }
     Container.erase(Container.begin() + 1); 
-}
-
-
-class Timer {
-public:
-    Timer() { gettimeofday(&start, NULL); }
-
-    // Returns the elapsed time in seconds with microsecond precision
-    double elapsed() {
-        struct timeval end;
-        gettimeofday(&end, NULL);
-        double seconds = (end.tv_sec - start.tv_sec);
-        double microSeconds = (end.tv_usec - start.tv_usec) / 1000000.0;
-        return seconds + microSeconds;
-    }
-
-private:
-    struct timeval start;
 };
 
-// int main() {
-
-    // Your program or code block goes here
-
-    // std::cout << "Time spent: " << timer.elapsed() << " seconds" << std::endl;
-
-    // return 0;
-// }
-
 clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
-    Timer timer; // Start the timer
-    // Timer timer(clock());
+    Timer timer(clock());
 
     std::vector<std::pair<int, int> > pair_container;
     std::vector<int> Y;
@@ -136,7 +106,7 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
             else if (Y[k] == -1)
                 break ;
             else if ((Y[k] != -1)){
-                vector.insert(std::lower_bound(vector.begin(), vector.end(), Y[k]), Y[k]); // limit ranges !
+                vector.insert(std::lower_bound(vector.begin(), vector.end() , Y[k]), Y[k]); // limit ranges ! begin() + k
                 Y[k] = -1;
             }
         }
@@ -145,53 +115,14 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     if ((Input.size() % 2))
         vector.insert(std::lower_bound(vector.begin(), vector.end(), remain), remain);
 
-    // return (t = clock() - t);
-    return (timer.elapsed() * 1000000);
 
+    return (timer.GetSpentTime(clock()));
 };
 
-void insertFromYtoS(std::vector<int>& S, std::vector<int>& Y, std::vector<int>& Jacobsthal_seq) {
-    // Iterate through the Jacobsthal sequence
-    for (size_t i = 0; i < Jacobsthal_seq.size(); ++i) {
-        // Calculate the end index for the current group based on Jacobsthal numbers
-        size_t endIdx = Jacobsthal_seq[i] < Y.size() ? Jacobsthal_seq[i] : Y.size();
-
-        for (size_t k = 0; k < endIdx; ++k) {
-            // Check if the element is already marked as inserted
-            if (Y[k] == -1) {
-                continue; // Skip already inserted elements
-            }
-
-            // Find the correct position in S for Y[k] using binary search
-            auto it = std::lower_bound(S.begin(), S.end(), Y[k]);
-            
-            // Insert Y[k] into the found position in S
-            S.insert(it, Y[k]);
-
-            // Mark the element in Y as inserted by substituting it with -1
-            Y[k] = -1;
-        }
-
-        // Remove the first group of elements based on the current Jacobsthal number and adjust for next iteration
-        Y.erase(Y.begin(), Y.begin() + endIdx);
-
-        // Since we're modifying Y directly, we should also adjust the Jacobsthal index sequence accordingly
-        // This step is crucial to reflect the removal of elements from Y
-        for (size_t j = i+1; j < Jacobsthal_seq.size(); ++j) {
-            if (Jacobsthal_seq[j] > endIdx) {
-                Jacobsthal_seq[j] -= endIdx; // Adjust the Jacobsthal sequence for the next groups
-            }
-        }
-    }
-}
-
 clock_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector){
-    // Timer timer(clock());
-
-    clock_t t = clock();
-
+    Timer timer(clock());
     
-   std::vector<std::pair<int, int> > pair_container;
+std::vector<std::pair<int, int> > pair_container;
     std::vector<int> Y;
     int remain;
 
@@ -225,34 +156,20 @@ clock_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector){
     std::vector<int> Jacobsthal_seq;
     generate_jseq(Jacobsthal_seq, (Y.size() + 1));
 
-    insertFromYtoS(vector, Y, Jacobsthal_seq);
-
-    // for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
-    //     for (int k = Jacobsthal_seq[i]; k >= 0 ; --k){
-    //         if (k >= Y.size())
-    //             k = Y.size();
-    //         else if (Y[k] == -1)
-    //             break ;
-    //         else if ((Y[k] != -1)){
-    //             vector.insert(std::lower_bound(vector.begin(), vector.begin() + k, Y[k]), Y[k]); 
-    //             Y[k] = -1;
-    //         }
-    //     }
-    // }
-
+    size_t i = 1;
+    for ( auto &elem : Y){
+        if (elem != -1)
+            vector.insert(std::lower_bound(vector.begin(), vector.end(), elem), elem);
+        i++;
+    }
+        
     if ((Input.size() % 2))
         vector.insert(std::lower_bound(vector.begin(), vector.end(), remain), remain);
-
-    return (t = clock() - t);
+    return (timer.GetSpentTime(clock()));
 };
 
-
-
 clock_t run_using_list(std::deque<int> &Input, std::list<int> &list){
-    // Timer timer(clock());
-    // clock_t t = clock();
-    Timer timer; // Start the timer
-
+    Timer timer(clock());
 
     std::list<std::pair<int, int> > pair_container;
     std::list<int> Y;
@@ -307,20 +224,10 @@ clock_t run_using_list(std::deque<int> &Input, std::list<int> &list){
             }
         }
     }
-    list.erase(list.begin());
-
-
-
-
+    list.erase(list.begin()); // why 2 ?
 
     if ((Input.size() % 2))
         list.insert(std::lower_bound(list.begin(), list.end(), remain), remain);
 
-    // std::cout << "=> List :" << std::endl;
-    // print(list);
-    // std::cout << "=> Y :" << std::endl;
-    // print(Y);
-
-    // return (t = clock() - t);
-    return (timer.elapsed() * 1000000);
+    return (timer.GetSpentTime(clock()));
 };

@@ -128,7 +128,7 @@ void	Account::displayStatus( void ) const{
 };
 
 void	Account::_displayTimestamp( void ){
-    time_t      current_time = time(NULL);
+    clock_t      current_time = time(NULL);
     char        timestamp[20];
 
     strftime(timestamp, 20, "[%Y%m%d_%H%M%S] ", localtime(&current_time));
