@@ -38,15 +38,41 @@ float get_closest_date(std::string &date, std::map<std::string, double> &DB_Map)
 
     it = DB_Map.lower_bound(date);
 
-    if (it == DB_Map.begin())
-        return DB_Map.begin()->second;
+    if (it == DB_Map.begin() || it == DB_Map.end())
+        throw std::logic_error("Error: bad input => ");
     --it;
     return it->second;
 };
 
 float fetch_db_exchange_rate(std::string &date, std::map<std::string, double> &DB_Map){
     return (DB_Map.find(date) != DB_Map.end() ? DB_Map.find(date)->second : get_closest_date(date, DB_Map));
-}
+};
+
+bool year_is_leap(int val){
+    if (!(val % 4))
+        if (!(val % 100) && !(val % 400))
+            return true;
+        else if ((val % 100))
+            return true;
+    return false;
+};
+
+int _month = 0, _year = 0;
+bool valid_day(int val){
+    if (_month == 2){
+        if (year_is_leap(_year) && val != 29)
+            return false;
+        else if (val != 28)
+            return false;
+    } else if (_month == 4 || _month == 6 || _month == 9 || _month == 11){
+        if (val != 30)
+            return false;
+    } else {
+        if (val != 31)
+            return false;
+    }
+    return true;
+};
 
 bool valid_num(std::string &number, int date_part){
     if (number.empty())
@@ -59,18 +85,20 @@ bool valid_num(std::string &number, int date_part){
         case 0:
             if (!(std::atoi(number.c_str()) <= 2047 && std::atoi(number.c_str()) >= 2009) || number.length() != 4)
                 return (false);
+            _year = std::atoi(number.c_str());
             break;
         case 1:
             if (!(std::atoi(number.c_str()) <= 12 && std::atoi(number.c_str()) >= 1) || number.length() != 2)
                 return (false);
+            _month = std::atoi(number.c_str());
             break;
         case 2:
-            if (!(std::atoi(number.c_str()) <= 31 && std::atoi(number.c_str()) >= 1) || number.length() != 2)
+            if (!(std::atoi(number.c_str()) <= 31 && std::atoi(number.c_str()) >= 1) || number.length() != 2 || !valid_day(std::atoi(number.c_str())))
                 return (false);
             break;
     }
     return (true);
-}
+};
 
 bool valid_date(std::string &date){
     std::string       token;
@@ -89,20 +117,17 @@ bool valid_date(std::string &date){
             return (false);
     }
     return ((i != 3) ? false : true );
-}
+};
 
 void exctract_input(std::map<std::string, double> &DB_Map, std::stringstream &stream, std::string &token, std::string &token2, std::string &token3, char dilimeter){
     std::getline(stream, token, dilimeter);  trim(token);
     std::getline(stream, token2, dilimeter); trim(token2);
     std::getline(stream, token3, dilimeter); trim(token3);
-
     std::stringstream stream2;
 
     if (!valid_date(token) || !token2.length() || token3.length())
         throw std::logic_error("Error: bad input => ");
         
-    //problem reusing the same stream
-
     stream2 << (ft_stod(token2, true) * fetch_db_exchange_rate(token, DB_Map));
     token3  = stream2.str();
 }
@@ -111,7 +136,6 @@ void exctract_DB_input(std::stringstream &stream, std::string &token, std::strin
     std::getline(stream, token, dilimeter);  trim(token);
     std::getline(stream, token2, dilimeter); trim(token2);
     std::getline(stream, token3, dilimeter); trim(token3);
-
     std::stringstream stream2;
 
     if (!token.length() || !token2.length() || token3.length())
@@ -143,7 +167,6 @@ void exctract_kv(std::string &line, std::map<std::string, double> &Map, char dil
         Map[token] = ft_stod(token2, false);
     }
     catch(const std::exception& e){
-        // reasonable error rading DB
         throw std::runtime_error("Error: unclear Data-Base info.");
     }
 };
@@ -165,7 +188,6 @@ void __init(int argc, char *argv[]){
         throw std::runtime_error("Error: could not open DB file.");
     }
 
-    // extract db file
     while (std::getline(dbfile, line)){
         if (line.find("date") != std::string::npos){
             continue ;
@@ -175,15 +197,11 @@ void __init(int argc, char *argv[]){
     if (!DB_Map.size())
         throw std::runtime_error("Error: Empty Data-Base file.");
 
-    // iterate over the file's lines
     while (std::getline(infile, line)){
         if (line.find("date") != std::string::npos)
             continue ;
         output(line, DB_Map, '|');
     }
-
-    // std::cout << std::endl << "DB_MAP :" << std::endl;
-    // print(DB_Map);
 
     infile.close();
     dbfile.close();
