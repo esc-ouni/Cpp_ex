@@ -32,6 +32,7 @@ clock_t run_using_vector(std::deque<int> &deque, std::vector<int> &vector);
 clock_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector);
 clock_t run_using_list(std::deque<int> &deque, std::list<int> &list);
 double  spent_time(clock_t const &raw_value);
+clock_t run_using_deque(std::deque<int> &Input, std::deque<int> &deque);
 
 template <typename T>
 void print(T Conatiner){
