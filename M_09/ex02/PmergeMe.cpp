@@ -1,7 +1,7 @@
 #include "PmergeMe.hpp"
 
 double spent_time(clock_t const &raw_value){
-    return (raw_value * (1000000 / CLOCKS_PER_SEC));
+    return (raw_value * (1000000.0 / CLOCKS_PER_SEC));
 };
 
 Timer::Timer(){
@@ -54,12 +54,15 @@ void __init(int argc, char *argv[], std::deque<int> &deque){
 void generate_jseq(std::vector<int> &Container, int Msize){
     Container.push_back(0);
     Container.push_back(1);
-    if (!Msize)
+    if (Msize <= 0)
         return ;
     for (size_t i = 1; Container[i] <= Msize; ++i){
-        Container.push_back(Container[i] + (Container[i - 1] * 2));
+        Container.push_back((Container[i] + (Container[i - 1] * 2)));
     }
-    Container.erase(Container.begin() + 1); 
+    Container.erase(Container.begin()); 
+    Container.erase(Container.begin());
+    for (size_t i = 0; i < Container.size(); ++i)
+        Container[i] -= 1;
 };
 
 clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
@@ -99,6 +102,7 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     std::vector<int> Jacobsthal_seq;
     generate_jseq(Jacobsthal_seq, (Y.size() + 1));
 
+    // print(Jacobsthal_seq);
     for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
         for (int k = Jacobsthal_seq[i]; k >= 0 ; --k){
             if (k >= Y.size())
@@ -106,7 +110,9 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
             else if (Y[k] == -1)
                 break ;
             else if ((Y[k] != -1)){
-                vector.insert(std::lower_bound(vector.begin(), vector.end() , Y[k]), Y[k]); // limit ranges ! begin() + k
+                // std::cout << "=> S size : " << std::distance(vector.begin(), vector.begin() + k + 1) + 1 << std::endl;
+                std::cout << "=> S size : " << std::distance(vector.begin(), vector.begin() + Jacobsthal_seq[i] - 1) << std::endl;
+                vector.insert(std::lower_bound(vector.begin(), (vector.begin() + Jacobsthal_seq[i] - 1), Y[k]), Y[k]); // limit ranges ! begin() + k
                 Y[k] = -1;
             }
         }

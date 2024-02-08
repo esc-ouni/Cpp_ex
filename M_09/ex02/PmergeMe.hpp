@@ -49,5 +49,10 @@ void print_pair(T Conatiner){
     std::cout << std::endl;
 };
 
+// template<typename Iterator>
+// size_t getSize(Iterator begin, Iterator end) {
+//     return static_cast<size_t>(std::distance(begin, end));
+// }
+
 
 #endif
