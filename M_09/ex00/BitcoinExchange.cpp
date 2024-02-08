@@ -60,15 +60,15 @@ bool year_is_leap(int val){
 int _month = 0, _year = 0;
 bool valid_day(int val){
     if (_month == 2){
-        if (year_is_leap(_year) && val != 29)
+        if (year_is_leap(_year) && (val > 29 || val <= 0))
             return false;
-        else if (val != 28)
+        else if (val > 28 || val <= 0)
             return false;
     } else if (_month == 4 || _month == 6 || _month == 9 || _month == 11){
-        if (val != 30)
+        if (val > 30 || val <= 0)
             return false;
     } else {
-        if (val != 31)
+        if (val > 31 || val <= 0)
             return false;
     }
     return true;
@@ -105,13 +105,11 @@ bool valid_date(std::string &date){
     std::stringstream stream(date);
     int i = 0, k = 0;
 
-    //case_getline_doesn't_check_('-''\0')
     for (int n = 0; n != std::string::npos ; ++k)
         n = date.find('-', n + 1);
     if (k != 3)
         return (false);
     
-    //year-month-day
     for (i; std::getline(stream, token, '-'); ++i){
         if(!valid_num(token, i))
             return (false);
