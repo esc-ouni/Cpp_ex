@@ -68,12 +68,15 @@ void generate_jseq(std::vector<int> &Container, int Msize){
 clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     Timer timer(clock());
 
+    size_t Tsize = Input.size() - 1;
     std::vector<std::pair<int, int> > pair_container;
     std::vector<int> Y;
     int remain;
 
-    if ((Input.size() % 2))
+    if ((Input.size() % 2)){
         remain = *(Input.end()-1);
+        Tsize -= 1;
+    }
  
     for (std::deque<int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
         if (*(it) > *(it+1))
@@ -102,22 +105,30 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     std::vector<int> Jacobsthal_seq;
     generate_jseq(Jacobsthal_seq, (Y.size() + 1));
 
+    // std::cout << "Total size : " << Tsize << std::endl;
+
     // print(Jacobsthal_seq);
     for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
-        for (int k = Jacobsthal_seq[i]; k >= 0 ; --k){
-            if (k >= Y.size())
+        for (int k = Jacobsthal_seq[i]; k > 0  ; --k){
+            if (vector.size() == Tsize)
+                goto there;
+            if (k >= Y.size()){
                 k = Y.size();
+                continue;
+            }
             else if (Y[k] == -1)
                 break ;
             else if ((Y[k] != -1)){
                 // std::cout << "=> S size : " << std::distance(vector.begin(), vector.begin() + k + 1) + 1 << std::endl;
-                std::cout << "=> S size : " << std::distance(vector.begin(), vector.begin() + Jacobsthal_seq[i] - 1) << std::endl;
-                vector.insert(std::lower_bound(vector.begin(), (vector.begin() + Jacobsthal_seq[i] - 1), Y[k]), Y[k]); // limit ranges ! begin() + k
+                std::cout << "=> S size : " << std::distance(vector.begin(), vector.end()) << std::endl;
+                vector.insert(std::lower_bound(vector.begin(), (vector.begin() + k + 2), Y[k]), Y[k]); // limit ranges ! begin() + k
                 Y[k] = -1;
             }
         }
     }
     
+    there:
+
     if ((Input.size() % 2))
         vector.insert(std::lower_bound(vector.begin(), vector.end(), remain), remain);
 
