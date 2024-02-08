@@ -102,11 +102,12 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     };
 
     std::vector<int> Jacobsthal_seq;
-    generate_jseq(Jacobsthal_seq, (Y.size() + 1));
+    generate_jseq(Jacobsthal_seq, Y.size());
 
     for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
         
-        int k = Jacobsthal_seq[i];
+        size_t k = Jacobsthal_seq[i];
+        // std::cout << "=> size of S : " << std::distance(vector.begin(), (vector.begin() + k + inserted_elements)) + 1 << std::endl;
         if (k >= Y.size())
             k = Y.size() - 1;
     
@@ -114,7 +115,6 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
             if (Y[k] == -1)
                 break ;
             else if ((Y[k] != -1)){
-                // std::cout << "=> size of S + 1 : " << std::distance(vector.begin(), (vector.begin() + k + inserted_elements)) + 1 << std::endl;
                 vector.insert(std::lower_bound(vector.begin(), (vector.begin() + k + inserted_elements) , Y[k]), Y[k]); // limit ranges 
                 Y[k] = -1;
                 ++inserted_elements;
