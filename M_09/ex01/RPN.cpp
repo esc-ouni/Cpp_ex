@@ -1,12 +1,5 @@
 #include "RPN.hpp"
 
-void print_stack(std::stack<int> &Conatiner){
-    for (;Conatiner.size();){
-        std::cout << Conatiner.top() << std::endl;
-        Conatiner.pop();
-    };
-}
-
 bool is_num(std::string &number){
     if (number.empty())
         return (false);
