@@ -40,8 +40,9 @@ int main(int argc, char *argv[]){
     print(vector);
     std::cout << "Time to process a range of " << vector.size() << " elements with std::vector : " << spent_time(nt) << " µs" << std::endl;
     std::cout << "Time to process a range of " << deque.size()  << " elements with std::deque  : " << spent_time(nt2) << " µs" << std::endl;
-    // std::cout << "=> Vector sorted : " << std::boolalpha << std::is_sorted(vector.begin(), vector.end()) << std::endl;
-    // std::cout << "=> Deque  sorted : " << std::boolalpha << std::is_sorted(deque.begin(), deque.end()) << std::endl;
+    // std::cout << "=> Input is sorted  : " << std::boolalpha << std::is_sorted(Input.begin(), Input.end()) << std::endl;
+    // std::cout << "=> Vector is sorted : " << std::boolalpha << std::is_sorted(vector.begin(), vector.end()) << std::endl;
+    // std::cout << "=> Deque is sorted  : " << std::boolalpha << std::is_sorted(deque.begin(), deque.end()) << std::endl;
 
     return 0;
 }
