@@ -34,11 +34,13 @@ double ft_stod(std::string &str, bool limit){
 }
 
 void trim(std::string &line) {
-    for (int i = line.length() - 1 ; !line.empty() && std::isspace(line[i]); --i){
-        line.erase(line.begin()+i);
+    for (int i = 0; !line.empty() && std::isspace(line.at(i)); ++i){
+        line.erase(line.begin());
+        i = -1;
     }
-    for (int i = 0; !line.empty() && std::isspace(line[i]); ++i){
+    for (int i = line.size() - 1 ; !line.empty() && std::isspace(line[i]); --i){
         line.erase(line.begin()+i);
+        i = line.size();
     }
 };
 
