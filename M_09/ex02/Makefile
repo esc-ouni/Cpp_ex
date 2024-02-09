@@ -13,7 +13,7 @@
 EXEC    = PmergeMe
 CC      = c++
 RM      = rm -rf
-FLAGS   = -fsanitize=address,undefined -g -std=c++98 -Wall -Wextra -Werror 
+FLAGS   = -std=c++98 -Wall -Wextra -Werror 
 H_FILES = ${shell ls *.hpp}
 C_FILES = ${shell ls *.cpp}
 OBJS    = $(C_FILES:.cpp=.o)
