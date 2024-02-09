@@ -105,17 +105,14 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     generate_jseq(Jacobsthal_seq, Y.size());
 
     for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
-        
         size_t k = Jacobsthal_seq[i];
-        // std::cout << "=> size of S : " << std::distance(vector.begin(), (vector.begin() + k + inserted_elements)) + 1 << std::endl;
         if (k >= Y.size())
             k = Y.size() - 1;
-    
         for (; k > 0 ; --k){
             if (Y[k] == -1)
                 break ;
             else if ((Y[k] != -1)){
-                vector.insert(std::lower_bound(vector.begin(), (vector.begin() + k + inserted_elements) , Y[k]), Y[k]); // limit ranges 
+                vector.insert(std::lower_bound(vector.begin(), (vector.begin() + k + inserted_elements) , Y[k]), Y[k]); 
                 Y[k] = -1;
                 ++inserted_elements;
             }
@@ -128,59 +125,10 @@ clock_t run_using_vector(std::deque<int> &Input, std::vector<int> &vector){
     return (timer.GetSpentTime(clock()));
 };
 
-clock_t run_using_vector_v2(std::deque<int> &Input, std::vector<int> &vector){
-    Timer timer(clock());
-
-   std::vector<std::pair<int, int> > pair_container;
-    std::vector<int> Y;
-    size_t inserted_elements = 0;
-    int remain;
-
-    if ((Input.size() % 2))
-        remain = *(Input.end()-1);
- 
-    for (std::deque<int>::iterator it = Input.begin(); (it != Input.end()) && (it+1 != Input.end()) ; it+=2){
-        if (*(it) > *(it+1))
-            pair_container.push_back(std::make_pair(*(it),*(it+1)));
-        else
-            pair_container.push_back(std::make_pair(*(it+1), *(it)));
-    }
-
-    std::sort(pair_container.begin(), pair_container.end());
-
-    if (pair_container.begin()->second <= pair_container.begin()->first){
-        vector.push_back(pair_container.begin()->second);
-        Y.push_back(-1);
-        ++inserted_elements;
-    }
-    else
-        Y.push_back(pair_container.begin()->second);
-
-    for (std::vector<std::pair<int, int> >::iterator it = pair_container.begin(); it != pair_container.end() ; ++it){
-        vector.push_back(it->first);
-    }
-
-    for (std::vector<std::pair<int, int> >::iterator it = pair_container.begin() + 1; it != pair_container.end() ; ++it){
-        Y.push_back(it->second);
-    };
-
-    std::vector<int> Jacobsthal_seq;
-    generate_jseq(Jacobsthal_seq, (Y.size() + 1));
-
-    for ( auto &elem : Y){
-        if (elem != -1)
-            vector.insert(std::lower_bound(vector.begin(), vector.end(), elem), elem);
-    }
-        
-    if ((Input.size() % 2))
-        vector.insert(std::lower_bound(vector.begin(), vector.end(), remain), remain);
-    return (timer.GetSpentTime(clock()));
-};
-
 clock_t run_using_deque(std::deque<int> &Input, std::deque<int> &deque){
-    Timer timer(clock());
+        Timer timer(clock());
 
-   std::deque<std::pair<int, int> > pair_container;
+    std::deque<std::pair<int, int> > pair_container;
     std::deque<int> Y;
     size_t inserted_elements = 0;
     int remain;
@@ -214,20 +162,17 @@ clock_t run_using_deque(std::deque<int> &Input, std::deque<int> &deque){
     };
 
     std::vector<int> Jacobsthal_seq;
-    generate_jseq(Jacobsthal_seq, (Y.size() + 1));
+    generate_jseq(Jacobsthal_seq, Y.size());
 
     for (size_t i = 0; i < Jacobsthal_seq.size() ; ++i){
-        
-        int k = Jacobsthal_seq[i];
+        size_t k = Jacobsthal_seq[i];
         if (k >= Y.size())
             k = Y.size() - 1;
-    
         for (; k > 0 ; --k){
             if (Y[k] == -1)
                 break ;
             else if ((Y[k] != -1)){
-                // std::cout << "=> size of S + 1 : " << std::distance(deque.begin(), (deque.begin() + k + inserted_elements)) + 1 << std::endl;
-                deque.insert(std::lower_bound(deque.begin(), (deque.begin() + k + inserted_elements) , Y[k]), Y[k]);
+                deque.insert(std::lower_bound(deque.begin(), (deque.begin() + k + inserted_elements) , Y[k]), Y[k]); 
                 Y[k] = -1;
                 ++inserted_elements;
             }
