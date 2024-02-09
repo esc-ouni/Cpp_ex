@@ -26,7 +26,7 @@ Timer::~Timer(){
 clock_t Timer::GetSpentTime(clock_t const &end) const{
     if (this->_start == (clock_t)-1 || end == (clock_t)-1)
         throw std::runtime_error("Error: Problem Calculating Time !");
-    return ((end - this->_start)); // check overflows
+    return ((end - this->_start));
 };
 
 int extract_num(std::string &number){
