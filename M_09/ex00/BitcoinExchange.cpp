@@ -1,10 +1,21 @@
 #include "BitcoinExchange.hpp"
 
-void print(std::map<std::string, double> &Map){
-    for (auto elem : Map){
-        std::cout << "<"<< elem.first << ">\t= <" << elem.second << ">" << std::endl;
+bool valid_num(std::string &number){
+    if (number.empty())
+        return (false);
+    for (size_t k =0,i =0; i < number.length(); ++i){
+        if (!std::isdigit(number.at(i)) || i == 11){
+            if (number.at(i) == '.' ){
+                k++;
+                if (k > 1)
+                    return (false);
+            }
+        }
     }
-}
+    if (!std::isdigit(number.at(number.size() - 1)) || !std::isdigit(number.at(0)))
+        return (false);
+    return (true);
+};
 
 double ft_stod(std::string &str, bool limit){
     double n;
@@ -13,15 +24,13 @@ double ft_stod(std::string &str, bool limit){
     n = std::strtod(str.c_str(), &ptr);
     std::string string(ptr);
 
-    if (!string.length()){
-        if (n < 0)
-            throw std::runtime_error("Error: not a positive number.");
-        if (n == HUGE_VAL || ((n > 1000) && limit))
-            throw std::runtime_error("Error: too large a number.");
-        return (n);
-    }
-    else 
+    if (n < 0)
+        throw std::runtime_error("Error: not a positive number.");
+    if (n == HUGE_VAL || ((n > 1000) && limit))
+        throw std::runtime_error("Error: too large a number.");
+    if (string.length() || !valid_num(str))
         throw std::logic_error("Error: bad input => ");
+    return (n);
 }
 
 void trim(std::string &line) {
@@ -38,7 +47,7 @@ float get_closest_date(std::string &date, std::map<std::string, double> &DB_Map)
 
     it = DB_Map.lower_bound(date);
 
-    if (it == DB_Map.begin() || it == DB_Map.end())
+    if (it == DB_Map.begin())
         throw std::logic_error("Error: bad input => ");
     --it;
     return it->second;
@@ -49,21 +58,24 @@ float fetch_db_exchange_rate(std::string &date, std::map<std::string, double> &D
 };
 
 bool year_is_leap(int val){
-    if (!(val % 4))
+    if (!(val % 4)){
         if (!(val % 100) && !(val % 400))
             return true;
         else if ((val % 100))
             return true;
+    }
     return false;
 };
 
 int _month = 0, _year = 0;
 bool valid_day(int val){
     if (_month == 2){
-        if (year_is_leap(_year) && (val > 29 || val <= 0))
+        if (year_is_leap(_year) && (val > 29 || val <= 0)){
             return false;
-        else if (val > 28 || val <= 0)
+        }
+        else if (!year_is_leap(_year) && (val > 28 || val <= 0)){
             return false;
+        }
     } else if (_month == 4 || _month == 6 || _month == 9 || _month == 11){
         if (val > 30 || val <= 0)
             return false;
@@ -78,7 +90,7 @@ bool valid_num(std::string &number, int date_part){
     if (number.empty())
         return (false);
     for (size_t i = 0; i < number.length(); ++i){
-        if (!isdigit(number.c_str()[i]) || i == 5)
+        if (!std::isdigit(number.at(i)) || i == 5)
             return (false);
     }
     switch (date_part){
@@ -105,12 +117,12 @@ bool valid_date(std::string &date){
     std::stringstream stream(date);
     int i = 0, k = 0;
 
-    for (int n = 0; n != std::string::npos ; ++k)
+    for (size_t n = 0; n != std::string::npos ; ++k)
         n = date.find('-', n + 1);
     if (k != 3)
         return (false);
     
-    for (i; std::getline(stream, token, '-'); ++i){
+    for (; std::getline(stream, token, '-'); ++i){
         if(!valid_num(token, i))
             return (false);
     }
@@ -161,7 +173,7 @@ void exctract_kv(std::string &line, std::map<std::string, double> &Map, char dil
     std::string       token, token2, token3;
 
     try{
-        exctract_DB_input(stream, token, token2, token3, ',');
+        exctract_DB_input(stream, token, token2, token3, dilimeter);
         Map[token] = ft_stod(token2, false);
     }
     catch(const std::exception& e){
